@@ -1138,7 +1138,7 @@ function approvalFixture(overrides = {}) {
   const pull = {
     number: 7,
     title: CODEX_SYNC_TITLE,
-    body: `Source: https://github.com/qwts/agent-sop/commit/${'a'.repeat(40)}`,
+    body: `Source: https://github.com/qwts/qwts-agent-sop/commit/${'a'.repeat(40)}`,
     html_url: 'https://github.com/qwts/target/pull/7',
     draft: false,
     auto_merge: null,

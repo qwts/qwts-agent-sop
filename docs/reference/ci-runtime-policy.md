@@ -37,7 +37,7 @@ the action does not print arguments or the environment.
 
 ```yaml
 - name: Install locked dependencies
-  uses: qwts/agent-sop/.github/actions/bounded-command@<reviewed-sha>
+  uses: qwts/qwts-agent-sop/.github/actions/bounded-command@<reviewed-sha>
   with:
     task: Install locked dependencies
     executable: npm

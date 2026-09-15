@@ -34,7 +34,7 @@ jobs:
     runs-on: [self-hosted, macOS, ARM64]
     timeout-minutes: 10
     steps:
-      - uses: qwts/dev-steward/.github/actions/ci-policy@bed29090d8eaff29a75b983e94a50957c3ac9a42
+      - uses: qwts/qwts-agent-sop/.github/actions/ci-policy@bed29090d8eaff29a75b983e94a50957c3ac9a42
         with:
           authorization-only: 'true'
 
@@ -79,7 +79,7 @@ jobs:
       - name: Check out inventory tooling
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: qwts/agent-sop
+          repository: qwts/qwts-agent-sop
           ref: v1
           path: tooling
           persist-credentials: false
