@@ -131,8 +131,11 @@ test('organization migration preserves immutable and historical references', () 
   const issue = 'https://github.com/qwts/agent-sop/issues/355';
   const source = [oldProcedure, pinned, issue, canonical].join('\n');
   const projected = projectDiscoveryBlock(source, canonical);
-  assert.ok(projected.includes('https://github.com/qwts/qwts-agent-sop/blob/main/docs/sop/release-and-versioning.md'));
-  assert.ok(projected.includes(pinned));
-  assert.ok(projected.includes(issue));
+  assert.equal(projected, [
+    'https://github.com/qwts/qwts-agent-sop/blob/main/docs/sop/release-and-versioning.md',
+    pinned,
+    issue,
+    canonical,
+  ].join('\n'));
   assert.equal(projectDiscoveryBlock(projected, canonical), projected);
 });
