@@ -60,8 +60,36 @@ jobs:
       source_input_policy: ${{ steps.policy.outputs.source_input_policy }}
       release_gate_mode: ${{ steps.policy.outputs.release_gate_mode }}
     steps:
-      - id: policy
+      - id: authorize
         uses: qwts/qwts-agent-sop/.github/actions/ci-policy@41af9d7917a418810b3277f2cec969e4e003b0b3
+        with:
+          authorization-only: 'true'
+      # The imported policy predates this repository's lifecycle entry. Keep
+      # its immutable actor/fork gate, then require full validation until a
+      # catalog-bearing revision lands here. See repository-migration.md.
+      - id: policy
+        name: Require full validation during repository bootstrap
+        shell: bash
+        env:
+          BOOTSTRAP_REPOSITORY: ${{ github.repository }}
+          BOOTSTRAP_EVENT_NAME: ${{ github.event_name }}
+        run: |
+          test "$BOOTSTRAP_REPOSITORY" = qwts/qwts-agent-sop
+          if [ "$BOOTSTRAP_EVENT_NAME" = pull_request ]; then
+            echo 'pull_request_kind=change-pr' >> "$GITHUB_OUTPUT"
+          else
+            echo 'pull_request_kind=not-a-pull-request' >> "$GITHUB_OUTPUT"
+          fi
+          cat >> "$GITHUB_OUTPUT" <<'OUTPUTS'
+          mode=full
+          run_full=true
+          run_post_merge=false
+          generated_release_projection=false
+          governed_harness_projection=false
+          release_metadata_system=none
+          source_input_policy=not-applicable
+          release_gate_mode=not-applicable
+          OUTPUTS
 
   merge-evidence:
     name: Verify merged commit evidence

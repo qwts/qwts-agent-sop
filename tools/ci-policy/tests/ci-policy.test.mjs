@@ -1,6 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 
 import {
   allowedActorsFromRoster,
@@ -713,4 +716,56 @@ test('advanced CodeQL is callable only through governed CI with stable coverage'
   assert.match(workflow, /actions\/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7\.0\.1/);
   assert.match(workflow, /github\/codeql-action\/init@f205ea1c3313d32999d8d6a48b4f6530d4437b38 # v4\.37\.4/);
   assert.match(workflow, /github\/codeql-action\/analyze@f205ea1c3313d32999d8d6a48b4f6530d4437b38 # v4\.37\.4/);
+});
+
+
+test('repository bootstrap authorizes first and requests full validation for every enabled event', (t) => {
+  const workflow = readFileSync(new URL('../../../.github/workflows/ci.yml', import.meta.url), 'utf8');
+  const policyJob = workflow.match(/^  policy:\n[\s\S]*?(?=^  merge-evidence:$)/m)?.[0];
+  assert.ok(policyJob);
+  assert.match(policyJob, /- id: authorize\n        uses: qwts\/qwts-agent-sop\/\.github\/actions\/ci-policy@[0-9a-f]{40}\n        with:\n          authorization-only: 'true'/);
+  assert.ok(policyJob.indexOf('- id: authorize') < policyJob.indexOf('- id: policy'));
+  assert.doesNotMatch(policyJob, /continue-on-error|if: always\(\)|actions\/checkout/);
+  const script = policyJob.match(/        run: \|\n((?:          .*\n)+)/)?.[1].replace(/^          /gm, '');
+  assert.ok(script);
+  const directory = mkdtempSync(join(tmpdir(), 'policy-bootstrap-'));
+  t.after(() => rmSync(directory, { recursive: true, force: true }));
+  for (const event of ['pull_request', 'push', 'merge_group', 'workflow_dispatch']) {
+    const output = join(directory, event);
+    const result = spawnSync('bash', ['--noprofile', '--norc', '-e', '-o', 'pipefail', '-c', script], {
+      env: { ...process.env, GITHUB_OUTPUT: output, BOOTSTRAP_REPOSITORY: 'qwts/qwts-agent-sop', BOOTSTRAP_EVENT_NAME: event },
+      encoding: 'utf8',
+    });
+    assert.equal(result.status, 0, result.stderr);
+    const values = Object.fromEntries(readFileSync(output, 'utf8').trim().split('\n').map((line) => line.split('=')));
+    assert.equal(values.mode, 'full');
+    assert.equal(values.run_full, 'true');
+    assert.equal(values.run_post_merge, 'false');
+    assert.equal(values.generated_release_projection, 'false');
+    assert.equal(values.governed_harness_projection, 'false');
+    assert.equal(values.pull_request_kind, event === 'pull_request' ? 'change-pr' : 'not-a-pull-request');
+  }
+  const rejected = spawnSync('bash', ['-e', '-c', script], {
+    env: { ...process.env, GITHUB_OUTPUT: join(directory, 'rejected'), BOOTSTRAP_REPOSITORY: 'qwts/other' },
+  });
+  assert.notEqual(rejected.status, 0, 'bootstrap must not silently apply to another repository');
+});
+
+test('bootstrap full mode cannot pass the final gate with a failed required lane', () => {
+  const workflow = readFileSync(new URL('../../../.github/workflows/ci.yml', import.meta.url), 'utf8');
+  const gate = workflow.slice(workflow.indexOf('  gate:\n'));
+  const script = gate.match(/        run: \|\n([\s\S]*)/)?.[1].replace(/^          /gm, '');
+  assert.ok(script);
+  const success = {
+    ...process.env, MODE: 'full', POLICY: 'success', FULL: 'success', DOCS_GOV: 'success',
+    INVENTORY: 'success', CODEQL: 'success', BOUNDED_WINDOWS: 'success', WINDOWS_RUNNER: 'true',
+    PRIVATE: 'false', PREFLIGHT_VALIDATED: 'false',
+  };
+  const run = (env) => spawnSync('bash', ['--noprofile', '--norc', '-e', '-o', 'pipefail', '-c', script], { env });
+  assert.equal(run(success).status, 0);
+  for (const lane of ['POLICY', 'FULL', 'DOCS_GOV', 'INVENTORY', 'CODEQL', 'BOUNDED_WINDOWS']) {
+    for (const status of ['failure', 'skipped', 'cancelled']) {
+      assert.notEqual(run({ ...success, [lane]: status }).status, 0, `${lane}=${status} must block CI`);
+    }
+  }
 });

@@ -54,10 +54,18 @@ Both workflow policy pins resolve to this repository's imported revision,
 from its `main`. CI has no policy dependency on the framework repository.
 
 The imported revision does not contain a lifecycle entry for
-`qwts/qwts-agent-sop`. The migration adds that entry, but the pinned action
-continues to read the catalog at its own revision. Full CI therefore remains
-blocked on a reviewed policy bootstrap in this repository. Actor authorization,
-missing-repository validation, and pin reachability must remain enforced.
+`qwts/qwts-agent-sop`. During bootstrap, CI invokes that immutable action in
+`authorization-only` mode, which still rejects unauthorized actors and public
+forks before checkout. A repository-scoped workflow step then selects full
+validation for every enabled event. Existing exact-SHA PR preflight reuse stays
+available; post-merge smoke and release-projection shortcuts are not selected.
+All existing validation jobs and the final success gate remain required.
+
+This is a temporary scheduling delta from the
+[CI execution policy](ci-execution-policy.md). After a validated migration
+revision lands on this repository's `main`, pin the full policy action to that
+revision and remove the bootstrap output step in a reviewed follow-up. The
+catalog validator and action-pin reachability check are unchanged.
 
 ## Repository services
 
