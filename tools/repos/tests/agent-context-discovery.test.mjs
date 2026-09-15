@@ -116,10 +116,26 @@ test('projection rewrites links to the former repository name and branch (#355)'
   const projected = projectDiscoveryBlock(source, block);
   assert.doesNotMatch(projected, /playbook-engineering/);
   assert.doesNotMatch(projected, /agent-sop\/blob\/master/);
-  assert.match(projected, /qwts\/agent-sop\/blob\/main\/docs\/sop\/README\.md/);
+  assert.match(projected, /qwts\/qwts-agent-sop\/blob\/main\/docs\/sop\/README\.md/);
   const interim = projectDiscoveryBlock('See https://github.com/qwts/dev-steward/blob/main/docs/sop/README.md.', block);
   assert.doesNotMatch(interim, /dev-steward/);
-  assert.match(interim, /qwts\/agent-sop\/blob\/main\/docs\/sop\/README\.md/);
+  assert.match(interim, /qwts\/qwts-agent-sop\/blob\/main\/docs\/sop\/README\.md/);
   assert.match(projected, /qwts\/overlook\/blob\/master\/README\.md/, 'a repo-owned link is never rewritten');
   assert.ok(LEGACY_PLAYBOOK_LINK_PREFIXES.every(([from, to]) => from !== to && to.endsWith('/blob/main/')));
+});
+
+test('organization migration preserves immutable and historical references', () => {
+  const revision = 'a'.repeat(40);
+  const oldProcedure = 'https://github.com/qwts/agent-sop/blob/main/docs/sop/release-and-versioning.md';
+  const pinned = `https://github.com/qwts/agent-sop/blob/${revision}/skills/README.md`;
+  const issue = 'https://github.com/qwts/agent-sop/issues/355';
+  const source = [oldProcedure, pinned, issue, canonical].join('\n');
+  const projected = projectDiscoveryBlock(source, canonical);
+  assert.equal(projected, [
+    'https://github.com/qwts/qwts-agent-sop/blob/main/docs/sop/release-and-versioning.md',
+    pinned,
+    issue,
+    canonical,
+  ].join('\n'));
+  assert.equal(projectDiscoveryBlock(projected, canonical), projected);
 });

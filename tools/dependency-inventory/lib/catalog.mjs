@@ -14,7 +14,7 @@ function pushUnique(arr, value) {
 // design (ENG-0004) — that is not the ENG-0005 pin gap, so they must not show up
 // as unpinned findings and drown out real third-party mutable refs. Exempt any
 // `uses:` under a governed prefix; the list is an option so a repo can widen it.
-const DEFAULT_GOVERNED_PREFIXES = ['qwts/agent-sop/'];
+const DEFAULT_GOVERNED_PREFIXES = ['qwts/qwts-agent-sop/', 'qwts/agent-sop/', 'qwts/dev-steward/', 'qwts/playbook-engineering/'];
 
 export function buildCatalog(inventories, { generatedAt = null, governedPrefixes = DEFAULT_GOVERNED_PREFIXES } = {}) {
   const isGoverned = (uses) => uses.startsWith('./') || governedPrefixes.some((p) => uses.startsWith(p));

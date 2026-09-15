@@ -1,6 +1,8 @@
-# agent-sop
+# qwts-agent-sop
 
-The steward of the `qwts` engineering fleet: the governance manifest and its drift and reconcile tooling, shared CI, the docs-governance gate, the agent-harness seeds and skills catalog, the ENG decision series, shared SOPs, and the SDLC guides. Formerly `playbook-engineering` (renamed 2026-09-14, [#355](https://github.com/qwts/agent-sop/issues/355)); historical records keep the old name.
+The organization-specific home for `qwts` engineering decisions, SOPs, fleet governance, shared CI, and agent-harness tooling. Imported from [agent-sop](https://github.com/qwts/agent-sop) with its existing Git history and `v1` tag preserved.
+
+[Agent SOP](https://agentsop.ai) is the shared framework; this repository supplies the procedures selected by the `qwts` organization. See the [repository migration contract](docs/reference/repository-migration.md) for source ownership, compatibility, and historical references.
 
 It is also the home for **cross-repo engineering decisions** — see the [decision index](docs/decisions/README.md) — and for the org-wide agent conventions every repo's [AGENTS.md](AGENTS.md) points to; see [AGENTS.md](AGENTS.md) for this repo's own agent context.
 

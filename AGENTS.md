@@ -4,7 +4,7 @@ Canonical, vendor-neutral agent context for this repository, per [ENG-0006](docs
 
 ## What this repository is
 
-The org's cross-repo home for engineering decisions (ENG records), shared SOPs, shared CI/CD, and the docs-governance tooling every `qwts` repo consumes. Full map: [README.md](README.md).
+The `qwts` organization's cross-repo home for engineering decisions (ENG records), shared SOPs, shared CI/CD, and the docs-governance tooling every `qwts` repo consumes. Full map: [README.md](README.md).
 
 <!-- governed:shared-agent-discovery:start -->
 
@@ -12,17 +12,17 @@ The org's cross-repo home for engineering decisions (ENG records), shared SOPs, 
 
 PR-first workflow, validation-before-push, commit and PR hygiene, and the
 untrusted-input threat model are defined once, for every repo, in the
-[org-wide agent conventions](https://github.com/qwts/agent-sop/blob/main/docs/reference/agent-conventions.md).
+[org-wide agent conventions](https://github.com/qwts/qwts-agent-sop/blob/main/docs/reference/agent-conventions.md).
 Before creating or copying a repo-local skill, consult the reviewed
-[shared agent skills](https://github.com/qwts/agent-sop/blob/74e775ef23d8e7d8f8e693ccc2329f430978c096/skills/README.md)
+[shared agent skills](https://github.com/qwts/qwts-agent-sop/blob/74e775ef23d8e7d8f8e693ccc2329f430978c096/skills/README.md)
 index. Reuse only the pinned version supplied by the governed harness; a skill
 genuinely specific to this repository belongs in its local context.
 This repository is governed by
-[agent-sop](https://github.com/qwts/agent-sop) — its
-[shared SOPs](https://github.com/qwts/agent-sop/blob/main/docs/sop/README.md)
-and [engineering decisions](https://github.com/qwts/agent-sop/blob/main/docs/decisions/README.md)
+[qwts-agent-sop](https://github.com/qwts/qwts-agent-sop) — its
+[shared SOPs](https://github.com/qwts/qwts-agent-sop/blob/main/docs/sop/README.md)
+and [engineering decisions](https://github.com/qwts/qwts-agent-sop/blob/main/docs/decisions/README.md)
 apply here by default
-([ENG-0008](https://github.com/qwts/agent-sop/blob/main/docs/decisions/ENG-0008-shared-sop-inheritance.md):
+([ENG-0008](https://github.com/qwts/qwts-agent-sop/blob/main/docs/decisions/ENG-0008-shared-sop-inheritance.md):
 inherit by default, vary by explicit delta).
 <!-- governed:shared-agent-discovery:end -->
 
