@@ -49,14 +49,15 @@ consumer change, not permission to distribute all harness files automatically.
 
 ## CI policy bootstrap
 
-The imported policy revision predates both repository names. The source's
-[companion PR](https://github.com/qwts/agent-sop/pull/368) repairs its own policy
-pin and registers `qwts-agent-sop`. The destination temporarily pins that
-catalog-bearing source revision, `ff40cf84c46f8b7c22451ef1828764f03eb988bc`.
-Its reachability check remains blocked until the source PR lands with that
-commit in `main` history. If merge rewrites its SHA, repin to the merged
-revision and revalidate. Do not skip the check or weaken missing-repository
-validation. Subsequent policy updates can use a validated destination revision.
+Both workflow policy pins resolve to this repository's imported revision,
+`qwts/qwts-agent-sop@41af9d7917a418810b3277f2cec969e4e003b0b3`, which is reachable
+from its `main`. CI has no policy dependency on the framework repository.
+
+The imported revision does not contain a lifecycle entry for
+`qwts/qwts-agent-sop`. The migration adds that entry, but the pinned action
+continues to read the catalog at its own revision. Full CI therefore remains
+blocked on a reviewed policy bootstrap in this repository. Actor authorization,
+missing-repository validation, and pin reachability must remain enforced.
 
 ## Repository services
 

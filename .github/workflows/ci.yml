@@ -61,7 +61,7 @@ jobs:
       release_gate_mode: ${{ steps.policy.outputs.release_gate_mode }}
     steps:
       - id: policy
-        uses: qwts/agent-sop/.github/actions/ci-policy@ff40cf84c46f8b7c22451ef1828764f03eb988bc
+        uses: qwts/qwts-agent-sop/.github/actions/ci-policy@41af9d7917a418810b3277f2cec969e4e003b0b3
 
   merge-evidence:
     name: Verify merged commit evidence
