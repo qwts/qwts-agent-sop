@@ -34,7 +34,7 @@ jobs:
     runs-on: [self-hosted, macOS, ARM64]
     timeout-minutes: 10
     steps:
-      - uses: qwts/qwts-agent-sop/.github/actions/ci-policy@bed29090d8eaff29a75b983e94a50957c3ac9a42
+      - uses: qwts/agent-sop/.github/actions/ci-policy@ff40cf84c46f8b7c22451ef1828764f03eb988bc
         with:
           authorization-only: 'true'
 

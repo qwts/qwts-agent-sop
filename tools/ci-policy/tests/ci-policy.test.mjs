@@ -583,7 +583,7 @@ test('the reference workflow preserves governed gates and skips draft jobs', () 
   assert.match(workflow, /github\.event\.pull_request\.draft == false/);
   assert.match(
     workflow,
-    /uses: qwts\/qwts-agent-sop\/\.github\/actions\/ci-policy@[0-9a-f]{40}/,
+    /uses: qwts\/agent-sop\/\.github\/actions\/ci-policy@[0-9a-f]{40}/,
   );
   assert.doesNotMatch(workflow, /uses: \.\/\.github\/actions\/ci-policy/);
   assert.match(workflow, /^  merge_group:\n    types: \[checks_requested\]$/m);
@@ -698,7 +698,7 @@ test('every direct non-CI workflow entrypoint enforces authorization first', () 
     const workflow = readFileSync(new URL(`../../../.github/workflows/${path}`, import.meta.url), 'utf8');
     assert.match(workflow, /^  policy:$/m);
     assert.match(workflow, /authorization-only: 'true'/);
-    assert.match(workflow, /uses: qwts\/qwts-agent-sop\/\.github\/actions\/ci-policy@[0-9a-f]{40}/);
+    assert.match(workflow, /uses: qwts\/agent-sop\/\.github\/actions\/ci-policy@[0-9a-f]{40}/);
     assert.match(workflow, /needs: policy/);
   }
 });

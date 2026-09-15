@@ -47,6 +47,17 @@ affected consumers have been inspected and the replacement revision passes
 the required validation. Running the discovery projection is an explicit
 consumer change, not permission to distribute all harness files automatically.
 
+## CI policy bootstrap
+
+The imported policy revision predates both repository names. The source's
+[companion PR](https://github.com/qwts/agent-sop/pull/368) repairs its own policy
+pin and registers `qwts-agent-sop`. The destination temporarily pins that
+catalog-bearing source revision, `ff40cf84c46f8b7c22451ef1828764f03eb988bc`.
+Its reachability check remains blocked until the source PR lands with that
+commit in `main` history. If merge rewrites its SHA, repin to the merged
+revision and revalidate. Do not skip the check or weaken missing-repository
+validation. Subsequent policy updates can use a validated destination revision.
+
 ## Repository services
 
 All four Agent SOP project repositories are public. The destination inherits
