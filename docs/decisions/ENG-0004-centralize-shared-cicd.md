@@ -104,7 +104,7 @@ written, per the rule that accepted records are amended, not rewritten.
 
 Shared CI now includes the execution contract, not only reusable implementation
 pieces. Every governed repository follows the
-[CI execution policy](../reference/ci-execution-policy.md): draft PRs start no
+[CI execution policy](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/ci-execution-policy.md): draft PRs start no
 Actions jobs and agents run lint/format/type/unit checks locally before marking
 ready; an agent may manually run the complete suite for the final feature SHA;
 ready PRs and ready updates reuse that evidence only for the exact SHA and
@@ -190,8 +190,8 @@ updates, and exact-SHA fallback validation without changing their merge methods.
 Required contexts bind to their actual publishers. Release lanes share semantic
 Changesets output, and privileged writes share the Client ID/private-key
 credential boundary. The existing PR concurrency contract remains unchanged.
-The [CI policy](../reference/ci-execution-policy.md) and
-[rollout checklist](../reference/governed-ci-rollout.md) define these controls.
+The [CI policy](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/ci-execution-policy.md) and
+[rollout checklist](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/governed-ci-rollout.md) define these controls.
 
 ## Amendment — 2026-08-02: source inputs and generated release projections
 
@@ -213,9 +213,9 @@ CodeQL, reviews, version consistency, packaging, signing, provenance, and
 release integrity, applies to it unchanged.
 
 The operational contract is in the
-[CI policy](../reference/ci-execution-policy.md); per-repository dispositions
+[CI policy](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/ci-execution-policy.md); per-repository dispositions
 are in the
-[release-lifecycle fleet handoff](../reference/governed-ci-release-lifecycle-fleet.md).
+[release-lifecycle fleet handoff](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/governed-ci-release-lifecycle-fleet.md).
 
 ## Amendment — 2026-08-22: pinning superseded by immutable releases
 
@@ -240,6 +240,20 @@ domain (agentsop.ai) rather than a role word
 consumption path is now
 `uses: qwts/agent-sop/.github/actions/<name>@<reviewed-sha>`. The redirect
 rule above applies unchanged. Existing records keep their names.
+
+## Amendment — 2026-09-15: home moves to `qwts-agent-ci`; pins are commits
+
+[ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md) moves
+the shared CI mechanism out of this repository into `qwts/qwts-agent-ci`:
+the composite actions, the CI policy classifier, the runtime budgets, the
+pin-reachability check, and `release-lifecycles.json`. The canonical
+consumption path is now
+`uses: qwts/qwts-agent-ci/.github/actions/<name>@<commit>`, and the
+"this repository's CI passes first" rule applies in that repository.
+[ENG-0282](ENG-0282-immutable-pins-recorded-selection-no-aligner.md)
+replaces the 2026-08-22 amendment above: consumers pin exact commits
+directly, with no release and no aligner. Everything else stands.
+The CI reference documents this record links at their last revision here are maintained in that repository: [CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/3a5617b287d922e37f262210a1d8750d8217b56d/docs/ci-execution-policy.md), [rollout checklist](https://github.com/qwts/qwts-agent-ci/blob/3a5617b287d922e37f262210a1d8750d8217b56d/docs/governed-ci-rollout.md), [release-lifecycle fleet handoff](https://github.com/qwts/qwts-agent-ci/blob/3a5617b287d922e37f262210a1d8750d8217b56d/docs/governed-ci-release-lifecycle-fleet.md).
 
 ## References
 

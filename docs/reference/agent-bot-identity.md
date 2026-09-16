@@ -27,7 +27,7 @@ troubleshooting ([ENG-0128](../decisions/ENG-0128-agent-bot-runtime-ownership.md
 
 ## Roster
 
-[`governance/agents.json`](../../governance/agents.json) is the source of
+[`governance/agents.json`](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/governance/agents.json) in `qwts-agent-org` is the source of
 truth. Drift validates every active App against every active and onboarding
 governed repository; retired identities keep their rows but leave the active
 set.
@@ -69,7 +69,7 @@ Each App is owned by `qwts`, installed only on selected repositories, and has:
 
 No App receives approval authority, org-wide installation, user-to-server
 OAuth, or unrelated permissions. Every active App must be installed on every
-active and onboarding repository in `governance/repos.json`; a narrower scope
+active and onboarding repository in [`governance/repos.json`](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/governance/repos.json); a narrower scope
 is drift, not a per-agent exception.
 
 ## Runtime contract

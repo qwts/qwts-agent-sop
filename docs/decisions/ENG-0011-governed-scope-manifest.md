@@ -12,7 +12,7 @@ model is settled — [ENG-0008](ENG-0008-shared-sop-inheritance.md) makes every
 only as prose, restated across at least four documents that already disagree:
 
 - [the SOP inventory](../sop/inventory.md) lists photos, cartograph, image-trail, bookmarkit, quorum;
-- [the GitHub account reference](../reference/github-account.md) adds private repos;
+- [the GitHub account reference](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/github-account.md) adds private repos;
 - [ENG-0006](ENG-0006-agentic-primitives-governance.md) enumerates a fifth, overlapping set;
 - [the conformance checklist](../reference/agentic-primitives-conformance-checklist.md) hardcodes per-repo alignment issue numbers.
 
@@ -24,14 +24,14 @@ govern" has no answerable home.
 
 ## Decision
 
-1. **A manifest is the single source of truth.** `governance/repos.json`
+1. **A manifest is the single source of truth.** [`governance/repos.json`](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/governance/repos.json)
    enumerates the governed repositories with per-repo metadata: `visibility`,
    `status` (`active` / `onboarding` / `retired`), `sharedCi`, and the repo's
    one-line `delta` from the baseline. JSON, not YAML, to stay zero-dependency —
    the same reason ENG-0009's tooling ships none.
-2. **The human table is generated, not authored.** `tools/repos/repos.mjs`
+2. **The human table is generated, not authored.** [tools/repos/repos.mjs](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/tools/repos/repos.mjs)
    validates the manifest and renders the table into
-   [governed-repos.md](../reference/governed-repos.md) between fixed markers; CI
+   [governed-repos.md](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/governed-repos.md) between fixed markers; CI
    fails on an invalid manifest or a table that drifts from it. This follows
    ENG-0004's delivery shape: a zero-dependency CLI, gated in this repo's CI.
 3. **Add and remove are manifest edits.** Onboard by adding a row
@@ -70,4 +70,4 @@ govern" has no answerable home.
 - qwts/playbook-engineering#20 — the originating issue (opened retroactively, pre-ENG-0013)
 - [ENG-0008](ENG-0008-shared-sop-inheritance.md) — inherit-by-default, the model this registry records against
 - [ENG-0004](ENG-0004-centralize-shared-cicd.md), [ENG-0009](ENG-0009-documentation-governance-gate.md) — the zero-dependency, CI-gated tooling shape reused here
-- [governed-repos.md](../reference/governed-repos.md) — the generated view and the add/remove process
+- [governed-repos.md](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/governed-repos.md) — the generated view and the add/remove process; the manifest, its validator, and the generated view now live in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/docs/governed-repos.md) (ENG-0355)

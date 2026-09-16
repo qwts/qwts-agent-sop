@@ -95,4 +95,4 @@ change is good when it passes the ratchet AND the semantic check.
   process (owner grants the exception on judge evidence in the PR).
 
 Operational adoption, qualification, and the two-dimensional decision matrix
-are in [semantic ratchets](../reference/semantic-ratchets.md).
+are in [semantic ratchets](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/semantic-ratchets.md); the workflow now lives in [qwts/agentic-code-analysis](https://github.com/qwts/agentic-code-analysis) (ENG-0355).

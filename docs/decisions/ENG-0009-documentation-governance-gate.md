@@ -26,14 +26,14 @@ supplies the mechanism and extends it to `docs/` generally.
 
 ## Decision
 
-1. **Deterministic checks gate docs in CI** (`tools/docs-gov/` in this repo):
+1. **Deterministic checks gate docs in CI** ([tools/docs-gov/](https://github.com/qwts/qwts-agent-sop/tree/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/tools/docs-gov) in this repo):
    integrity (links, orphans, stale code paths), structure (chunkable
    headings, front-loaded summaries, machine-readable fields), context cost
    (token budgets per doc and per agent context set), and the anti-patterns
    that specifically break agents (positional references, placeholders,
    duplicated statements, terminology aliases). The rule catalog with each
    rule's justification lives in the
-   [governance reference](../reference/documentation-governance.md).
+   [governance reference](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/documentation-governance.md).
 2. **Admission test for rules:** a rule must name the agent failure it
    prevents, and must produce zero false positives on the docs of the repo
    adopting it — otherwise the rule is dropped, not tolerated. No rule exists
@@ -77,5 +77,5 @@ supplies the mechanism and extends it to `docs/` generally.
 ## References
 
 - [qwts/playbook-engineering#2](https://github.com/qwts/playbook-engineering/issues/2) — the issue this implements, including the Phase 2 sketch
-- [Documentation governance reference](../reference/documentation-governance.md) — rule catalog, conventions, adoption guide
+- [Documentation governance reference](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/documentation-governance.md) — rule catalog, conventions, adoption guide; the gate and this reference now live in [qwts-agent-docs-gov](https://github.com/qwts/qwts-agent-docs-gov/blob/67db7dc9c20bc29222fb605b7ff9432fd58a2a3f/docs/documentation-governance.md) (ENG-0355)
 - [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) — the validation-gated optimization shape Phase 2 would take
