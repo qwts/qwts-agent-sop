@@ -41,9 +41,10 @@ session.
    justifies its token and secret-management cost. Deep guidance — SOPs,
    ENG records, SDLC guides — stays linked, fetched on demand from this
    public repo.
-5. **[`governance/repos.json`](../../governance/repos.json) is the
+5. **[`governance/repos.json`](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/governance/repos.json) is the
    distribution list** ([ENG-0011](ENG-0011-governed-scope-manifest.md)):
-   entering governance is subscribing to the baseline.
+   entering governance is subscribing to the baseline. The manifest now
+   lives in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/governance/repos.json) (ENG-0355).
 
 ## Consequences
 

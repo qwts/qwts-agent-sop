@@ -1,6 +1,6 @@
 # ENG-0038: Governance reconciler — one operation converges any repo to the manifest
 
-**Status:** Proposed
+**Status:** Superseded by ENG-0355
 **Date:** 2026-07-23
 **Issue:** qwts/playbook-engineering#38
 
@@ -12,12 +12,12 @@ nothing drifts. Migrating an old repo had no defined process. A template repo
 cannot fix this: templates only seed, cannot express settings, cannot
 retroactively fix drift ([ENG-0006](ENG-0006-agentic-primitives-governance.md)
 no-grandfathering), and would be a third source of truth. Phase 1
-(`tools/repos/drift.mjs`, read-only) detects the gaps; this record governs
-the phase that closes them.
+([tools/repos/drift.mjs](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/tools/repos/drift.mjs), read-only) detects the gaps; this record governs
+the phase that closes them. Both tools are retired with the push lanes; the manifest they converged toward now lives in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/governance/repos.json) (ENG-0355).
 
 ## Decision
 
-1. **One operation.** `tools/repos/reconcile.mjs` converges a repo — new,
+1. **One operation.** [tools/repos/reconcile.mjs](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/tools/repos/reconcile.mjs) converges a repo — new,
    existing, or migrating — toward `governance/repos.json`. An empty repo is
    just a migration with zero conflicts. Dry-run by default; `--apply`
    executes.

@@ -25,7 +25,7 @@ does it well; reimplementing it by hand is exactly the wheel this record avoids.
 
 1. **A dependency-and-tooling inventory ships as ENG-0004 phase-1 tooling.**
    Syft generates a CycloneDX SBOM (packages plus licenses); a zero-dependency
-   normalizer (`tools/dependency-inventory/`) folds it together with the two
+   normalizer ([tools/dependency-inventory/](https://github.com/qwts/qwts-agent-sop/tree/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/tools/dependency-inventory)) folds it together with the two
    things an SBOM omits — the GitHub Actions a repo runs and the tool-config
    files it keeps — into one playbook schema. Consumed at the test-gated moving
    `@v1`, like every reusable workflow here.
@@ -70,6 +70,6 @@ does it well; reimplementing it by hand is exactly the wheel this record avoids.
 
 - [ENG-0004](ENG-0004-centralize-shared-cicd.md) — the reusable-workflow delivery model and `@v1` pinning this follows
 - [ENG-0005](ENG-0005-static-analysis-survey-results.md) — the tools that keep enforcement, and the SHA-pinning direction the pin-status view supports
-- [Dependency inventory reference](../reference/dependency-inventory.md) — schema, consumption, and the SHA-pin asymmetry
+- [Dependency inventory reference](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/dependency-inventory.md) — schema, consumption, and the SHA-pin asymmetry; the normalizer, its reusable workflow, and this reference now live in [qwts-agent-inventory](https://github.com/qwts/qwts-agent-inventory/blob/d5746df21099c0394663b35dd16eacd171052a80/docs/dependency-inventory.md) (ENG-0355)
 - [Release and versioning SOP](../sop/release-and-versioning.md) — the lockfile-and-Dependabot dependency policy this inventories against
 - [Repo baseline files SOP](../sop/repo-baseline-files.md) — the `LICENSE` and `THIRD-PARTY-NOTICES.md` obligations the license inventory helps satisfy
