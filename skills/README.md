@@ -24,7 +24,24 @@ here by link — never copied into this tree.
   [qwts/managed-machine](https://github.com/qwts/managed-machine). Bootstrap,
   update, and manage a Mac via the `managed-machine` Homebrew formula: fresh
   setup, version reporting, setup scripts, brew ownership fixes, fleet SSH
-  keys, gitleaks hooks, and agent-CLI installs. Install per its `SKILL.md`.
+   keys, gitleaks hooks, and agent-CLI installs. Install per its `SKILL.md`.
+- [add-zsh-function](https://github.com/qwts/zsh-functions/tree/main/skills/add-zsh-function)
+  — owned by
+  [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
+  Author a new zsh function: `functions/<name>` per that repo's `AGENTS.md`,
+  reuse of the shared PATH/fpath API catalog, formula and `v*` tag release.
+  Install per its `SKILL.md`.
+- [migrate-to-zsh-functions](https://github.com/qwts/zsh-functions/tree/main/skills/migrate-to-zsh-functions)
+  — owned by
+  [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
+  Convert legacy `~/.functions` loops, vendor PATH leaks, and unguarded
+  `export PATH` lines into guarded `BEGIN/END zsh-functions` blocks plus API
+  calls. Install per its `SKILL.md`.
+- [audit-shell-writers](https://github.com/qwts/zsh-functions/tree/main/skills/audit-shell-writers)
+  — owned by
+  [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
+  Read-only recon of who writes `.zshenv`/`.zprofile`/`.zshrc` across repos;
+  run before migrating. Install per its `SKILL.md`.
 
 The signed-commit skill previously lived here. A machine that installed it
 from this repo has a dangling symlink; remove it:
