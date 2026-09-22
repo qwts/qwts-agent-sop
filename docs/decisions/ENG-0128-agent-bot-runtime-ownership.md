@@ -141,5 +141,5 @@ Consequences of this amendment:
 ## References
 
 - [Agent bot identity governance](../reference/agent-bot-identity.md)
-- [Agent bot organization operations](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/agent-bot-operations.md) — last revision here; the profile it bootstraps from now lives in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/governance/organization-profile.json) (ENG-0355)
+- [Agent bot organization operations](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/agent-bot-operations.md) — last revision here; the profile it bootstraps from now lives in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/governance/organization-profile.json) (ENG-0355)
 - [`agent-bot-identity` runtime](https://github.com/qwts/agent-bot-identity/tree/9ff7ce00b6a6945c7f249cf7a6ebf37cf58e86ee)

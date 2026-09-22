@@ -99,5 +99,5 @@ principles; it does not waive the lower priorities.
 ## Related
 
 - [Shared SOPs index](../sop/README.md) — the standard operating procedures ENG-0008 governs (how work moves: branch → PR → review → release)
-- [GitHub account reference](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/docs/github-account.md) — account tier (Pro) and what decisions assume about it, maintained in `qwts-agent-org`
+- [GitHub account reference](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/docs/github-account.md) — account tier (Pro) and what decisions assume about it, maintained in `qwts-agent-org`
 - [`qwts/photos` wiki](https://github.com/qwts/photos/wiki) — photos' own `ADR-NNNN` series and SOPs
