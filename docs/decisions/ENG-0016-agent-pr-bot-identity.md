@@ -162,4 +162,4 @@ Consequences:
 
 - [Agent bot identity reference](../reference/agent-bot-identity.md) — setup and per-task usage
 - [Branch, PR, and review workflow](../sop/branch-pr-review.md) — the merge bar this record makes satisfiable
-- [GitHub account reference](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/github-account.md) — account baseline; why no second user account; now maintained in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/docs/github-account.md) (ENG-0355)
+- [GitHub account reference](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/github-account.md) — account baseline; why no second user account; now maintained in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/docs/github-account.md) (ENG-0355)

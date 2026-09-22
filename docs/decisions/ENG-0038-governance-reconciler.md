@@ -13,7 +13,7 @@ cannot fix this: templates only seed, cannot express settings, cannot
 retroactively fix drift ([ENG-0006](ENG-0006-agentic-primitives-governance.md)
 no-grandfathering), and would be a third source of truth. Phase 1
 ([tools/repos/drift.mjs](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/tools/repos/drift.mjs), read-only) detects the gaps; this record governs
-the phase that closes them. Both tools are retired with the push lanes; the manifest they converged toward now lives in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/governance/repos.json) (ENG-0355).
+the phase that closes them. Both tools are retired with the push lanes; the manifest they converged toward now lives in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/governance/repos.json) (ENG-0355).
 
 ## Decision
 

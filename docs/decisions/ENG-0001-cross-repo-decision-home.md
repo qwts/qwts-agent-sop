@@ -61,7 +61,7 @@ Per-repo decisions do not move. Photos keeps its `ADR-NNNN` series in its wiki.
 ## Amendment — 2026-07-19: account tier
 
 The account is on **GitHub Pro**, not Free (see
-[GitHub account reference](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/github-account.md), now maintained in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/docs/github-account.md)). This does not
+[GitHub account reference](https://github.com/qwts/qwts-agent-sop/blob/8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a/docs/reference/github-account.md), now maintained in [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/docs/github-account.md)). This does not
 change the decision, but sharpens the org analysis above: Pro already provides
 protected branches and rulesets on **personal private** repos, so private-repo
 branch protection is *not* among the things forming an organization would buy.

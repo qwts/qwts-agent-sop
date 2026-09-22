@@ -7,7 +7,7 @@ re-points at the [shared SOPs](README.md). This is a migration record, not a
 procedure — the SOPs themselves are the authority.
 
 The authoritative list of governed repos is the manifest behind
-[governed-repos.md](https://github.com/qwts/qwts-agent-org/blob/18ce9fd3d8d4df20e3846eb7c59c42e464a7cf9f/docs/governed-repos.md) in `qwts-agent-org` ([ENG-0011](../decisions/ENG-0011-governed-scope-manifest.md));
+[governed-repos.md](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/docs/governed-repos.md) in `qwts-agent-org` ([ENG-0011](../decisions/ENG-0011-governed-scope-manifest.md));
 the repo names below are a point-in-time snapshot of this migration survey, not
 the source of truth.
 
