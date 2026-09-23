@@ -145,3 +145,11 @@ than arriving ungoverned.
 - [ENG-0005](ENG-0005-static-analysis-survey-results.md) — the supply-chain pinning direction MCP/skill governance mirrors
 - [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) · [MSR blog: agent skills as trainable parameters](https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/)
 - [agents.md](https://agents.md) — the vendor-neutral AGENTS.md convention this adopts as canonical
+
+## Amendment, 2026-09-23
+
+Decision point 2 recorded that a skill's name and description stay visible while its body loads on demand. That keeps every skill's name in every session. What applies for the shared catalog:
+
+- A procedure names one skill. The agent reads that catalog entry and the pinned `SKILL.md`. Other entries stay unread.
+- Shared skills are not installed into a harness. A harness would inject every installed name and description on every turn.
+- The recorded sentence stays as history. The [skill catalog](../../skills/README.md) and the [agent conventions](../reference/agent-conventions.md) follow this amendment.

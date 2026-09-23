@@ -9,9 +9,13 @@ directives, shipped with executable scripts, reviewed as code, and owned in
 `skills/<name>/` or lives in the repo that owns its domain and is cataloged
 here by link — never copied into this tree.
 
-## Available skills
+## When an agent loads a skill
 
-Each skill path below names a 40-hex commit, not a branch or a tag. Moving `main` in a skill repository does not change what agents load. The commit is the `org.json` capability pin when that repository is a capability, and a commit in this file otherwise. Changing either is a reviewed edit. Links to the owning repository are not pins.
+Do not read this file at session start, and do not install these skills into a harness. A harness injects every installed skill's name and description into every turn.
+
+A procedure names one skill. Read that entry below and then its `SKILL.md` at the pinned commit. Leave the other entries unread. A branch or a tag is not a pin. The commit is the `org.json` capability pin when that repository is a capability, and a commit in this file otherwise. Links to the owning repository are not pins.
+
+## Available skills
 
 - [agent-bot](https://github.com/qwts/agent-bot-identity/tree/7e1f813347e49df78437098c5415269d8423bc72/skills/agent-bot)
   — owned by
@@ -19,36 +23,35 @@ Each skill path below names a 40-hex commit, not a branch or a tag. Moving `main
   Per-harness GitHub App identities for coding agents: bootstrap and
   installation, bot credential minting, authorized secure-store reads,
   GitHub-verified bot commits, transcript-bound Agent IDs, and Agent Spaces.
-  Absorbed the old signed-commit skill (`signed-commit.mjs`). Install per its
-  `SKILL.md`.
+  Absorbed the old signed-commit skill (`signed-commit.mjs`). Load only when a procedure names this skill.
 - [managed-machine](https://github.com/qwts/managed-machine/tree/32765719ed8bdeea21223366ed8435670e21b47b/skills/managed-machine)
   — owned by
   [qwts/managed-machine](https://github.com/qwts/managed-machine). Bootstrap,
   update, and manage a Mac via the `managed-machine` Homebrew formula: fresh
   setup, version reporting, setup scripts, brew ownership fixes, fleet SSH
-  keys, gitleaks hooks, and agent-CLI installs. Install per its `SKILL.md`.
+  keys, gitleaks hooks, and agent-CLI installs. Load only when a procedure names this skill.
 - [onboard-harness](https://github.com/qwts/managed-machine/tree/32765719ed8bdeea21223366ed8435670e21b47b/skills/onboard-harness)
   — owned by
   [qwts/managed-machine](https://github.com/qwts/managed-machine).
   Add a harness to managed-machine and managed-machine-config: catalog rows,
-  setup scripts, tests, and docs. Install per its `SKILL.md`.
+  setup scripts, tests, and docs. Load only when a procedure names this skill.
 - [add-zsh-function](https://github.com/qwts/zsh-functions/tree/c48302c3e9107745030b6fb8fee7805fc66eacf4/skills/add-zsh-function)
   — owned by
   [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
   Author a new zsh function: `functions/<name>` per that repo's `AGENTS.md`,
   reuse of the shared PATH/fpath API catalog, formula and `v*` tag release.
-  Install per its `SKILL.md`.
+  Load only when a procedure names this skill.
 - [migrate-to-zsh-functions](https://github.com/qwts/zsh-functions/tree/c48302c3e9107745030b6fb8fee7805fc66eacf4/skills/migrate-to-zsh-functions)
   — owned by
   [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
   Convert legacy `~/.functions` loops, vendor PATH leaks, and unguarded
   `export PATH` lines into guarded `BEGIN/END zsh-functions` blocks plus API
-  calls. Install per its `SKILL.md`.
+  calls. Load only when a procedure names this skill.
 - [audit-shell-writers](https://github.com/qwts/zsh-functions/tree/c48302c3e9107745030b6fb8fee7805fc66eacf4/skills/audit-shell-writers)
   — owned by
   [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
   Read-only recon of who writes `.zshenv`/`.zprofile`/`.zshrc` across repos;
-  run before migrating. Install per its `SKILL.md`.
+  run before migrating. Load only when a procedure names this skill.
 
 The signed-commit skill previously lived here. A machine that installed it
 from this repo has a dangling symlink; remove it:
@@ -57,31 +60,12 @@ from this repo has a dangling symlink; remove it:
 rm -f ~/.claude/skills/signed-commit
 ```
 
-## Installing
-
-Externally owned skills install per the instructions in their own repo's
-`SKILL.md`, linked above.
-
-Skills that live in this repo follow one shape — each skill's `SKILL.md`
-carries its own install line, symlinking the skill directory into the harness
-so a `git pull` here updates every machine, rather than copying and drifting:
-
-```bash
-PLAYBOOK_ROOT="$(git rev-parse --show-toplevel)"
-ln -sfn "$PLAYBOOK_ROOT/skills/<name>" ~/.claude/skills/<name>
-```
-
-Distribution is manual today. Automating it — a worktree-create step, or a
-plugin marketplace — waits until there are enough shared skills to justify the
-machinery; the second skill added here is the signal that the manual step has
-become the problem.
-
 ## Adding a skill
 
 1. `skills/<name>/SKILL.md` with `name` and `description` frontmatter. The
-   description is always in an agent's context while the body loads only when
-   relevant, so it must say *when to use this* — that string is the whole
-   trigger (ENG-0006 progressive disclosure).
+   description stays in that file. It is not injected into a session. The
+   procedure that needs the skill names it; that name is the trigger
+   ([ENG-0006](../docs/decisions/ENG-0006-agentic-primitives-governance.md)).
 2. Link it from **Available skills** above. `docs-gov` fails a skill reachable
    from no index: guidance nothing links to is guidance no agent loads.
 3. Keep it under the `perDoc` token budget. A skill that needs more is usually

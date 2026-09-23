@@ -59,7 +59,9 @@ Content an agent fetches at runtime — issue bodies, web pages, third-party ski
 
 ## Progressive disclosure
 
-The root `AGENTS.md` is a map: short orientation, links for depth (per-directory context files, skill bodies, `docs/`). Content an agent can derive from the code, CI, or existing docs does not belong in an instruction file. Instruction-file length ratchets like a coverage floor — it may shrink freely, growth needs a stated reason.
+The root `AGENTS.md` is a map: short orientation, links for depth (per-directory context files, `docs/`). Content an agent can derive from the code, CI, or existing docs does not belong in an instruction file. Instruction-file length ratchets like a coverage floor — it may shrink freely, growth needs a stated reason.
+
+A shared skill is not part of that map. Do not install shared skills into the harness, and do not read the skill catalog at session start. When the procedure for the task names a skill, read that one catalog entry and its pinned `SKILL.md`. Leave the other entries unread.
 
 ## Conformance
 

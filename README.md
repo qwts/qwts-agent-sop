@@ -58,7 +58,7 @@ Each document includes navigation links, prerequisites, and cross-references to 
 - [Agent execution identity policy](docs/reference/agent-execution-identity.md) — the private transcript-bound identity and audit boundary behind each agent conversation (ENG-0081).
 - [Agentic primitives conformance checklist](docs/reference/agentic-primitives-conformance-checklist.md) — the ENG-0006 §6 checklist per-repo alignment issues link to.
 - [Machine memory guard retirement](docs/reference/agent-memory-guard.md) — historical decision and source; the implementation and dormant backlog are retired.
-- [Shared agent skills](skills/README.md) — skills centralized here and installed into every agent harness, rather than copied per repo (ENG-0004, ENG-0006).
+- [Shared agent skills](skills/README.md) — the catalog of pinned skills. A procedure names one; it is not installed into every harness (ENG-0004, ENG-0006).
 - [Hook composition audits](docs/reference/hook-composition-audits.md) — fleet snapshots of repository-owned commands inside the managed hook adapters.
 - [Dependency reuse policy](docs/reference/dependency-reuse-policy.md) — the ENG-0269 cache contract every consumer of the shared `bounded-dependency-install` action follows.
 - [Repository migration](docs/reference/repository-migration.md) — how this instance was imported, what it pins, and the CI bootstrap delta it carries.
