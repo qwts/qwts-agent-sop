@@ -11,7 +11,7 @@ here by link — never copied into this tree.
 
 ## Available skills
 
-Every link below is a 40-hex commit. A branch or a tag is not a catalog entry: moving `main` in a skill repository does not change what agents load. The commit is selected in `qwts-agent-org`'s `org.json` when the skill's repository is a capability, and in this file otherwise. Changing either is a reviewed edit.
+Each skill path below names a 40-hex commit, not a branch or a tag. Moving `main` in a skill repository does not change what agents load. The commit is the `org.json` capability pin when that repository is a capability, and a commit in this file otherwise. Changing either is a reviewed edit. Links to the owning repository are not pins.
 
 - [agent-bot](https://github.com/qwts/agent-bot-identity/tree/7e1f813347e49df78437098c5415269d8423bc72/skills/agent-bot)
   — owned by
