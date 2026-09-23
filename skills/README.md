@@ -11,7 +11,9 @@ here by link — never copied into this tree.
 
 ## Available skills
 
-- [agent-bot](https://github.com/qwts/agent-bot-identity/tree/28b5ee1be2f12dcf548d96309d21c4a1c8ad2b9d/skills/agent-bot)
+Each skill path below names a 40-hex commit, not a branch or a tag. Moving `main` in a skill repository does not change what agents load. The commit is the `org.json` capability pin when that repository is a capability, and a commit in this file otherwise. Changing either is a reviewed edit. Links to the owning repository are not pins.
+
+- [agent-bot](https://github.com/qwts/agent-bot-identity/tree/7e1f813347e49df78437098c5415269d8423bc72/skills/agent-bot)
   — owned by
   [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
   Per-harness GitHub App identities for coding agents: bootstrap and
@@ -19,25 +21,30 @@ here by link — never copied into this tree.
   GitHub-verified bot commits, transcript-bound Agent IDs, and Agent Spaces.
   Absorbed the old signed-commit skill (`signed-commit.mjs`). Install per its
   `SKILL.md`.
-- [managed-machine](https://github.com/qwts/managed-machine/blob/v0.3.19/skills/SKILL.md)
-  v0.3.19 — owned by
+- [managed-machine](https://github.com/qwts/managed-machine/tree/32765719ed8bdeea21223366ed8435670e21b47b/skills/managed-machine)
+  — owned by
   [qwts/managed-machine](https://github.com/qwts/managed-machine). Bootstrap,
   update, and manage a Mac via the `managed-machine` Homebrew formula: fresh
   setup, version reporting, setup scripts, brew ownership fixes, fleet SSH
-   keys, gitleaks hooks, and agent-CLI installs. Install per its `SKILL.md`.
-- [add-zsh-function](https://github.com/qwts/zsh-functions/tree/main/skills/add-zsh-function)
+  keys, gitleaks hooks, and agent-CLI installs. Install per its `SKILL.md`.
+- [onboard-harness](https://github.com/qwts/managed-machine/tree/32765719ed8bdeea21223366ed8435670e21b47b/skills/onboard-harness)
+  — owned by
+  [qwts/managed-machine](https://github.com/qwts/managed-machine).
+  Add a harness to managed-machine and managed-machine-config: catalog rows,
+  setup scripts, tests, and docs. Install per its `SKILL.md`.
+- [add-zsh-function](https://github.com/qwts/zsh-functions/tree/c48302c3e9107745030b6fb8fee7805fc66eacf4/skills/add-zsh-function)
   — owned by
   [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
   Author a new zsh function: `functions/<name>` per that repo's `AGENTS.md`,
   reuse of the shared PATH/fpath API catalog, formula and `v*` tag release.
   Install per its `SKILL.md`.
-- [migrate-to-zsh-functions](https://github.com/qwts/zsh-functions/tree/main/skills/migrate-to-zsh-functions)
+- [migrate-to-zsh-functions](https://github.com/qwts/zsh-functions/tree/c48302c3e9107745030b6fb8fee7805fc66eacf4/skills/migrate-to-zsh-functions)
   — owned by
   [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
   Convert legacy `~/.functions` loops, vendor PATH leaks, and unguarded
   `export PATH` lines into guarded `BEGIN/END zsh-functions` blocks plus API
   calls. Install per its `SKILL.md`.
-- [audit-shell-writers](https://github.com/qwts/zsh-functions/tree/main/skills/audit-shell-writers)
+- [audit-shell-writers](https://github.com/qwts/zsh-functions/tree/c48302c3e9107745030b6fb8fee7805fc66eacf4/skills/audit-shell-writers)
   — owned by
   [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
   Read-only recon of who writes `.zshenv`/`.zprofile`/`.zshrc` across repos;
