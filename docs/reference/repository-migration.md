@@ -43,22 +43,15 @@ capability repositories directly at a commit (ENG-0282); the copied `v1` tag
 is historical compatibility only — it still embeds the pre-split tooling
 references and is not a consumption path for anything.
 
-## CI policy bootstrap
+## CI policy
 
 The Action Policy job pins `qwts/qwts-agent-ci`'s `ci-policy` action at
-`3a5617b287d922e37f262210a1d8750d8217b56d`. That revision's
-`governance/release-lifecycles.json` has no entry for `qwts/qwts-agent-sop`,
-so its classifier would fail closed here. CI therefore invokes the action in
-`authorization-only` mode, which still rejects unauthorized actors and public
-forks before checkout, and a repository-scoped step then selects full
-validation for every enabled event. Exact-SHA PR preflight reuse stays
-available; post-merge smoke and release-projection shortcuts are not selected.
-All validation jobs and the final success gate remain required.
-
-This is a temporary scheduling delta from the
-[CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/3a5617b287d922e37f262210a1d8750d8217b56d/docs/ci-execution-policy.md).
-After a `qwts-agent-ci` revision carrying this repository's lifecycle entry is
-pinned here, remove the bootstrap output step in a reviewed follow-up.
+`f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa` and runs it in classification
+mode. That revision's release-lifecycle catalog has one entry for
+`qwts/qwts-agent-sop`, `metadataSystem: none`. Actor and fork enforcement,
+lane selection, and the post-merge shortcut all come from that action.
+The contract is the
+[CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa/docs/ci-execution-policy.md).
 
 ## Repository services
 
