@@ -7,6 +7,10 @@ the roster and policy; the standalone
 [`agent-bot-identity`](https://github.com/qwts/agent-bot-identity/tree/9ff7ce00b6a6945c7f249cf7a6ebf37cf58e86ee)
 repository owns runtime code, installation, hooks, token minting, and
 troubleshooting ([ENG-0128](../decisions/ENG-0128-agent-bot-runtime-ownership.md)).
+Minting a token, binding a worktree, or publishing a verified commit loads
+the `agent-bot` skill at the commit in the
+[skill catalog](../../skills/README.md). Read that entry only. Do not install
+the skill into the harness.
 
 ## Organization identity model
 

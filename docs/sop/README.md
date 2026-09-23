@@ -33,6 +33,7 @@ a bug, exactly like a shared fact stated twice in two agent files.
 | [Feature lifecycle](feature-lifecycle.md) | Every repo | The shared feature issue form and the closeout every feature records (ENG-0007) |
 | [Release and versioning](release-and-versioning.md) | Repos that cut releases | Changelog, version consistency, and dependency bumps |
 | [Security reporting and response](security-response.md) | Every repo | How vulnerabilities are reported, and the settings that back it |
+| [Machine and shell setup](machine-setup.md) | When the task changes a Mac, a harness, or shell startup | Which one skill that task loads |
 
 ## Inheritance in practice
 
@@ -54,6 +55,7 @@ classification, and the deltas each repo carries forward lives in
 
 ## Changelog
 
+- 2026-09-23 — a machine, harness, or shell-startup task loads one named skill; the catalog is not session preamble.
 - 2026-07-31 — make lifecycle-aware CI scheduling part of the shared branch/PR baseline.
 - 2026-07-22 — initial index; seeded the branch/PR/review, issue-lifecycle,
   release-and-versioning, and security-response baselines alongside the existing

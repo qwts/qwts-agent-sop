@@ -25,7 +25,9 @@ where each repo differs.
   ([ENG-0016](../decisions/ENG-0016-agent-pr-bot-identity.md)), never as the
   human account. GitHub does not let a PR's author approve it, so an agent PR
   authored by the human account makes the human-review requirement below
-  unsatisfiable.
+  unsatisfiable. Doing that work loads the `agent-bot` skill at the commit in
+  the [skill catalog](../../skills/README.md). Read that entry only. Do not
+  install the skill into the harness.
 - Link the PR to its issue with a closing keyword (`Closes #N` / `Fixes #N`), so
   merging the PR closes the issue. Every change traces to an issue — see the
   [issue lifecycle](issue-lifecycle.md).
@@ -89,6 +91,7 @@ where each repo differs.
 
 ## Changelog
 
+- 2026-09-23 — opening a pull request loads the `agent-bot` skill at its catalog pin and no other skill.
 - 2026-08-13 — state the deny list in the merge bar: approval, merge, and
   anything satisfying the required review count are never delegated to a broker
   or a grant (ENG-0016).
