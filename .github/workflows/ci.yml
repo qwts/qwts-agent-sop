@@ -51,38 +51,8 @@ jobs:
       source_input_policy: ${{ steps.policy.outputs.source_input_policy }}
       release_gate_mode: ${{ steps.policy.outputs.release_gate_mode }}
     steps:
-      - id: authorize
-        uses: qwts/qwts-agent-ci/.github/actions/ci-policy@3a5617b287d922e37f262210a1d8750d8217b56d
-        with:
-          authorization-only: 'true'
-      # qwts delta: the pinned release-lifecycle catalog in qwts-agent-ci has
-      # no entry for this repository yet, so the classifier would fail closed.
-      # Keep its immutable actor/fork gate, then require full validation for
-      # every enabled event until a catalog-bearing revision is pinned here.
-      # See docs/reference/repository-migration.md.
       - id: policy
-        name: Require full validation during repository bootstrap
-        shell: bash
-        env:
-          BOOTSTRAP_REPOSITORY: ${{ github.repository }}
-          BOOTSTRAP_EVENT_NAME: ${{ github.event_name }}
-        run: |
-          test "$BOOTSTRAP_REPOSITORY" = qwts/qwts-agent-sop
-          if [ "$BOOTSTRAP_EVENT_NAME" = pull_request ]; then
-            echo 'pull_request_kind=change-pr' >> "$GITHUB_OUTPUT"
-          else
-            echo 'pull_request_kind=not-a-pull-request' >> "$GITHUB_OUTPUT"
-          fi
-          cat >> "$GITHUB_OUTPUT" <<'OUTPUTS'
-          mode=full
-          run_full=true
-          run_post_merge=false
-          generated_release_projection=false
-          governed_harness_projection=false
-          release_metadata_system=none
-          source_input_policy=not-applicable
-          release_gate_mode=not-applicable
-          OUTPUTS
+        uses: qwts/qwts-agent-ci/.github/actions/ci-policy@f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa
 
   merge-evidence:
     name: Verify merged commit evidence
@@ -157,7 +127,7 @@ jobs:
       # cache and launches npm through the bounded-command runner at the same
       # pinned commit.
       - name: Install locked dependencies
-        uses: qwts/qwts-agent-ci/.github/actions/bounded-dependency-install@3a5617b287d922e37f262210a1d8750d8217b56d
+        uses: qwts/qwts-agent-ci/.github/actions/bounded-dependency-install@f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa
         env:
           NPM_CONFIG_CACHE: ${{ runner.temp }}/ci-dependency-cache/npm
         with:
@@ -172,7 +142,7 @@ jobs:
           attempts: '2'
           retry-delay-seconds: '5'
       - name: Workflow runtime policy
-        uses: qwts/qwts-agent-ci/.github/actions/ci-runtime-check@3a5617b287d922e37f262210a1d8750d8217b56d
+        uses: qwts/qwts-agent-ci/.github/actions/ci-runtime-check@f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa
       - name: Lint
         run: npm run lint:markdown
       # ENG-0282: every first-party pin in this repository's workflows must be
@@ -182,7 +152,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: qwts/qwts-agent-ci
-          ref: 3a5617b287d922e37f262210a1d8750d8217b56d
+          ref: f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa
           path: .ci-tooling
           persist-credentials: false
       - name: Pin reachability
@@ -254,7 +224,7 @@ jobs:
           node-version: 22
           package-manager-cache: false
       - name: Seed trusted default-branch dependency cache
-        uses: qwts/qwts-agent-ci/.github/actions/bounded-dependency-install@3a5617b287d922e37f262210a1d8750d8217b56d
+        uses: qwts/qwts-agent-ci/.github/actions/bounded-dependency-install@f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa
         env:
           NPM_CONFIG_CACHE: ${{ runner.temp }}/ci-dependency-cache/npm
         with:
