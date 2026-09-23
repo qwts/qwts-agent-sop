@@ -88,7 +88,6 @@ What this instance carries beyond `agent-sop@bf072f7`, so the next alignment kno
 - The report-only dependency inventory stays a required lane of this repository's own CI, from `qwts-agent-inventory` at the pin above, with its configuration files kept here.
 - `governance/release-lifecycles.json` stays until `qwts-agent-org` or `qwts-agent-ci` carries this repository's entry; nothing here reads it.
 - Decision records that the template links to `agent-sop@ed5c5d8` link here to this repository's own last revision holding the moved files, `8e9b32f`, each with a one-line note on the new home.
-- Not yet imported from the template: [ENG-0375](https://github.com/qwts/agent-sop/blob/bf072f7ab2ed077af781fdc3f754425c43f197c5/docs/decisions/ENG-0375-owner-account-agent-context-is-the-delegate.md), which supersedes ENG-0353; ENG-0353 stays `Proposed` here until that record is brought over.
 
 ## Usage
 1. **[Usage guide](https://github.com/qwts/qwts-agent-sdlc/blob/9168b22ad2a7c71938ae12c1c412753773887f04/docs/usage.md)** — VS Code Copilot agents, slash commands, and workflows for interactive requirements gathering, from `qwts-agent-sdlc`.
