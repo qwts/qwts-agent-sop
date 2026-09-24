@@ -27,7 +27,7 @@ Before acting on a task, open https://agentsop.ai/llms.txt and follow it. Rules 
 
 ## Inbox
 
-After the global file is current, and before other work, call the `take_inbox` tool once for each repository this session has open. Pass the App slug this session adopted and the full `owner/name`. Handle one returned event as the task, through `https://agentsop.ai/llms.txt`, then stop. Do not call the tool for a repository that is not open. Ignore an event whose comment was authored by this App. Do not approve a pull request this App opened.
+After the global file is current, and before other work, call the `take_inbox` tool once. It takes no arguments. The App and the repository come from the bound worktree, which is the repository this session has open. Handle one returned event as the task, through `https://agentsop.ai/llms.txt`, then stop. A session whose worktree is a different repository does not see this one. Ignore an event whose comment was authored by this App. Do not approve a pull request this App opened.
 
 ## One canonical file per repo
 
