@@ -13,8 +13,6 @@ inherit by default, vary by explicit delta.
 | `CONTRIBUTING.md` | May be a pointer stub into `docs/` (the photos pattern). |
 | `.github/CODEOWNERS` | Minimum: `* @qwts` plus explicit `/.github/` ownership. |
 | Feature issue template | The shared [feature-lifecycle](feature-lifecycle.md) form ([ENG-0007](../decisions/ENG-0007-feature-lifecycle-convention.md)); repos may add fields, not drop sections. |
-| `.codex/` | Shared project environment, command rules, and setup/cleanup scripts from this repository; existing repo-specific files are preserved as explicit deltas. |
-| `.claude/settings.json` | Shared Claude Code harness config from this repository — the account-gated `WorktreeCreate` hook (pins only inside a `qwts-*-agent` account, [ENG-0339](../decisions/ENG-0339-os-account-determines-persona.md)) and the uninstalled identity adapters ([ENG-0128](../decisions/ENG-0128-agent-bot-runtime-ownership.md)). Machine-local overrides belong in the gitignored `.claude/settings.local.json`, never here. |
 | `.prettierignore` | Repository-owned rules plus the marked governance block, which exempts the managed harness files from consumer formatters while preserving every local rule outside it. |
 
 ## Required when applicable
@@ -53,6 +51,9 @@ the repository's enabled merge methods.
 
 ## Changelog
 
+- 2026-09-24 — drop `.codex/` and `.claude/settings.json` from the required
+  set. Harness config lives in the user directory
+  ([ENG-0384](../decisions/ENG-0384-harness-config-lives-in-the-user-directory.md)).
 - 2026-09-15 — retire the push lanes (qwts/agent-sop#371): nothing is
   synchronized into repositories any more, so the `.prettierignore` row no
   longer claims a sync or a `lint:synced` gate.
