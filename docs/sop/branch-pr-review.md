@@ -28,6 +28,11 @@ where each repo differs.
   unsatisfiable. Doing that work loads the `agent-bot` skill at the commit in
   the [skill catalog](../../skills/README.md). Read that entry only. Do not
   install the skill into the harness.
+- Every commit an agent pushes is signed with `agent-bot signed-commit` before
+  the pull request is opened and again before it is updated. The
+  default-branch ruleset rejects an unsigned commit at merge. Pushing with
+  `git push` after `git commit` leaves the commit unsigned. The command and
+  its checks are `verified-publish.md` in the `agent-bot` skill named above.
 - Link the PR to its issue with a closing keyword (`Closes #N` / `Fixes #N`), so
   merging the PR closes the issue. Every change traces to an issue — see the
   [issue lifecycle](issue-lifecycle.md).
@@ -91,6 +96,7 @@ where each repo differs.
 
 ## Changelog
 
+- 2026-09-24 — every commit an agent pushes is signed with `agent-bot signed-commit` before the pull request is opened or updated.
 - 2026-09-23 — opening a pull request loads the `agent-bot` skill at its catalog pin and no other skill.
 - 2026-08-13 — state the deny list in the merge bar: approval, merge, and
   anything satisfying the required review count are never delegated to a broker
