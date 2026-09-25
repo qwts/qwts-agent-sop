@@ -96,6 +96,7 @@ principles; it does not waive the lower priorities.
 | [ENG-0353](ENG-0353-delegate-writes-require-an-explicit-marker.md) | Delegate writes in the owner account require an explicit marker | Proposed |
 | [ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md) | Distribution is a static router, one local pointer, and pinned capabilities | Proposed |
 | [ENG-0375](ENG-0375-owner-account-agent-context-is-the-delegate.md) | Agent context in the owner's account is the delegate — no marker, no undelegable set | Proposed |
+| [ENG-0384](ENG-0384-harness-config-lives-in-the-user-directory.md) | Harness config lives in the user directory | Proposed |
 
 ## Related
 

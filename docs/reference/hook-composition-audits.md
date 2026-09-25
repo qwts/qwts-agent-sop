@@ -1,7 +1,12 @@
 # Hook composition audits
 
-This record captures active-fleet surveys for repository-owned commands inside
-the managed hook adapters. It supplements the `codexSync` declarations in
+This page is a historical survey of repository-owned commands that once lived
+inside committed hook adapters. [ENG-0384](../decisions/ENG-0384-harness-config-lives-in-the-user-directory.md)
+moves harness hooks to the harness user directory. The paths below are not
+the managed copies, and this page does not require those files in a
+repository.
+
+The survey supplements the `codexSync` declarations in
 [governed repositories](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/docs/governed-repos.md) (`qwts-agent-org`); the
 manifest there remains the machine-readable source of ownership declarations.
 
