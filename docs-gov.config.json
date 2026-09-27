@@ -28,8 +28,8 @@
       },
       {
         "path": "docs/decisions/ENG-0081-transcript-bound-agent-execution-identities.md",
-        "budget": 2700,
-        "reason": "accepted ENG records are amended or superseded rather than rewritten; retiring the push lanes (qwts/agent-sop#371) turned this record's reference to the deleted agent-bot client module into a 40-hex permalink with a one-line retirement note, which is the only growth past the 2600 default. The next breach should be re-examined, not reflexively raised"
+        "budget": 3100,
+        "reason": "accepted ENG records are amended or superseded rather than rewritten; retiring the push lanes (qwts/agent-sop#371) turned this record's reference to the deleted agent-bot client module into a 40-hex permalink with a one-line retirement note, which was the only growth past the 2600 default. Re-examined and raised 2700 → 3100 on 2026-09-27 (qwts/qwts-agent-sop#35): ENG-0339 superseded ENG-0045, which the 2026-08-13 amendment cites for App resolution and presence, so a second amendment repairs those two citations; superseding the whole record to save 300 tokens would cost a new record and a note here. The next breach should be re-examined, not reflexively raised"
       },
       {
         "path": "docs/decisions/ENG-0339-os-account-determines-persona.md",

@@ -103,3 +103,21 @@ Two simpler designs were considered and rejected:
 - A tier assignment is a judgment the issue author must make and defend. The SOP
   asks for the reason precisely where it is least obvious: when the tier
   disagrees with the size of the diff.
+
+## Amendment — 2026-09-27: where the registry is read
+
+Decision 7 placed the registry in "the agent-bot-identity checkout each
+governed machine already carries", reached through a CLI symlinked into it.
+[ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md) rejected
+a copy on every machine, and the installed `agent-bot` is a built binary, not
+a symlink into a checkout. What applies
+([qwts/qwts-agent-sop#35](https://github.com/qwts/qwts-agent-sop/issues/35)):
+the registry's home is unchanged, `governance/agent-models.json` in
+[agent-bot-identity](https://github.com/qwts/agent-bot-identity). An issue
+author reads it at the commit the org repository's `org.json` pins for the
+`agent-bot` capability (ENG-0355 decision 6), not from an assumed local
+checkout; a machine that carries a checkout reads it there only at that same
+commit. The [issue-lifecycle SOP](../sop/issue-lifecycle.md) carries the
+retrieval command. Decision 2 is unchanged: an author who cannot read it says so rather
+than recalling a name. Whether the runtime exposes the registry as a CLI read
+is agent-bot-identity's decision, not this record's.

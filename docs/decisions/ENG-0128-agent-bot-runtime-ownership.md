@@ -19,7 +19,9 @@ mechanics with organization-only policy and App configuration.
    token minting, setup, installation, compatibility behavior, and runtime
    tests have one source of truth in that repository.
 2. **`playbook-engineering` owns organization governance.** The App roster in
-   `governance/agents.json`, its validation, active/retired semantics,
+   `governance/agents.json` (now in
+   [qwts-agent-org](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/governance/agents.json),
+   ENG-0355), its validation, active/retired semantics,
    permissions policy, human-versus-bot boundary, required review rules,
    App-installation coverage, incident expectations, and governed-repository
    integrations remain here.
