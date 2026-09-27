@@ -97,21 +97,27 @@ imports the template's records and files its own. What applies in an instance
    and it spends a public counter on a decision the template never carries.
 3. **Collision between an imported and an instance-authored record is
    possible, and the gate refuses it.** The two counters are independent.
-   Decision 3's duplicate check fails the second record to land; the
-   resolution is a fresh instance issue, linked to the first, whose number is
-   free. Renumbering the imported record is never the resolution.
+   Decision 3's duplicate check fails the second record to land, whichever
+   kind it is, and the record already landed keeps its number. When the
+   instance record lands second, it is filed from a fresh instance issue,
+   linked to the first. When the template record lands second, the alignment
+   adopts it the same way: a fresh instance issue, and a record numbered from
+   it whose body names the template record it adopts and that record's
+   original number. Renumbering a landed record is never the resolution.
 4. **docs-gov's `decisionSeries.homeRepo` in an instance is the instance
    repository; the template and its former names are aliases.** At the pinned
    docs-gov the aliases apply to every record, so an instance-authored record
-   that cites a template issue passes the gate; review holds item 2 until
-   docs-gov can distinguish imported records from authored ones
+   that cites a template issue passes the gate; review, not the gate, holds
+   item 2 until docs-gov can distinguish imported records from authored ones
    ([qwts/qwts-agent-docs-gov#1](https://github.com/qwts/qwts-agent-docs-gov/issues/1)).
 5. **ENG-0384 keeps its number by exception.** It was filed from template issue
    agent-sop#384 before this amendment, its body links the instance request
    ([qwts/qwts-agent-sop#25](https://github.com/qwts/qwts-agent-sop/issues/25)),
    and it is cited by the baseline SOP. It is the last record numbered that
-   way. ENG-0029, which cited the template while its issue was here, is
-   withdrawn ([qwts/qwts-agent-sop#31](https://github.com/qwts/qwts-agent-sop/issues/31)).
+   way. ENG-0029, which cited the template while its issue was here, was
+   withdrawn and removed
+   ([qwts/qwts-agent-sop#31](https://github.com/qwts/qwts-agent-sop/issues/31),
+   [#43](https://github.com/qwts/qwts-agent-sop/pull/43)).
 
 Consequences: the instance's numbers interleave with the template's, so a
 reader cannot tell an imported record from a local one by number alone; the
