@@ -83,7 +83,7 @@ Each mechanism lives in its own repository and is consumed at a 40-hex commit, n
 
 What this instance carries beyond `agent-sop@bf072f7`, so the next alignment knows what to keep:
 
-- Repository identity: `qwts-agent-sop` in `package.json`, the issue form, and every `qwts-agent-sop` link in the governed discovery block of [AGENTS.md](AGENTS.md); the `decisionSeries` home is `qwts/qwts-agent-sop`, and `qwts/agent-sop` with its former names are aliases, so imported records keep the template issue that allocated their number while records authored here take this repository's (ENG-0035, amendment of 2026-09-27).
+- Repository identity: `qwts-agent-sop` in `package.json`, the issue form, and every `qwts-agent-sop` link in the governed discovery block of [AGENTS.md](AGENTS.md); the `decisionSeries` home is `qwts/qwts-agent-sop` with `qwts/agent-sop` and its former names as aliases: imported records keep their template issue, records authored here take this repository's (ENG-0035, amendment of 2026-09-27).
 - The [repository migration](docs/reference/repository-migration.md) reference. CI pins `qwts-agent-ci` at `f651d5e`, whose release-lifecycle catalog includes this repository, and the Action Policy job runs `ci-policy` in classification mode.
 - The report-only dependency inventory stays a required lane of this repository's own CI, from `qwts-agent-inventory` at the pin above, with its configuration files kept here.
 - `governance/release-lifecycles.json` in this repository is unread. The catalog that classifies CI is the pinned `qwts-agent-ci` copy, which carries this repository's entry.
