@@ -102,8 +102,12 @@ imports the template's records and files its own. What applies in an instance
    instance record lands second, it is filed from a fresh instance issue,
    linked to the first. When the template record lands second, the alignment
    adopts it the same way: a fresh instance issue, and a record numbered from
-   it whose body names the template record it adopts and that record's
-   original number. Renumbering a landed record is never the resolution.
+   it whose header names the template record it adopts and that record's
+   original number as an alias. Later imports that link to the template's
+   filename or bare number are re-pointed to the adopting record at import,
+   as the alignment already re-points links to moved files. The template
+   counter runs far ahead of this repository's, so the case is expected to be
+   rare. Renumbering a landed record is never the resolution.
 4. **docs-gov's `decisionSeries.homeRepo` in an instance is the instance
    repository; the template and its former names are aliases.** At the pinned
    docs-gov the aliases apply to every record, so an instance-authored record
