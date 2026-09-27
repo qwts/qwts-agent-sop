@@ -53,12 +53,16 @@ Two rules make it worth having:
 
 - **Retrieve the routing; never recall it.** Read `governance/agent-models.json`
   from [agent-bot-identity](https://github.com/qwts/agent-bot-identity) at the
-  commit the org repository's `org.json` pins for the `agent-bot` capability
-  ([ENG-0151](../decisions/ENG-0151-model-routing.md), amendment of
-  2026-09-27), and cite its `verified_at`:
+  commit `org.json` pins for the `agent-bot` capability, with `org.json` itself
+  read from the repository and ref that `~/.config/agent-sop/config.toml`
+  selects, never the org repository's default branch
+  ([ENG-0355](../decisions/ENG-0355-static-router-one-pointer-pinned-capabilities.md)
+  decisions 2 and 3; [ENG-0151](../decisions/ENG-0151-model-routing.md),
+  amendment of 2026-09-27). Cite its `verified_at`:
 
   ```bash
-  ref=$(gh api repos/qwts/qwts-agent-org/contents/org.json --jq .content | base64 -d | jq -r '.capabilities["agent-bot"].ref')
+  org=$(sed -n 's/^org *= *"\([^"]*\)".*/\1/p' ~/.config/agent-sop/config.toml)
+  ref=$(gh api "repos/${org%@*}/contents/org.json?ref=${org#*@}" --jq .content | base64 -d | jq -r '.capabilities["agent-bot"].ref')
   gh api "repos/qwts/agent-bot-identity/contents/governance/agent-models.json?ref=$ref" --jq .content | base64 -d
   ```
 

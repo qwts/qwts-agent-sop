@@ -79,11 +79,11 @@ principles; it does not waive the lower priorities.
 | [ENG-0038](ENG-0038-governance-reconciler.md) | Governance reconciler — one operation converges any repo to the manifest | Superseded by ENG-0355 |
 | [ENG-0045](ENG-0045-agent-environments-are-bot-territory.md) | Agent coding environments are bot territory; installed tooling is commit-pinned | Superseded by ENG-0339 |
 | [ENG-0079](ENG-0079-per-agent-identity.md) | Agent identity is per agent — the harness is detected, the agent is pinned | Proposed |
-| [ENG-0081](ENG-0081-transcript-bound-agent-execution-identities.md) | Agent execution identities bind bot actions to provider transcripts | Proposed |
+| [ENG-0081](ENG-0081-transcript-bound-agent-execution-identities.md) | Agent execution identities bind bot actions to provider transcripts; amended 2026-09-27: the App is resolved from the account after ENG-0339 | Proposed |
 | [ENG-0128](ENG-0128-agent-bot-runtime-ownership.md) | Agent identity runtime ownership; durable vs uninstalled classes; unmanaged publish as ai9d | Proposed |
 | [ENG-0138](ENG-0138-machine-scoped-agent-memory-budget.md) | The local memory budget is machine-scoped; same-user grants are legacy-only | Proposed |
 | [ENG-0149](ENG-0149-code-scanning.md) | Code scanning conformance is verified by analysis, not by configuration | Proposed |
-| [ENG-0151](ENG-0151-model-routing.md) | Model routing is retrieved from a registry, never recalled | Proposed |
+| [ENG-0151](ENG-0151-model-routing.md) | Model routing is retrieved from a registry, never recalled; amended 2026-09-27: read at the org.json pin, not a local checkout | Proposed |
 | [ENG-0160](ENG-0160-semantic-judge-arbitrates-size-ratchets.md) | The semantic judge arbitrates size-ratchet adjustments | Accepted |
 | [ENG-0172](ENG-0172-agent-space-is-durable-per-soul-storage.md) | Agent Space is durable per-soul storage outside bot territory | Proposed |
 | [ENG-0178](ENG-0178-evidence-bound-harness-projections.md) | Governed harness projections are evidence-bound no-release inputs | Accepted |
