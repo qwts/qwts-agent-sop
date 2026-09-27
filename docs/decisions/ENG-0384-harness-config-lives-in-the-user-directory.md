@@ -63,3 +63,38 @@ repository still stands.
   the files back in every repository.
 - Cursor gives the project file precedence in a conflict. Decision 3 exists
   so a repository file cannot use that precedence to replace the user hook.
+
+## Amendment — 2026-09-27: ENG-0014 is superseded
+
+[ENG-0014](ENG-0014-canonical-agent-context.md) chose `CLAUDE.md` as the
+canonical agent-context file, made `AGENTS.md` a generated copy under a CI
+drift check, and pushed a baseline block into every governed repository's
+`CLAUDE.md` through the manifest. Decision 1 above reversed the first two
+without naming ENG-0014. ENG-0014 is superseded in full
+([qwts/qwts-agent-sop#34](https://github.com/qwts/qwts-agent-sop/issues/34)),
+decision by decision:
+
+- Decisions 1 and 2 fall to this record.
+- Decision 3 allowed a copy of every-session content only when it was
+  machine-generated and drift-checked, and linked everything else. No copy is
+  generated now, so the exception falls with decisions 1 and 2. What continues
+  is the link-not-copy principle, which
+  [ENG-0006](ENG-0006-agentic-primitives-governance.md) decision 1 (a shared
+  fact stated in two agent files is a bug) and
+  [ENG-0008](ENG-0008-shared-sop-inheritance.md) decision 2 (repository files
+  link to shared SOPs, never copy them) already state. This amendment adds no
+  copy exception of its own.
+- Decision 4 had two parts. The block's placement in `CLAUDE.md` falls to
+  this record. Its automated sync fell to
+  [ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md)
+  decision 1, which pushes nothing. The marked shared-conventions and skills
+  block in `AGENTS.md` is not retired: the
+  [repository baseline SOP](../sop/repo-baseline-files.md) still requires it,
+  and it lands by reviewed PR.
+- Decision 5, the manifest as a distribution list, fell to ENG-0355. The
+  manifest now lives in the org repository and nothing reads it as a push
+  list.
+
+ENG-0006 decision 1, `AGENTS.md` as the one canonical source, is again the
+rule; ENG-0014's amendment of it is void. Nothing in the decisions above
+changes.
