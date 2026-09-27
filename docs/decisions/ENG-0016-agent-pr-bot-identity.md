@@ -158,6 +158,51 @@ Consequences:
   act inside the grant, and was the grant created by a ceremony. Receipts are
   what make the second answerable.
 
+## Amendment — 2026-09-27: the delegate is outside the undelegable set
+
+The 2026-08-13 amendment's decision 1 closed approval, merge, and every act
+satisfying `required_approving_review_count` to delegation by "grant, broker,
+daemon, or automation".
+[ENG-0375](ENG-0375-owner-account-agent-context-is-the-delegate.md)
+decided that agent context in the owner's macOS account is the
+owner's delegate, that it approves and merges as the owner does, and that the
+human-review bar on agent work is carried by authorship. The two were never
+reconciled, and the [branch/PR SOP](../sop/branch-pr-review.md) restated the
+older rule. This amendment reconciles them
+([qwts/qwts-agent-sop#33](https://github.com/qwts/qwts-agent-sop/issues/33)).
+
+1. **The undelegable set stands for every path with no owner session at the
+   harness.** A bounded grant, a broker, a daemon, or automation still
+   may not approve, merge, dismiss or alter an approval, or otherwise
+   satisfy the review count on the human's behalf. Decisions 2 to 6 of the
+   2026-08-13 amendment are unchanged.
+2. **The delegate is not in that set.** A harness running unpinned in the
+   owner's account, with no App selected by `--app` or `GH_AGENT_APP`, acts
+   under the human credential with human attribution
+   ([ENG-0339](ENG-0339-os-account-determines-persona.md) decision 3,
+   ENG-0375 decision 1). Its approval is the owner's approval, exercised
+   through the harness. Decision 4 stands: the bot never reviews or approves,
+   and the delegate is not the bot.
+3. **Authorship carries the bar.** Agent-authored PRs come from a rostered
+   App (decision 1); the owner's persona, delegate or not, approves them;
+   GitHub's author-cannot-approve rule keeps the two roles distinct. A
+   delegate never approves work authored under the human account by an
+   agent, because that work is an identity incident under this record before
+   it is an approval question.
+
+Consequences: nothing in the owner's account distinguishes a delegate that
+was asked to approve from one that decided to. ENG-0375 accepts that, and
+this amendment inherits the acceptance; the audit trail is bot authorship of
+the work plus the runtime's delegate log. A decision that wants a
+human-origin ceremony back reopens
+[ENG-0353](ENG-0353-delegate-writes-require-an-explicit-marker.md)'s
+question with evidence. Striking ENG-0375 decision 2 instead was rejected:
+the fleet-wide reconcile it cites showed the older rule stopped governance
+without stopping misuse. The template carries the
+same unreconciled pair; until it lands there, this amendment and the SOP
+wording are an instance delta under
+[ENG-0008](ENG-0008-shared-sop-inheritance.md).
+
 ## References
 
 - [Agent bot identity reference](../reference/agent-bot-identity.md) — setup and per-task usage

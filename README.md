@@ -88,7 +88,7 @@ What this instance carries beyond `agent-sop@bf072f7`, so the next alignment kno
 - The report-only dependency inventory stays a required lane of this repository's own CI, from `qwts-agent-inventory` at the pin above, with its configuration files kept here.
 - `governance/release-lifecycles.json` in this repository is unread. The catalog that classifies CI is the pinned `qwts-agent-ci` copy, which carries this repository's entry.
 - Decision records that the template links to `agent-sop@ed5c5d8` link here to this repository's own last revision holding the moved files, `8e9b32f`, each with a one-line note on the new home.
-
+- [ENG-0016](docs/decisions/ENG-0016-agent-pr-bot-identity.md)'s amendment of 2026-09-27 and the [branch/PR SOP](docs/sop/branch-pr-review.md) merge bar reconcile the undelegable set with [ENG-0375](docs/decisions/ENG-0375-owner-account-agent-context-is-the-delegate.md): the owner's delegate approves as the owner, brokers and grants never do. The template still carries the unreconciled pair; this is an ENG-0008 delta until it lands upstream.
 ## Usage
 1. **[Usage guide](https://github.com/qwts/qwts-agent-sdlc/blob/9168b22ad2a7c71938ae12c1c412753773887f04/docs/usage.md)** — VS Code Copilot agents, slash commands, and workflows for interactive requirements gathering, from `qwts-agent-sdlc`.
 2. Browse the `docs/` directory to find relevant sections of the SDLC.

@@ -58,11 +58,15 @@ where each repo differs.
 - At least one approving human review is required. Agent-authored changes are
   never self-merged; a human approves before merge. (Org mandate following the
   2026-07-21 photos incident.)
-- That approval is never delegated. No broker, grant, or automation approves,
-  merges, dismisses an approval, or otherwise satisfies
+- That approval is never brokered. No grant, broker, daemon, or automation
+  approves, merges, dismisses an approval, or otherwise satisfies
   `required_approving_review_count` on the human's behalf. A bounded grant may
   ask a human to review; it may never supply the review
-  ([ENG-0016](../decisions/ENG-0016-agent-pr-bot-identity.md)).
+  ([ENG-0016](../decisions/ENG-0016-agent-pr-bot-identity.md)). The owner's
+  delegate, a harness running unpinned in the owner's account with no App
+  selected, approves as the owner
+  ([ENG-0375](../decisions/ENG-0375-owner-account-agent-context-is-the-delegate.md));
+  a harness that selected an App is the bot and never approves.
 - Every review thread is resolved before merge in one explicit state: **fixed**
   (name the commit), **deferred** (link a follow-up issue with the reason), or
   **rejected** (give the technical reason). No thread is silently dismissed;
@@ -96,6 +100,9 @@ where each repo differs.
 
 ## Changelog
 
+- 2026-09-27 — the merge bar's deny list binds grants, brokers, daemons, and
+  automation; the owner's delegate approves as the owner (ENG-0016 amendment of
+  2026-09-27, ENG-0375).
 - 2026-09-24 — every commit an agent pushes is signed with `agent-bot signed-commit` before the pull request is opened or updated.
 - 2026-09-23 — opening a pull request loads the `agent-bot` skill at its catalog pin and no other skill.
 - 2026-08-13 — state the deny list in the merge bar: approval, merge, and
