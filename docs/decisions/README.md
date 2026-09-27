@@ -75,7 +75,6 @@ principles; it does not waive the lower priorities.
 | [ENG-0014](ENG-0014-canonical-agent-context.md) | Canonical agent context is CLAUDE.md — AGENTS.md generated, copies gated, baselines vendored | Proposed |
 | [ENG-0015](ENG-0015-dependency-inventory.md) | Inventory dependencies and tooling across the fleet — report-only, Syft SBOM plus a shared normalizer | Proposed |
 | [ENG-0016](ENG-0016-agent-pr-bot-identity.md) | Agent-authored PRs come from dedicated bot identities (GitHub Apps, one per harness) | Proposed |
-| [ENG-0029](ENG-0029-credential-minting-is-authorized-by-a-worktree-bound-grant.md) | Credential minting is authorized by a worktree-bound grant, not by the soul | Proposed |
 | [ENG-0035](ENG-0035-issue-derived-record-numbers.md) | ENG record numbers are the originating issue number — allocation cannot collide | Proposed |
 | [ENG-0038](ENG-0038-governance-reconciler.md) | Governance reconciler — one operation converges any repo to the manifest | Superseded by ENG-0355 |
 | [ENG-0045](ENG-0045-agent-environments-are-bot-territory.md) | Agent coding environments are bot territory; installed tooling is commit-pinned | Superseded by ENG-0339 |
