@@ -169,6 +169,34 @@ Consequences:
   [#183](https://github.com/qwts/playbook-engineering/issues/183) still owns the
   runtime pin they cite.
 
+## Amendment — 2026-09-27: App resolution after ENG-0339
+
+The 2026-08-13 amendment's decision 3 resolves the App "from the worktree's
+territory (ENG-0045 decision 1)", and its decision 5 says "ENG-0045 decision 2
+stands". [ENG-0339](ENG-0339-os-account-determines-persona.md) superseded
+ENG-0045 on 2026-09-03: decision 1 is struck, and territory means the macOS
+account. Those two citations are history from here on
+([qwts/qwts-agent-sop#35](https://github.com/qwts/qwts-agent-sop/issues/35)).
+What applies:
+
+1. **The agent path resolves the App from the account, refined by the pin.**
+   The identity service resolves the App from the account running the harness
+   (ENG-0339 decisions 1 and 4), refined by the worktree pin `qwts.agentApp`
+   (ENG-0079 decision 3). Resolution yields exactly one App or fails closed. A
+   client-supplied harness label, App slug, or Agent ID stays untrusted input
+   under decision 8. `--app` and `GH_AGENT_APP` keep their force on the
+   operator path.
+2. **Presence is still written at bind, with no clock-in step.** ENG-0339
+   decision 5 is now the home of that rule: the account is one more detection
+   input, and no skill introduces a required first tool call.
+
+Decisions 1 to 8 and the rest of the 2026-08-13 amendment stand. No runtime
+behaviour changes; ENG-0339 decision 5 already recorded the account as a
+detection input. This repairs the citations so the resolution ladder reads the
+same in every live record. ENG-0029, withdrawn in
+[qwts/qwts-agent-sop#31](https://github.com/qwts/qwts-agent-sop/issues/31),
+was written against the stale reading.
+
 ## References
 
 - [ENG-0016](ENG-0016-agent-pr-bot-identity.md) — short-lived App credentials and the human/bot boundary
