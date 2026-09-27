@@ -63,8 +63,10 @@ where each repo differs.
   `required_approving_review_count` on the human's behalf. A bounded grant may
   ask a human to review; it may never supply the review
   ([ENG-0016](../decisions/ENG-0016-agent-pr-bot-identity.md)). The owner's
-  delegate, a harness running unpinned in the owner's account, approves as the
-  owner ([ENG-0375](../decisions/ENG-0375-owner-account-agent-context-is-the-delegate.md)).
+  delegate, a harness running unpinned in the owner's account with no App
+  selected, approves as the owner
+  ([ENG-0375](../decisions/ENG-0375-owner-account-agent-context-is-the-delegate.md));
+  a harness that selected an App is the bot and never approves.
 - Every review thread is resolved before merge in one explicit state: **fixed**
   (name the commit), **deferred** (link a follow-up issue with the reason), or
   **rejected** (give the technical reason). No thread is silently dismissed;

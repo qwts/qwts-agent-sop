@@ -28,7 +28,7 @@
       },
       {
         "path": "docs/decisions/ENG-0016-agent-pr-bot-identity.md",
-        "budget": 3200,
+        "budget": 3300,
         "reason": "accepted ENG records are amended or superseded rather than rewritten; the 2026-09-27 amendment reconciling the undelegable set with ENG-0375's delegate (qwts/qwts-agent-sop#33) is the only growth past the 2600 default. The next breach should be re-examined, not reflexively raised"
       },
       {

@@ -177,7 +177,8 @@ older rule. This amendment reconciles them
    satisfy the review count on the human's behalf. Decisions 2 to 6 of the
    2026-08-13 amendment are unchanged.
 2. **The delegate is not in that set.** A harness running unpinned in the
-   owner's account acts under the human credential with human attribution
+   owner's account, with no App selected by `--app` or `GH_AGENT_APP`, acts
+   under the human credential with human attribution
    ([ENG-0339](ENG-0339-os-account-determines-persona.md) decision 3,
    ENG-0375 decision 1). Its approval is the owner's approval, exercised
    through the harness. Decision 4 stands: the bot never reviews or approves,
