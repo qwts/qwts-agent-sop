@@ -17,7 +17,7 @@ A procedure names one skill. Read that entry below and then its `SKILL.md` at th
 
 ## Available skills
 
-- [agent-bot](https://github.com/qwts/agent-bot-identity/tree/7e1f813347e49df78437098c5415269d8423bc72/skills/agent-bot)
+- [agent-bot](https://github.com/qwts/agent-bot-identity/tree/52f55b171b41a2cf7ae80e5318246363729ccddf/skills/agent-bot)
   — owned by
   [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
   Per-harness GitHub App identities for coding agents: bootstrap and
