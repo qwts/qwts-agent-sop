@@ -26,10 +26,22 @@ The test: **if exactly one repo would have to change, it is not an ENG record.**
 number** ([ENG-0035](ENG-0035-issue-derived-record-numbers.md)): file the
 issue-first issue this series already requires, then name the record after it —
 issue #35 → `ENG-0035`. GitHub allocates issue numbers atomically and never
-reuses them, so numbers are collision-free and no two open PRs can claim the
-same one. Numbering is therefore sparse and non-consecutive, not `+1` — that is
+reuses them, so within one repository's counter numbers are collision-free and
+no two open PRs can claim the same one. Numbering is therefore sparse and non-consecutive, not `+1` — that is
 expected. Records ENG-0001–0016 predate the rule and keep their sequential
 numbers. docs-gov enforces the mapping and rejects duplicate numbers.
+
+This repository is an instance of the template `qwts/agent-sop`. A record
+imported from the template keeps its template number and cites its template
+issue (or the template's former names); a record authored here takes this
+repository's issue number and cites that issue (ENG-0035, amendment of
+2026-09-27). The `**Issue:**` field, not the number, says which kind a record
+is. The two counters are independent, so an imported and a locally authored
+record can carry the same number; docs-gov's duplicate check refuses the second
+to land, and that record is renumbered from a fresh issue here. At the pinned
+docs-gov either home passes the issue-field check for every record, so review,
+not the gate, holds a locally authored record to this repository's counter
+([qwts-agent-docs-gov#1](https://github.com/qwts/qwts-agent-docs-gov/issues/1)).
 
 The prefix is deliberately distinct from photos' `ADR-NNNN` so that a citation
 is never ambiguous about which series and which home it refers to.
@@ -75,7 +87,7 @@ principles; it does not waive the lower priorities.
 | [ENG-0014](ENG-0014-canonical-agent-context.md) | Canonical agent context is CLAUDE.md — AGENTS.md generated, copies gated, baselines vendored | Superseded by ENG-0384 |
 | [ENG-0015](ENG-0015-dependency-inventory.md) | Inventory dependencies and tooling across the fleet — report-only, Syft SBOM plus a shared normalizer | Proposed |
 | [ENG-0016](ENG-0016-agent-pr-bot-identity.md) | Agent-authored PRs come from dedicated bot identities (GitHub Apps, one per harness); amended 2026-09-27: the owner's delegate approves as the owner, brokers and grants never do | Proposed |
-| [ENG-0035](ENG-0035-issue-derived-record-numbers.md) | ENG record numbers are the originating issue number — allocation cannot collide | Proposed |
+| [ENG-0035](ENG-0035-issue-derived-record-numbers.md) | ENG record numbers are the originating issue number; one counter per repository, cross-counter duplicates refused by the gate | Proposed |
 | [ENG-0038](ENG-0038-governance-reconciler.md) | Governance reconciler — one operation converges any repo to the manifest | Superseded by ENG-0355 |
 | [ENG-0045](ENG-0045-agent-environments-are-bot-territory.md) | Agent coding environments are bot territory; installed tooling is commit-pinned | Superseded by ENG-0339 |
 | [ENG-0079](ENG-0079-per-agent-identity.md) | Agent identity is per agent — the harness is detected, the agent is pinned | Proposed |

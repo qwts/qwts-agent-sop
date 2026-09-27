@@ -113,8 +113,8 @@
   "decisionSeries": {
     "glob": "docs/decisions/ENG-*.md",
     "issueField": "Issue",
-    "homeRepo": "qwts/agent-sop",
-    "homeRepoAliases": ["qwts/playbook-engineering", "qwts/dev-steward"],
+    "homeRepo": "qwts/qwts-agent-sop",
+    "homeRepoAliases": ["qwts/agent-sop", "qwts/playbook-engineering", "qwts/dev-steward"],
     "grandfathered": [
       "docs/decisions/ENG-000?-*.md",
       "docs/decisions/ENG-001?-*.md"

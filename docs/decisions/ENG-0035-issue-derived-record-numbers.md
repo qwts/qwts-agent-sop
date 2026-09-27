@@ -79,6 +79,54 @@ has already happened by authoring time.
   overflows; the gate will flag it as unparseable, which is the signal to widen
   the field — a problem this repo is thousands of issues from having.
 
+## Amendment — 2026-09-27: two counters after the template/instance split
+
+Decision 1 assumed one decision-home repository and one issue counter.
+[ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md) split
+the series into a template (`qwts/agent-sop`, formerly `playbook-engineering`
+and `dev-steward`) and instances (`qwts/qwts-agent-sop` for qwts). An instance
+imports the template's records and files its own. What applies in an instance
+([qwts/qwts-agent-sop#36](https://github.com/qwts/qwts-agent-sop/issues/36)):
+
+1. **An imported record keeps its template number and cites its template
+   issue.** Its number is history, never re-derived.
+2. **An instance-authored record takes the instance's own issue number and
+   cites that issue.** The template's counter is not borrowed: a template
+   issue opened only to allocate a number for an instance decision is the
+   ceremony [ENG-0013](ENG-0013-issue-first-provenance.md) exists to prevent,
+   and it spends a public counter on a decision the template never carries.
+3. **Collision between an imported and an instance-authored record is
+   possible, and the gate refuses it.** The two counters are independent.
+   Decision 3's duplicate check fails the second record to land, whichever
+   kind it is, and the record already landed keeps its number. When the
+   instance record lands second, it is filed from a fresh instance issue,
+   linked to the first. When the template record lands second, the alignment
+   adopts it the same way: a fresh instance issue, and a record numbered from
+   it whose header names the template record it adopts and that record's
+   original number as an alias. Later imports that link to the template's
+   filename or bare number are re-pointed to the adopting record at import,
+   as the alignment already re-points links to moved files. The template
+   counter runs far ahead of this repository's, so the case is expected to be
+   rare. Renumbering a landed record is never the resolution.
+4. **docs-gov's `decisionSeries.homeRepo` in an instance is the instance
+   repository; the template and its former names are aliases.** At the pinned
+   docs-gov the aliases apply to every record, so an instance-authored record
+   that cites a template issue passes the gate; review, not the gate, holds
+   item 2 until docs-gov can distinguish imported records from authored ones
+   ([qwts/qwts-agent-docs-gov#1](https://github.com/qwts/qwts-agent-docs-gov/issues/1)).
+5. **ENG-0384 keeps its number by exception.** It was filed from template issue
+   agent-sop#384 before this amendment, its body links the instance request
+   ([qwts/qwts-agent-sop#25](https://github.com/qwts/qwts-agent-sop/issues/25)),
+   and it is cited by the baseline SOP. It is the last record numbered that
+   way. ENG-0029, which cited the template while its issue was here, was
+   withdrawn and removed
+   ([qwts/qwts-agent-sop#31](https://github.com/qwts/qwts-agent-sop/issues/31),
+   [#43](https://github.com/qwts/qwts-agent-sop/pull/43)).
+
+Consequences: the instance's numbers interleave with the template's, so a
+reader cannot tell an imported record from a local one by number alone; the
+`**Issue:**` field says which. Decision 4's grandfather carve-out is unchanged.
+
 ## References
 
 - qwts/playbook-engineering#35 — the originating issue
