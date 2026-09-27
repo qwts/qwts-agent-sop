@@ -63,3 +63,20 @@ repository still stands.
   the files back in every repository.
 - Cursor gives the project file precedence in a conflict. Decision 3 exists
   so a repository file cannot use that precedence to replace the user hook.
+
+## Amendment — 2026-09-27: ENG-0014 is superseded
+
+[ENG-0014](ENG-0014-canonical-agent-context.md) chose `CLAUDE.md` as the
+canonical agent-context file, made `AGENTS.md` a generated copy under a CI
+drift check, and vendored a baseline block into every governed repository
+through the manifest. Decision 1 above reversed the first two without naming
+ENG-0014, and [ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md)
+decision 1 ended the third. ENG-0014 is superseded in full
+([qwts/qwts-agent-sop#34](https://github.com/qwts/qwts-agent-sop/issues/34)):
+its decisions 1 and 2 fall to this record, decisions 4 and 5 to ENG-0355, and
+decision 3 (copy only what is generated and drift-checked, link everything
+else) stands as [ENG-0006](ENG-0006-agentic-primitives-governance.md)
+decision 1 and [ENG-0008](ENG-0008-shared-sop-inheritance.md) decision 2
+already state it. ENG-0006 decision 1, `AGENTS.md` as the one canonical
+source, is again the rule; ENG-0014's amendment of it is void. Nothing in the
+decisions above changes.

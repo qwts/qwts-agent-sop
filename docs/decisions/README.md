@@ -72,7 +72,7 @@ principles; it does not waive the lower priorities.
 | [ENG-0011](ENG-0011-governed-scope-manifest.md) | Governed scope is a manifest — one source of truth, add/remove by editing it | Proposed |
 | [ENG-0012](ENG-0012-decision-priority-order.md) | Decision priority order — security, compliance, agentic development, human developers | Proposed |
 | [ENG-0013](ENG-0013-issue-first-provenance.md) | ENG records are issue-first — the issue holds the why, the record holds the decision | Proposed |
-| [ENG-0014](ENG-0014-canonical-agent-context.md) | Canonical agent context is CLAUDE.md — AGENTS.md generated, copies gated, baselines vendored | Proposed |
+| [ENG-0014](ENG-0014-canonical-agent-context.md) | Canonical agent context is CLAUDE.md — AGENTS.md generated, copies gated, baselines vendored | Superseded by ENG-0384 |
 | [ENG-0015](ENG-0015-dependency-inventory.md) | Inventory dependencies and tooling across the fleet — report-only, Syft SBOM plus a shared normalizer | Proposed |
 | [ENG-0016](ENG-0016-agent-pr-bot-identity.md) | Agent-authored PRs come from dedicated bot identities (GitHub Apps, one per harness) | Proposed |
 | [ENG-0035](ENG-0035-issue-derived-record-numbers.md) | ENG record numbers are the originating issue number — allocation cannot collide | Proposed |
