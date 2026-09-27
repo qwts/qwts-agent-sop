@@ -27,6 +27,11 @@
         "reason": "qwts roster, permissions, and the installed CLI boundary are one governance contract; runtime setup and troubleshooting moved to agent-bot-identity under ENG-0128; raised 1100 → 1200 on 2026-09-16 when the roster and the manifest moved to qwts-agent-org (ENG-0355) and both references became 40-hex permalinks into that repository — no prose was added, only longer link targets"
       },
       {
+        "path": "docs/decisions/ENG-0016-agent-pr-bot-identity.md",
+        "budget": 3200,
+        "reason": "accepted ENG records are amended or superseded rather than rewritten; the 2026-09-27 amendment reconciling the undelegable set with ENG-0375's delegate (qwts/qwts-agent-sop#33) is the only growth past the 2600 default. The next breach should be re-examined, not reflexively raised"
+      },
+      {
         "path": "docs/decisions/ENG-0081-transcript-bound-agent-execution-identities.md",
         "budget": 2700,
         "reason": "accepted ENG records are amended or superseded rather than rewritten; retiring the push lanes (qwts/agent-sop#371) turned this record's reference to the deleted agent-bot client module into a 40-hex permalink with a one-line retirement note, which is the only growth past the 2600 default. The next breach should be re-examined, not reflexively raised"
