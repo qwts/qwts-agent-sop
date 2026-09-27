@@ -10,12 +10,17 @@
 > as [ENG-0006](ENG-0006-agentic-primitives-governance.md) decision 1 states;
 > `CLAUDE.md` and the other vendor files live in the harness's user directory.
 > Decisions 1 and 2 (`CLAUDE.md` canonical, `AGENTS.md` a generated copy under
-> a drift check) fall to ENG-0384. Decisions 4 and 5 (the vendored baseline
-> block and the manifest as its distribution list) fell to
+> a drift check) fall to ENG-0384. Decision 3's generated-copy exception falls
+> with them: nothing is generated, so nothing is copied. Its link-not-copy
+> principle continues as ENG-0006 decision 1 (a shared fact stated twice is a
+> bug) and [ENG-0008](ENG-0008-shared-sop-inheritance.md) decision 2
+> (repository files link to shared SOPs, never copy them). Decision 4's
+> placement of the baseline block in `CLAUDE.md` falls to ENG-0384; its
+> automated sync, and decision 5's manifest as a distribution list, fell to
 > [ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md), which
-> pushes nothing. Decision 3, the link-vs-copy rule, survives as ENG-0006
-> decision 1 and [ENG-0008](ENG-0008-shared-sop-inheritance.md) decision 2
-> already state it. The generator and drift check were never built. The
+> pushes nothing. The marked block in `AGENTS.md` itself remains required by
+> the [repository baseline SOP](../sop/repo-baseline-files.md) and lands by
+> reviewed PR. The generator and drift check were never built. The
 > 2026-09-14 amendment's premise, that this repository is private, no longer
 > holds (ENG-0269, 2026-09-15). The text below is kept as the reasoning trail.
 
