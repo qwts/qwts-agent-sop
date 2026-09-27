@@ -31,6 +31,13 @@ same one. Numbering is therefore sparse and non-consecutive, not `+1` — that i
 expected. Records ENG-0001–0016 predate the rule and keep their sequential
 numbers. docs-gov enforces the mapping and rejects duplicate numbers.
 
+This repository is an instance of the template `qwts/agent-sop`. A record
+imported from the template keeps its template number and cites its template
+issue (or the template's former names); a record authored here takes this
+repository's issue number and cites that issue (ENG-0035, amendment of
+2026-09-27). The `**Issue:**` field, not the number, says which kind a record
+is.
+
 The prefix is deliberately distinct from photos' `ADR-NNNN` so that a citation
 is never ambiguous about which series and which home it refers to.
 
