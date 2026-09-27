@@ -117,6 +117,7 @@ the registry's home is unchanged, `governance/agent-models.json` in
 author reads it at the commit the org repository's `org.json` pins for the
 `agent-bot` capability (ENG-0355 decision 6), not from an assumed local
 checkout; a machine that carries a checkout reads it there only at that same
-commit. Decision 2 is unchanged: an author who cannot read it says so rather
+commit. The [issue-lifecycle SOP](../sop/issue-lifecycle.md) carries the
+retrieval command. Decision 2 is unchanged: an author who cannot read it says so rather
 than recalling a name. Whether the runtime exposes the registry as a CLI read
 is agent-bot-identity's decision, not this record's.
