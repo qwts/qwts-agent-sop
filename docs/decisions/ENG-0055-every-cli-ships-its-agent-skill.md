@@ -27,71 +27,95 @@ amendment of 2026-09-23 and [ENG-0051](ENG-0051-one-root-instruction-file-harnes
 
 ## Decision
 
-1. **Every CLI built in the organization ships a skill in its own
-   repository,** at `skills/<cli>/SKILL.md`. The skill is released with the
-   CLI and changes in the same pull request as the behavior it describes.
-   The skill catalog lists it at a pinned commit, as it lists every shared
-   skill. Its body is never copied into this repository.
-2. **The skill's frontmatter carries a contract** beside `name` and
-   `description`:
+The principle: **the CLI enforces behavior, the skill explains how to use
+it well, and release checks establish that the two agree.** The contract
+details (metadata keys, version grammar, output conventions, gate checks)
+are in the [CLI skill contract](../reference/cli-skill-contract.md).
 
-   | Field | Holds |
-   | --- | --- |
-   | `versions` | The supported range, bounded (`>=1.4 <2`), never open-ended |
-   | `version-command` | The least-invasive command that prints the version, normally `<cli> --version` |
-   | `validated` | The version the workflows and examples were last run against |
-   | `side-effects` | The strongest class any workflow reaches: `read-only`, `local-write`, `remote-write`, or `destructive` |
-   | `owner` | A named owner, matching `.github/CODEOWNERS` |
-
-3. **The body covers workflows, not reference.** It covers preferred
-   end-to-end workflows, output handling (the machine-readable mode, exit
-   codes, and which human-readable output is unstable), failure signatures
-   with retry limits and recovery steps, and known pitfalls. Each workflow is
-   labeled with its side-effect class. The body does not contain a command
-   catalog, a copy of the man page, secrets, or live identifiers. It stays
-   within the `perDoc` token budget; a skill that needs more is two skills.
-4. **The CLI makes the skill checkable.** It prints a parseable version from
-   `--version` with no side effects. Any output a workflow parses has a
-   machine-readable mode (JSON, for example), and that mode's shape changes
-   only with the major version.
-5. **Loading is the ENG-0006 amendment's rule.** A procedure names the skill.
+1. **Scope.** Every CLI the organization releases for repeated use ships a
+   skill: anything installed from a formula, package, or release. Scripts
+   that are never installed are exempt. A package with several executables,
+   or a shell-function collection, may ship one skill that covers them all.
+2. **The skill ships with the release.** It lives at `skills/<cli>/` in the
+   CLI's repository and changes in the same pull request as the behavior it
+   describes. Each release bundles that directory from the same source
+   revision, and the installed CLI prints the bundle's location and source
+   commit through a read-only command. The catalog lists the skill at a
+   pinned commit, and its body is never copied into this repository.
+3. **The contract lives under `metadata`.** The Agent Skills reference
+   validator rejects unknown top-level frontmatter fields. So the contract
+   uses `qwts-` keys inside `metadata`: contract version, CLI names,
+   supported version range, validated version, and side-effect class.
+   Ownership comes from `.github/CODEOWNERS`, not from a frontmatter field,
+   because a fact stated twice is a bug (ENG-0006 decision 1).
+4. **The CLI owns what is mechanical; the skill owns judgment.** The CLI
+   enforces its safeguards and explains itself through help and diagnostics
+   ([ENG-0049](ENG-0049-every-change-steps-are-enforced-not-remembered.md)
+   decision 3). The skill covers which task needs which workflow, how
+   commands combine when that is not obvious, and how to recover from a
+   failure. It may be thin and delegate to the version-matched help. Every
+   mutating workflow says whether a retry is safe and how to inspect the
+   result before retrying; a retry limit is not a retry-safety guarantee.
+   Detail goes in `references/`. A skill is split by task, not by length.
+5. **The CLI makes the skill checkable.** `<cli> --version` prints a bare
+   SemVer version and has no side effects. There is no separate version
+   command to declare. Documented machine-readable output stays backward
+   compatible within a major version. Additions are allowed. Incompatible
+   changes to field names, types, meanings, requiredness, or exit codes
+   need a major release.
+6. **Loading follows the ENG-0006 amendment.** A procedure names the skill.
    The CLI's own `AGENTS.md` names it for work on that CLI, and a consuming
    repository or SOP names it where that work uses the CLI. The skill is not
    installed into a harness. A rule every session needs goes in the root
-   instruction file (ENG-0051), not in an always-loaded skill.
-6. **Version check before use.** Before following a workflow, the agent runs
-   `version-command`. If the version is missing, cannot be parsed, or is
-   outside `versions`, the skill counts only as a hint. The agent works from
-   `--help` and man pages, and it reports the mismatch in its result.
-7. **Enforced at release, not remembered.** Following
-   [ENG-0049](ENG-0049-every-change-steps-are-enforced-not-remembered.md), the
-   CLI's release workflow fails if the version it releases is outside the
-   skill's `versions`. A breaking release therefore cannot ship until the
-   skill has been reviewed.
+   instruction file (ENG-0051). The agent uses the bundle of the installed
+   release when that release is the approved pin. If the two disagree, it
+   reports the inconsistency and handles it as a mismatch. It never fetches
+   another revision because that revision's range happens to fit.
+7. **Check the version at the point of use.** Before following a workflow,
+   the agent runs `<cli> --version` against the executable it will actually
+   use. It checks again after an upgrade, after an environment change, or
+   when the command resolves to a different executable. This is not a
+   required first call for the session: the ENG-0081 amendment of
+   2026-08-13, decision 5, still holds.
+8. **A mismatch voids the compatibility claim.** A mismatch is a version
+   that is missing, unparseable, outside the range, or inconsistent with the
+   pin. The agent may continue read-only inspection using the installed CLI's
+   documentation. Before any mutation, it establishes the command's
+   semantics and safeguards from documentation that matches the installed
+   version. If it cannot, it stops that operation and reports the mismatch
+   at that point. A skill grants no permission and does not widen the task.
+9. **The release gate fails closed.** Following ENG-0049, the CLI's release
+   workflow fails if the contract is missing or invalid, or if the packaged
+   executable's version is outside the range. It also fails if the range
+   extends past the next major version after `validated`, or if the bundle
+   is absent. It runs the skill's representative workflows and output
+   contract against the packaged executable. The range check shows that two
+   declarations agree, the tests show that the workflows run, and the
+   repository's review controls show that the change was reviewed.
 
-A skill is executable advice. ENG-0006 decision 3 already applies to it:
-it is reviewed as code, pinned, contains no secrets, and is a
-prompt-injection surface. A skill explains a command. It grants no
-permission and does not widen the task.
+ENG-0006 decision 3 still applies: a skill is reviewed as code, pinned,
+free of secrets, and treated as a prompt-injection surface.
 
 ## Consequences
 
-- **An authoring cost on every CLI.** A new CLI is not done until its skill
-  exists, and a breaking release is not done until the skill is updated.
-  That cost is the point, and it is still a cost.
-- **A skill can be wrong inside its declared range.** The version check
-  catches stale skills, not incorrect ones. Correctness still depends on
-  review and, where a repository has them, ENG-0006 golden tasks.
-- **Tooling work.** The release check in decision 7 is shared CI work for
-  `qwts-agent-ci`. Until it exists, each CLI checks its own release, or
-  review catches the problem. After acceptance, a follow-up PR adds the
-  frontmatter contract to the catalog's "Adding a skill" steps.
-- **Existing CLIs converge.** `managed-machine` and `zsh-functions` already
-  ship skills. They gain the frontmatter contract and the release check.
-  `agent-bot` gains a skill scoped to its CLI. Each gets an alignment
-  issue, as ENG-0006 decision 6 requires.
-- **One version-command run per load.** It is cheap, and it prevents
-  following a stale skill.
+- **An authoring cost on every CLI.** A new CLI is not done until its skill,
+  bundle, and gate exist. A major release is not done until its skill has
+  been revalidated.
+- **A skill can still be wrong within its range.** The gate's tests cover
+  representative workflows, not every workflow. Review and, where they
+  exist, ENG-0006 golden tasks cover the rest.
+- **Tooling work.** A shared gate belongs in `qwts-agent-ci`. Until it
+  exists, each CLI runs a local gate that implements the contract. A CLI
+  that relies on review alone has a tracked exception issue and does not
+  conform. After acceptance, a follow-up PR adds the contract to the
+  catalog's "Adding a skill" steps.
+- **Existing CLIs converge.** `managed-machine` and `zsh-functions` add the
+  metadata, the bundle, and the gate. `agent-bot`'s skill stays as thin as
+  ENG-0049 requires. Each gets an alignment issue, as ENG-0006 decision 6
+  requires.
+- **One version check per use, and a read-only bundle command on every
+  CLI.** Both are cheap, and together they let an agent find a stale or
+  mispaired skill.
 
 ## Alternatives
 
@@ -103,6 +127,8 @@ permission and does not widen the task.
   registry, pinned by commit.
 - **`--help` and man pages only:** rejected as the default and kept as the
   fallback. They document syntax, not how to run the workflows.
+- **Contract fields at the top level of the frontmatter:** rejected; the
+  Agent Skills validator refuses them.
 - **Persisting learned workflows automatically:** out of scope. A learned
   workflow reaches a skill through a reviewed pull request, as any change
   does.
@@ -111,7 +137,11 @@ permission and does not widen the task.
 
 ## References
 
+- [CLI skill contract](../reference/cli-skill-contract.md)
 - [ENG-0006](ENG-0006-agentic-primitives-governance.md) and its amendment of
   2026-09-23, [ENG-0049](ENG-0049-every-change-steps-are-enforced-not-remembered.md),
-  [ENG-0051](ENG-0051-one-root-instruction-file-harness-files-point-to-it.md)
-- [Skill catalog](../../skills/README.md)
+  [ENG-0051](ENG-0051-one-root-instruction-file-harness-files-point-to-it.md),
+  [ENG-0081](ENG-0081-transcript-bound-agent-execution-identities.md)
+- [Skill catalog](../../skills/README.md) ·
+  [Agent Skills specification](https://agentskills.io/specification) ·
+  [Semantic Versioning 2.0.0](https://semver.org/)
