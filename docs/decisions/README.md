@@ -90,6 +90,7 @@ principles; it does not waive the lower priorities.
 | [ENG-0035](ENG-0035-issue-derived-record-numbers.md) | ENG record numbers are the originating issue number; one counter per repository, cross-counter duplicates refused by the gate | Proposed |
 | [ENG-0038](ENG-0038-governance-reconciler.md) | Governance reconciler — one operation converges any repo to the manifest | Superseded by ENG-0355 |
 | [ENG-0045](ENG-0045-agent-environments-are-bot-territory.md) | Agent coding environments are bot territory; installed tooling is commit-pinned | Superseded by ENG-0339 |
+| [ENG-0049](ENG-0049-every-change-steps-are-enforced-not-remembered.md) | Steps on every change are enforced, not remembered: an identity router zone, signing in three layers, a self-teaching agent-bot | Proposed |
 | [ENG-0079](ENG-0079-per-agent-identity.md) | Agent identity is per agent — the harness is detected, the agent is pinned | Proposed |
 | [ENG-0081](ENG-0081-transcript-bound-agent-execution-identities.md) | Agent execution identities bind bot actions to provider transcripts; amended 2026-09-27: the App is resolved from the account after ENG-0339 | Proposed |
 | [ENG-0128](ENG-0128-agent-bot-runtime-ownership.md) | Agent identity runtime ownership; durable vs uninstalled classes; unmanaged publish as ai9d | Proposed |
