@@ -39,7 +39,7 @@ does not apply to it.
 
 - A changesets or equivalent version-packages PR is a ready PR. The generated
   version commit passes the repository's complete suite once under the
-  [CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/3a5617b287d922e37f262210a1d8750d8217b56d/docs/ci-execution-policy.md).
+  [CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa/docs/ci-execution-policy.md).
 - Version-cut automation generates and validates the version diff. It does not
   manually dispatch a second equivalent CI run in addition to the version PR's
   normal ready-PR run.
@@ -65,7 +65,7 @@ otherwise valid source.
 A generated Version packages PR is not a source PR. It has already consumed the
 release intent into its version and changelog diff, so never manufacture an
 empty input file to keep it green — see the
-[CI policy](https://github.com/qwts/qwts-agent-ci/blob/3a5617b287d922e37f262210a1d8750d8217b56d/docs/ci-execution-policy.md#changesets-version-prs-and-releases).
+[CI policy](https://github.com/qwts/qwts-agent-ci/blob/f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa/docs/ci-execution-policy.md#changesets-version-prs-and-releases).
 
 Version planning, tag planning, and release verification all consume the same
 semantic release count produced by `changeset status --output`. A positive
@@ -92,6 +92,8 @@ changelog updated, then let consumers re-point. A shared change never moves a
 
 ## Changelog
 
+- 2026-09-27 — the CI policy links point at `qwts-agent-ci@f651d5e`, the `ci`
+  pin in `qwts-agent-org`'s `org.json` (#47).
 - 2026-08-02 — distinguished source release inputs from generated release
   projections and prohibited empty marker files as a regeneration workaround.
 - 2026-08-01 — distinguish semantic Changesets releases from governance-only
