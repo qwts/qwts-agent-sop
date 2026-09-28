@@ -1,6 +1,6 @@
 # ENG-0055: Every CLI we build ships its own agent skill, versioned with it
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2026-09-28
 **Issue:** qwts/qwts-agent-sop#55
 
