@@ -62,16 +62,21 @@ rm -f ~/.claude/skills/signed-commit
 
 ## Adding a skill
 
-1. `skills/<name>/SKILL.md` with `name` and `description` frontmatter. The
+1. `skills/<name>/SKILL.md`, here or in the repository that owns the domain,
+   with `name` and `description` frontmatter. The
    description stays in that file. It is not injected into a session. The
    procedure that needs the skill names it; that name is the trigger
    ([ENG-0006](../docs/decisions/ENG-0006-agentic-primitives-governance.md)).
 2. Link it from **Available skills** above. `docs-gov` fails a skill reachable
    from no index: guidance nothing links to is guidance no agent loads.
-3. Keep it under the `perDoc` token budget. A skill that needs more is usually
-   two skills.
+3. Keep it under the `perDoc` token budget. Move detail into `references/`
+   first, then split by task, not by length.
 4. State what an agent cannot derive from the code or existing docs, and link
    rather than restate — a shared fact in two agent files is a bug
    (ENG-0006 item 1).
 5. Treat any script it ships as the supply chain it is: no secrets, no network
    fetch of unpinned code, least privilege.
+6. A skill for a CLI the organization releases also follows the
+   [CLI skill contract](../docs/reference/cli-skill-contract.md): `qwts-`
+   keys under `metadata`, a bundle in every release, and a fail-closed release
+   gate ([ENG-0055](../docs/decisions/ENG-0055-every-cli-ships-its-agent-skill.md)).
