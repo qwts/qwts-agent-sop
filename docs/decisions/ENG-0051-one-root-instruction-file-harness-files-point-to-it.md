@@ -1,6 +1,6 @@
 # ENG-0051: One generated root instruction file per account; harness global files point to it
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2026-09-27
 **Issue:** qwts/qwts-agent-sop#51
 
@@ -163,7 +163,7 @@ instruction file; the daemon supervisor supports only Linux and macOS. The
 ## References
 
 - [ENG-0049](ENG-0049-every-change-steps-are-enforced-not-remembered.md)
-  (Proposed, merged in #50)
+  (Accepted, merged in #50)
 - [ENG-0006](ENG-0006-agentic-primitives-governance.md),
   [ENG-0008](ENG-0008-shared-sop-inheritance.md),
   [ENG-0016](ENG-0016-agent-pr-bot-identity.md),

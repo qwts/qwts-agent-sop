@@ -1,6 +1,6 @@
 # ENG-0049: Steps on every change are enforced, not remembered
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2026-09-27
 **Issue:** qwts/qwts-agent-sop#49
 
