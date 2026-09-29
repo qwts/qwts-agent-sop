@@ -17,20 +17,20 @@ A procedure names one skill. Read that entry below and then its `SKILL.md` at th
 
 ## Available skills
 
-- [agent-bot](https://github.com/qwts/agent-bot-identity/tree/52f55b171b41a2cf7ae80e5318246363729ccddf/skills/agent-bot)
+- [agent-bot](https://github.com/qwts/agent-bot-identity/tree/5304683c1933190fd97b1e9ea7356a1a080fe43d/skills/agent-bot)
   — owned by
   [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
   Per-harness GitHub App identities for coding agents: bootstrap and
   installation, bot credential minting, authorized secure-store reads,
   GitHub-verified bot commits, transcript-bound Agent IDs, and Agent Spaces.
   Absorbed the old signed-commit skill (`signed-commit.mjs`). Load only when a procedure names this skill.
-- [managed-machine](https://github.com/qwts/managed-machine/tree/32765719ed8bdeea21223366ed8435670e21b47b/skills/managed-machine)
+- [managed-machine](https://github.com/qwts/managed-machine/tree/436631ede68f2315df84f04a613c974095fbf29a/skills/managed-machine)
   — owned by
   [qwts/managed-machine](https://github.com/qwts/managed-machine). Bootstrap,
   update, and manage a Mac via the `managed-machine` Homebrew formula: fresh
   setup, version reporting, setup scripts, brew ownership fixes, fleet SSH
   keys, gitleaks hooks, and agent-CLI installs. Load only when a procedure names this skill.
-- [onboard-harness](https://github.com/qwts/managed-machine/tree/32765719ed8bdeea21223366ed8435670e21b47b/skills/onboard-harness)
+- [onboard-harness](https://github.com/qwts/managed-machine/tree/436631ede68f2315df84f04a613c974095fbf29a/skills/onboard-harness)
   — owned by
   [qwts/managed-machine](https://github.com/qwts/managed-machine).
   Add a harness to managed-machine and managed-machine-config: catalog rows,
