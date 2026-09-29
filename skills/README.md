@@ -35,19 +35,25 @@ A procedure names one skill. Read that entry below and then its `SKILL.md` at th
   [qwts/managed-machine](https://github.com/qwts/managed-machine).
   Add a harness to managed-machine and managed-machine-config: catalog rows,
   setup scripts, tests, and docs. Load only when a procedure names this skill.
-- [add-zsh-function](https://github.com/qwts/zsh-functions/tree/c48302c3e9107745030b6fb8fee7805fc66eacf4/skills/add-zsh-function)
+- [zsh-functions](https://github.com/qwts/zsh-functions/tree/29e7e99ac8649bffc643bd9c43c05f4ef06add83/skills/zsh-functions)
+  — owned by
+  [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
+  Use the installed zsh-functions API and the `zsh-profile` managed-block
+  editor: PATH/fpath helpers, guarded `BEGIN/END` blocks, and startup-file
+  lint. Load only when a procedure names this skill.
+- [add-zsh-function](https://github.com/qwts/zsh-functions/tree/29e7e99ac8649bffc643bd9c43c05f4ef06add83/skills/add-zsh-function)
   — owned by
   [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
   Author a new zsh function: `functions/<name>` per that repo's `AGENTS.md`,
   reuse of the shared PATH/fpath API catalog, formula and `v*` tag release.
   Load only when a procedure names this skill.
-- [migrate-to-zsh-functions](https://github.com/qwts/zsh-functions/tree/c48302c3e9107745030b6fb8fee7805fc66eacf4/skills/migrate-to-zsh-functions)
+- [migrate-to-zsh-functions](https://github.com/qwts/zsh-functions/tree/29e7e99ac8649bffc643bd9c43c05f4ef06add83/skills/migrate-to-zsh-functions)
   — owned by
   [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
   Convert legacy `~/.functions` loops, vendor PATH leaks, and unguarded
   `export PATH` lines into guarded `BEGIN/END zsh-functions` blocks plus API
   calls. Load only when a procedure names this skill.
-- [audit-shell-writers](https://github.com/qwts/zsh-functions/tree/c48302c3e9107745030b6fb8fee7805fc66eacf4/skills/audit-shell-writers)
+- [audit-shell-writers](https://github.com/qwts/zsh-functions/tree/29e7e99ac8649bffc643bd9c43c05f4ef06add83/skills/audit-shell-writers)
   — owned by
   [qwts/zsh-functions](https://github.com/qwts/zsh-functions).
   Read-only recon of who writes `.zshenv`/`.zprofile`/`.zshrc` across repos;
