@@ -49,24 +49,36 @@ candidates, acceptance criteria) are in the
    the skill bundle.
 4. **Providers are data, not decisions.** This record fixes the adapter
    contract: finite-answer selection, declared capabilities, and provenance.
-   The allowed providers and models live in a registry, as
-   [ENG-0151](ENG-0151-model-routing.md) does for model routing, each with a
-   status (`verified`, `seeded`, `unverified`) and its data-handling terms.
-   The CLI refuses an `unverified` or absent provider. A new provider changes
-   the registry, not this record.
-5. **Transmission needs authorization, not just credentials.** `decide ask`
-   requires an explicit `--provider`; there is no default. The CLI sends only
-   the question's declared fields, minimizes and redacts them, and never
-   sends secrets. Request or provider content cannot change a definition, add
-   actions, or widen data access.
-6. **Failure never degrades silently.** Timeouts, retries, and spending are
+   The allowed providers and models live in their own registry file, beside
+   [ENG-0151](ENG-0151-model-routing.md)'s and with the same status triad
+   (`verified`, `seeded`, `unverified`). A new provider changes the
+   registry, not this record.
+5. **Only a `verified` provider receives data.** `verified` requires an
+   approved review of the provider's data-handling terms, recorded in the
+   registry entry. `seeded` and `unverified` entries are documentation only:
+   the CLI refuses them, and an absent one, before anything leaves the
+   machine.
+6. **Egress follows an approved route; credentials are not authorization.**
+   Transmission is authorized by two reviewed artifacts together: the
+   question definition, whose declared fields are reviewed as code, and the
+   provider's `verified` registry entry. `--provider` is required, with no
+   default, but it only selects among routes those artifacts already allow;
+   a credential or a flag never widens them. The CLI sends only the declared
+   fields, minimized and redacted, and never secrets. Request or provider
+   content cannot change a definition, add actions, or widen data access.
+7. **Failure never degrades silently.** Timeouts, retries, and spending are
    bounded. An outage never switches provider or model. Missing state,
    abstention, insufficient certainty, or provider failure returns
    `needs-input` with no proposal. The CLI passes the provider's uncertainty
    through and never manufactures a confidence.
-7. **Revalidate before execution.** A proposal carries its state revision.
-   The command that runs it revalidates target, arguments, and preconditions;
-   changed state invalidates the proposal.
+8. **Revalidation is enforced by the target command.** A question may map an
+   answer only to an action whose command accepts and enforces the proposal's
+   preconditions, including the state revision, as arguments (for example
+   `--if-revision`). The template always emits them into `argv`, so running
+   the proposal as returned performs the check, and changed state makes the
+   command refuse ([ENG-0049](ENG-0049-every-change-steps-are-enforced-not-remembered.md)).
+   A command without such an argument is not a valid action target. There is
+   no separate `decide apply` step to skip.
 
 ## Consequences
 
@@ -79,8 +91,12 @@ candidates, acceptance criteria) are in the
   per question from evaluations, not set universally.
 - **Logs can leak what was disclosed.** The CLI logs versions, outcomes, and
   redacted provenance, not the context sent to a provider.
-- **A registry to build.** Until it exists, no provider is `verified` and
+- **A registry and a review to build.** Until the registry exists and a
+  provider's data-handling terms are approved, no provider is `verified` and
   `decide ask` refuses every call.
+- **Action targets may need a new argument.** A command gains a
+  precondition argument such as `--if-revision` before any question can
+  propose it.
 
 ## Alternatives
 
@@ -92,6 +108,9 @@ candidates, acceptance criteria) are in the
   interface is for choices that need state the agent lacks.
 - **General text generation or function calling:** rejected. Its output is
   unbounded and would need parsing into actions.
+- **A `decide apply` command that revalidates and runs:** rejected. It
+  duplicates the target command's own checks, and an agent can still run
+  `argv` directly and skip it.
 - **Caller-defined dynamic questions now:** deferred until predefined
   questions have evaluation history.
 
