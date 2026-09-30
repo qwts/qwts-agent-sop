@@ -58,7 +58,8 @@ are in the [CLI skill command contract](../reference/cli-skill-command-contract.
    binary instead. No command updates an exported copy as a side effect.
 6. **An authoring skill lives in the shared skills home.** It sits under
    [`skills/`](../../skills/README.md) (ENG-0004), is cataloged, owned in
-   `.github/CODEOWNERS`, kept within the `perDoc` budget, and never installed.
+   `.github/CODEOWNERS`, kept within the `perDoc` budget, and never installed
+   ([qwts/qwts-agent-sop#68](https://github.com/qwts/qwts-agent-sop/issues/68)).
    The procedure for creating or changing a CLI names it, as does a CLI
    repository's `AGENTS.md`. It teaches the workflow split, the router and
    references, the catalog, the `skill` commands, the export guard, and the
@@ -77,8 +78,8 @@ are in the [CLI skill command contract](../reference/cli-skill-command-contract.
 - **More surface in every CLI.** The export guard, catalog test, and
   harness-path refusal cost code in each CLI until `qwts-agent-ci` provides
   shared pieces.
-- **The harness-path list needs upkeep** whenever a harness adds a discovery
-  location.
+- **The harness-path list needs upkeep.** It is non-exhaustive by nature and
+  must follow each harness's documented discovery locations.
 
 ## Alternatives
 

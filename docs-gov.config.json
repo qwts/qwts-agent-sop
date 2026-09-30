@@ -14,7 +14,7 @@
       {
         "path": "docs/decisions/README.md",
         "budget": 2700,
-        "reason": "the decision index gains one table row (about 30 tokens) per record and was at the 2600 default before ENG-0064; raised 2600 -> 2700 on 2026-09-30 for the ENG-0064 and ENG-0065 rows (qwts/qwts-agent-sop#64, #65). The next breach should split the index table (for example by status or range), not reflexively raise"
+        "reason": "the decision index gains one table row (about 30 tokens) per record and was at the 2600 default before ENG-0064; raised 2600 -> 2700 on 2026-09-30 for the ENG-0064 row (qwts/qwts-agent-sop#64), with headroom for one further row such as the ENG-0065 proposal in #65 if it lands. The next breach should split the index table (for example by status or range), not reflexively raise"
       },
       {
         "path": "README.md",

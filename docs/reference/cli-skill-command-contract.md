@@ -12,9 +12,11 @@ restate them. The examples use `exapp` as the CLI and `sync` as a feature.
 ```text
 skills/exapp/
 ├── SKILL.md              # router, qwts-* metadata
-└── references/
-    ├── sync.md
-    └── restore.md
+├── references/
+│   ├── sync.md
+│   └── restore.md
+├── assets/               # optional: templates, data
+└── scripts/              # optional: documented, never run by skill commands
 ```
 
 Feature identifiers use lowercase letters, digits, and single hyphens. The
@@ -57,6 +59,9 @@ change application configuration. Before writing, the CLI:
    `~/.agents/skills/`, with `harness-path-refused`. Sources:
    [Claude Code](https://code.claude.com/docs/en/skills#where-skills-live),
    [Codex](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).
+   The list is non-exhaustive and must track each harness's documented
+   locations. It lives in one maintained list, shared through
+   `qwts-agent-ci` once that exists, not copied into each CLI.
 3. Constrains every path to `DIR/exapp/`. It rejects absolute paths,
    traversal, and escaping symlinks, and does not follow a destination
    symlink.
@@ -98,4 +103,6 @@ source commit, and destination; with `--json`, as one JSON document.
   swap strategy and the cleanup of leftover staging directories.
 - **Shared implementation:** whether `qwts-agent-ci` ships the catalog check
   and export guard as a library or only as gate checks.
-- **Authoring skill name:** `author-cli-skill` is proposed.
+- **Authoring skill:** tracked in
+  [qwts/qwts-agent-sop#68](https://github.com/qwts/qwts-agent-sop/issues/68);
+  `author-cli-skill` is the proposed name.
