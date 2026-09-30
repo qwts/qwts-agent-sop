@@ -74,7 +74,7 @@ The release workflow fails closed. It fails when:
    is too high under the version grammar.
 4. The bundled skill directory is missing from the release artifact, or the
    bundle-location command does not report it.
-   [ENG-0064](../decisions/ENG-0064-cli-skill-command-family.md) (Proposed)
-   gives that command a common shape, `<cli> skill path`.
+   [ENG-0064](../decisions/ENG-0064-cli-skill-command-family.md) gives that
+   command a common shape, `<cli> skill path`.
 5. The skill's representative workflow and output-contract tests fail against
    the packaged executable.

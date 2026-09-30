@@ -1,6 +1,6 @@
 # ENG-0064: CLIs expose their bundled skill through a `skill` command family
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2026-09-30
 **Issue:** qwts/qwts-agent-sop#64
 

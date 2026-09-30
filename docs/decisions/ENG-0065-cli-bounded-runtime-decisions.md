@@ -1,6 +1,6 @@
 # ENG-0065: CLIs may offer bounded, model-backed decisions that return proposals, never actions
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2026-09-30
 **Issue:** qwts/qwts-agent-sop#65
 
