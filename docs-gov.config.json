@@ -12,6 +12,11 @@
     "bankSlack": 0.25,
     "overrides": [
       {
+        "path": "docs/decisions/README.md",
+        "budget": 2700,
+        "reason": "the decision index gains one table row (about 30 tokens) per record and was at the 2600 default before ENG-0064; raised 2600 -> 2700 on 2026-09-30 for the ENG-0064 and ENG-0065 rows (qwts/qwts-agent-sop#64, #65). The next breach should split the index table (for example by status or range), not reflexively raise"
+      },
+      {
         "path": "README.md",
         "budget": 3000,
         "reason": "the index of an instance carries, beyond the template's index, the pinned capability map, the organization-data pointer, and the recorded deltas from the template (ENG-0355: the instance records the template commit it took); those sections are the alignment contract for the next alignment and belong on the one configured index, not in a sub-doc"
