@@ -1,6 +1,6 @@
 # ENG-0071: A broker carries messages between persona accounts
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2026-09-30
 **Issue:** qwts/qwts-agent-sop#71
 
