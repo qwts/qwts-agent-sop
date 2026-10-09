@@ -27,6 +27,10 @@ when the installed release includes it.
   runtime's evidence, not permission to invent a temporary fallback. Follow any
   explicit user direction about placement under the
   [shared instruction convention](../reference/agent-conventions.md#explicit-user-instructions).
+- Disposable review and release checkouts, including detached review worktrees
+  and throwaway release clones, also belong under `<soulDir>/worktrees/<name>`.
+  Remove them after use, preserving any needed work first; read-only intent
+  does not make a scratch directory an exception to the placement rule.
 - A harness can check in without a registered harness row; that does not grant
   wake support, generated harness files, or GitHub credentials. If check-in
   fails, report the actual failure and request the missing setup or an explicit
@@ -135,7 +139,8 @@ where work happens; it does not determine identity or change
 ## Changelog
 
 - 2026-10-09 — require isolated agent worktrees, protect the owner's primary
-  checkout, and route placement and cleanup through `agent-space` (#74).
+  checkout, include disposable review and release checkouts, and route
+  placement and cleanup through `agent-space` (#74).
 - 2026-09-27 — the CI execution policy links point at `qwts-agent-ci@f651d5e`,
   the `ci` pin in `qwts-agent-org`'s `org.json` (#47).
 - 2026-09-27 — the merge bar's deny list binds grants, brokers, daemons, and

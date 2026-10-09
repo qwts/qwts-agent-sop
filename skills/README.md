@@ -24,14 +24,17 @@ A procedure names one skill. Read that entry below and then its `SKILL.md` at th
   installation, bot credential minting, authorized secure-store reads,
   GitHub-verified bot commits, transcript-bound Agent IDs, and Agent Spaces.
   Absorbed the old signed-commit skill (`signed-commit.mjs`). Load only when a procedure names this skill.
-- [agent-space](https://github.com/qwts/agent-bot-identity/tree/89e96f4461e897a6fd0772a5f2107710d05ca4af/skills/agent-space)
+- [agent-space](https://github.com/qwts/agent-bot-identity/tree/593da71c8b54676006059da15d0f3619e1b45b75/skills/agent-space)
   — owned by [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
   Check-in, soul worktree placement, primary-checkout protection, and cleanup;
   loaded by the [agent work-area procedure](../docs/sop/branch-pr-review.md#agent-work-area-mandatory--extend-dont-drop).
-  Skill-only pin delta: this commit lands the procedure in
-  [agent-bot-identity#527](https://github.com/qwts/agent-bot-identity/pull/527);
-  the configured capability pin predates it. Read this pinned file if the
+  Skill-only pin delta: the v0.10.59 procedure includes contained-soul Agent
+  Space paths and treats the census path as authoritative; the configured
+  capability pin predates the skill. Read this pinned file if the
   installed runtime cannot serve it; this entry does not upgrade that runtime.
+  [qwts-agent-org#32](https://github.com/qwts/qwts-agent-org/issues/32) tracks
+  the capability-pin update. Once aligned, remove this delta and the skill-only
+  exception in the catalog rule above.
 - [managed-machine](https://github.com/qwts/managed-machine/tree/436631ede68f2315df84f04a613c974095fbf29a/skills/managed-machine)
   — owned by
   [qwts/managed-machine](https://github.com/qwts/managed-machine). Bootstrap,
