@@ -7,6 +7,40 @@ only by a documented delta. This is the common denominator already followed by
 photos, cartograph, and image-trail — the [inventory](inventory.md) records
 where each repo differs.
 
+## Agent work area (mandatory — extend, don't drop)
+
+Before repository work, load the `agent-space` skill from its pinned entry in
+the [skill catalog](../../skills/README.md). It owns the check-in, placement,
+and cleanup procedure; `agent-bot skill agent-space` serves the bundled skill
+when the installed release includes it.
+
+- Check in with `agent-bot join` outside the owner's primary checkout. Use
+  the reported soul directory and do repository work in a linked worktree at
+  `<soulDir>/worktrees/<name>`. This rule applies in both owner and agent accounts.
+- Leave the owner's primary checkout on its existing `main` branch, clean and
+  available for the owner's updates. Read-only inspection is fine. Do not edit,
+  create or switch branches, commit, run `join` or `setup-worktree`, or write
+  identity configuration there. Keeping it current does not authorize an agent
+  to reset, pull, or discard the owner's work.
+- Do not choose `/tmp`, the home directory, or a harness directory as a work
+  area. Cross-device or path-placement failure is a blocker to report with the
+  runtime's evidence, not permission to invent a temporary fallback. Follow any
+  explicit user direction about placement under the
+  [shared instruction convention](../reference/agent-conventions.md#explicit-user-instructions).
+- A harness can check in without a registered harness row; that does not grant
+  wake support, generated harness files, or GitHub credentials. If check-in
+  fails, report the actual failure and request the missing setup or an explicit
+  work location. Do not adopt another agent's identity or use the primary checkout.
+- After the PR merges or the work is abandoned, preserve needed work and remove
+  the linked worktree the agent created with `git worktree remove`, then
+  `git worktree prune`. Do not force removal of uncommitted or unpushed work.
+
+Within that worktree, no additional claim or approval ceremony is required
+beyond the issue, commit, PR, and review workflow below. The soul's worktree
+directory is distinct from the durable Agent Space store. Placement governs
+where work happens; it does not determine identity or change
+[ENG-0339](../decisions/ENG-0339-os-account-determines-persona.md).
+
 ## Branching (mandatory — extend, don't drop)
 
 - Development is trunk-based. Cut a short-lived branch from the latest `main`;
@@ -100,6 +134,8 @@ where each repo differs.
 
 ## Changelog
 
+- 2026-10-09 — require isolated agent worktrees, protect the owner's primary
+  checkout, and route placement and cleanup through `agent-space` (#74).
 - 2026-09-27 — the CI execution policy links point at `qwts-agent-ci@f651d5e`,
   the `ci` pin in `qwts-agent-org`'s `org.json` (#47).
 - 2026-09-27 — the merge bar's deny list binds grants, brokers, daemons, and

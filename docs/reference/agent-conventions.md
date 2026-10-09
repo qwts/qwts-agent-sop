@@ -55,6 +55,10 @@ Each repo has exactly one vendor-neutral `AGENTS.md` at its root. Vendor files (
 
 ## PR-first, always
 
+Before making repository changes, follow the
+[agent work-area rule](../sop/branch-pr-review.md#agent-work-area-mandatory--extend-dont-drop),
+which names the placement skill and protects the owner's primary checkout.
+
 No direct pushes to instruction files, skills, slash commands, MCP config, or hooks — they move through PR review exactly like source code, whether the change originates from a human or an agent.
 
 ## Validation before push
