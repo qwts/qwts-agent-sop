@@ -4,7 +4,7 @@ The `qwts` organization uses one GitHub App per agent so bot-authored pull
 requests remain eligible for the human approval required by the
 [branch, PR, and review SOP](../sop/branch-pr-review.md). This repository owns
 the roster and policy; the standalone
-[`agent-bot-identity`](https://github.com/qwts/agent-bot-identity/tree/9ff7ce00b6a6945c7f249cf7a6ebf37cf58e86ee)
+[`agent-bot-identity`](https://github.com/qwts/agent-bot-identity/tree/0aae907e68946cce654757c36b1c24f1942971a9)
 repository owns runtime code, installation, hooks, token minting, and
 troubleshooting ([ENG-0128](../decisions/ENG-0128-agent-bot-runtime-ownership.md)).
 Minting a token, binding a worktree, or publishing a verified commit loads
@@ -92,4 +92,4 @@ agent-bot doctor
 The mint command's stdout is a credential and must be parsed without logging.
 Missing executables, nonzero exits, malformed JSON, and missing tokens fail
 closed. Installation and CLI details are in the pinned standalone
-[README](https://github.com/qwts/agent-bot-identity/blob/9ff7ce00b6a6945c7f249cf7a6ebf37cf58e86ee/README.md).
+[README](https://github.com/qwts/agent-bot-identity/blob/0aae907e68946cce654757c36b1c24f1942971a9/README.md).
