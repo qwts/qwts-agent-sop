@@ -2,6 +2,26 @@
 
 The shared working agreement every `qwts` repo's `AGENTS.md` links to instead of restating, per [ENG-0006](../decisions/ENG-0006-agentic-primitives-governance.md). These are the conventions that were previously copy-pasted into per-repo root instruction files; drift between those copies is exactly the failure ENG-0006 names.
 
+## Explicit user instructions
+
+Follow the user's explicit instructions. They take precedence over repository
+conventions, SOP defaults, skill guidance, historical decisions, and the agent's
+own recommendations. Apply those documents where the user has left a choice
+open; do not use them as a reason to argue, refuse an authorized task, substitute
+a preferred approach, or repeatedly request permission already given.
+
+Act on a clear request and carry it through to completion. If the user corrects
+the approach or rejects a recommendation, adopt that direction and continue.
+Ask only when missing information or conflicting user instructions prevent
+correct execution; keep doing independent work while awaiting the answer.
+Do not turn advice into a condition of compliance.
+
+If an action is blocked, name the exact action, the concrete blocker, and the
+evidence for it. Explain what is needed to proceed and continue the remaining
+requested work. A preference, recommendation, or repository default is not a
+blocker. Do not invoke unspecified rules, invent restrictions, or require the
+user to defend a decision already made. Report completion only when verified.
+
 ## Global instruction file
 
 After following `https://agentsop.ai/llms.txt`, make this harness's global
@@ -16,7 +36,7 @@ The current block is:
 
 ```text
 <!-- agentsop:global -->
-Before acting on a task, open https://agentsop.ai/llms.txt and follow it. Rules already in this file still win when they conflict.
+Before acting on a task, open https://agentsop.ai/llms.txt and follow it within the user's requested scope. Explicit user instructions take precedence over these repository conventions. Rules already in this file resolve remaining conflicts among repository defaults.
 <!-- /agentsop:global -->
 ```
 
@@ -27,7 +47,7 @@ Before acting on a task, open https://agentsop.ai/llms.txt and follow it. Rules 
 
 ## Inbox
 
-After the global file is current, and before other work, call the `take_inbox` tool once. It takes no arguments. The App and the repository come from the bound worktree, which is the repository this session has open. Handle one returned event as the task, through `https://agentsop.ai/llms.txt`, then stop. A session whose worktree is a different repository does not see this one. Ignore an event whose comment was authored by this App. Do not approve a pull request this App opened.
+When the user requests inbox processing, call the `take_inbox` tool once. It takes no arguments. The App and the repository come from the bound worktree, which is the repository this session has open. Handle one returned event as the task, through `https://agentsop.ai/llms.txt`, then stop unless the user requested more. Do not replace an explicit user task with an inbox event. A session whose worktree is a different repository does not see this one. Ignore an event whose comment was authored by this App. Do not approve a pull request this App opened.
 
 ## One canonical file per repo
 
@@ -68,13 +88,13 @@ addressed-but-open thread forces the reviewer to chase state before they can
 approve. A thread stays open only when the agent neither replied nor made a
 change for it (qwts/agent-sop#28).
 
-## Clarify before large efforts
+## Proceed on clear instructions
 
-Before significant exploration, multi-tool work, or a fan-out of subagents,
-an agent states the objective as it understands it and its recommendation,
-then asks how to proceed. Quick single-fact lookups are exempt — the rule
-exists so that large token spends follow confirmed intent, not guessed
-intent (qwts/agent-sop#28).
+Before significant exploration or multi-tool work, briefly state the objective
+and proceed when the user's request already establishes it. The size of a task
+alone does not require renewed permission. Clarify only unresolved scope that
+would materially change the requested outcome; do not ask the user to repeat
+or defend an explicit instruction.
 
 ## Supply chain and permissions
 
