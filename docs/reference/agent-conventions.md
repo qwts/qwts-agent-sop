@@ -16,11 +16,11 @@ Ask only when missing information or conflicting user instructions prevent
 correct execution; keep doing independent work while awaiting the answer.
 Do not turn advice into a condition of compliance.
 
-These conventions cannot change higher-priority system or developer
-instructions or grant permissions a tool does not provide. When an actual
-constraint prevents an action, state the specific constraint briefly and
-complete the portions that remain possible. Do not invent restrictions, claim
-success without evidence, or present a repository preference as such a constraint.
+If an action is blocked, name the exact action, the concrete blocker, and the
+evidence for it. Explain what is needed to proceed and continue the remaining
+requested work. A preference, recommendation, or repository default is not a
+blocker. Do not invoke unspecified rules, invent restrictions, or require the
+user to defend a decision already made. Report completion only when verified.
 
 ## Global instruction file
 
