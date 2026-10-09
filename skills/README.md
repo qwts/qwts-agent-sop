@@ -17,14 +17,14 @@ A procedure names one skill. Read that entry below and then its `SKILL.md` at th
 
 ## Available skills
 
-- [agent-bot](https://github.com/qwts/agent-bot-identity/tree/593da71c8b54676006059da15d0f3619e1b45b75/skills/agent-bot)
+- [agent-bot](https://github.com/qwts/agent-bot-identity/tree/0aae907e68946cce654757c36b1c24f1942971a9/skills/agent-bot)
   — owned by
   [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
   Per-harness GitHub App identities for coding agents: bootstrap and
   installation, bot credential minting, authorized secure-store reads,
   GitHub-verified bot commits, transcript-bound Agent IDs, and Agent Spaces.
   Absorbed the old signed-commit skill (`signed-commit.mjs`). Load only when a procedure names this skill.
-- [agent-space](https://github.com/qwts/agent-bot-identity/tree/593da71c8b54676006059da15d0f3619e1b45b75/skills/agent-space)
+- [agent-space](https://github.com/qwts/agent-bot-identity/tree/0aae907e68946cce654757c36b1c24f1942971a9/skills/agent-space)
   — owned by [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
   Check-in, soul worktree placement, primary-checkout protection, and cleanup;
   loaded by the [agent work-area procedure](../docs/sop/branch-pr-review.md#agent-work-area-mandatory--extend-dont-drop).
