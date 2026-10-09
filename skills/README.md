@@ -13,7 +13,7 @@ here by link — never copied into this tree.
 
 Do not read this file at session start, and do not install these skills into a harness. A harness injects every installed skill's name and description into every turn.
 
-A procedure names one skill. Read that entry below and then its `SKILL.md` at the pinned commit. Leave the other entries unread. A branch or a tag is not a pin. The commit is the `org.json` capability pin when that repository is a capability, and a commit in this file otherwise. Links to the owning repository are not pins.
+A procedure names one skill. Read that entry below and then its `SKILL.md` at the pinned commit. Leave the other entries unread. A branch or a tag is not a pin. The commit is the `org.json` capability pin when that repository is a capability, unless the entry records a reviewed skill-only pin delta, and a commit in this file otherwise. Links to the owning repository are not pins.
 
 ## Available skills
 
@@ -24,6 +24,17 @@ A procedure names one skill. Read that entry below and then its `SKILL.md` at th
   installation, bot credential minting, authorized secure-store reads,
   GitHub-verified bot commits, transcript-bound Agent IDs, and Agent Spaces.
   Absorbed the old signed-commit skill (`signed-commit.mjs`). Load only when a procedure names this skill.
+- [agent-space](https://github.com/qwts/agent-bot-identity/tree/593da71c8b54676006059da15d0f3619e1b45b75/skills/agent-space)
+  — owned by [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
+  Check-in, soul worktree placement, primary-checkout protection, and cleanup;
+  loaded by the [agent work-area procedure](../docs/sop/branch-pr-review.md#agent-work-area-mandatory--extend-dont-drop).
+  Skill-only pin delta: the v0.10.59 procedure includes contained-soul Agent
+  Space paths and treats the census path as authoritative; the configured
+  capability pin predates the skill. Read this pinned file if the
+  installed runtime cannot serve it; this entry does not upgrade that runtime.
+  [qwts-agent-org#32](https://github.com/qwts/qwts-agent-org/issues/32) tracks
+  the capability-pin update. Once aligned, remove this delta and the skill-only
+  exception in the catalog rule above.
 - [managed-machine](https://github.com/qwts/managed-machine/tree/436631ede68f2315df84f04a613c974095fbf29a/skills/managed-machine)
   — owned by
   [qwts/managed-machine](https://github.com/qwts/managed-machine). Bootstrap,
