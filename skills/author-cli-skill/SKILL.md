@@ -9,8 +9,10 @@ Use this skill when creating or changing a CLI that qwts releases for repeated
 use. Read
 [ENG-0055](../../docs/decisions/ENG-0055-every-cli-ships-its-agent-skill.md)
 and [ENG-0064](../../docs/decisions/ENG-0064-cli-skill-command-family.md),
-and follow their linked contracts for the exact metadata, bundle, command,
-export, compatibility, and release-gate requirements. Those decisions and
+and follow the [CLI skill contract](../../docs/reference/cli-skill-contract.md)
+and [CLI skill command contract](../../docs/reference/cli-skill-command-contract.md)
+for the exact metadata, bundle, command, export, compatibility, and release-gate
+requirements. Those decisions and
 contracts remain normative.
 
 1. **Choose the workflows.** Start from supported CLI behavior and the tasks an
