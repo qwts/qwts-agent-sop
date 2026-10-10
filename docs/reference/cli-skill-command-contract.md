@@ -103,6 +103,7 @@ source commit, and destination; with `--json`, as one JSON document.
   swap strategy and the cleanup of leftover staging directories.
 - **Shared implementation:** whether `qwts-agent-ci` ships the catalog check
   and export guard as a library or only as gate checks.
-- **Authoring skill:** tracked in
-  [qwts/qwts-agent-sop#68](https://github.com/qwts/qwts-agent-sop/issues/68);
-  `author-cli-skill` is the proposed name.
+
+CLI authors use the shared
+[author-cli-skill](../../skills/author-cli-skill/SKILL.md) workflow
+([qwts/qwts-agent-sop#68](https://github.com/qwts/qwts-agent-sop/issues/68)).

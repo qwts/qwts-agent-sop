@@ -16,6 +16,13 @@ if a change warrants design review, it takes this lifecycle.
 
 ## At open — the four-section spec
 
+When a feature creates or changes a CLI the organization releases for repeated
+use, load [author-cli-skill](../../skills/author-cli-skill/SKILL.md) from the
+[shared skills catalog](../../skills/README.md) to cover the CLI's bundled
+skill, command family, and release checks. The CLI repository's `AGENTS.md`
+names the same skill for work on that CLI. The skill routes authors to the
+accepted CLI contracts; it does not replace them.
+
 The shared issue form lives at
 [`.github/ISSUE_TEMPLATE/feature.yml`](../../.github/ISSUE_TEMPLATE/feature.yml) in this
 repository. Every repo carries a copy or an extension of it: a repo may add fields
@@ -77,4 +84,7 @@ Source of truth is here; repos consume it under the [ENG-0003](../decisions/ENG-
 
 ## Changelog
 
+- 2026-10-09 — route released-CLI features through author-cli-skill per
+  [ENG-0055](../decisions/ENG-0055-every-cli-ships-its-agent-skill.md) and
+  [ENG-0064](../decisions/ENG-0064-cli-skill-command-family.md) (qwts/qwts-agent-sop#68).
 - 2026-07-22 — initial version; implements [ENG-0007](../decisions/ENG-0007-feature-lifecycle-convention.md) (playbook#9).
