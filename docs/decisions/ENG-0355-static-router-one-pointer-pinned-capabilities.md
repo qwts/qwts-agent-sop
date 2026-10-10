@@ -140,7 +140,7 @@ Pins by commit (ENG-0282) still apply to what the config file and
 ## Amendment, 2026-10-09 — event-triggered governance pointer promotion
 
 This amendment clarifies points 1, 3, and 6 in the context of
-[ENG-0282's governance freshness amendment](ENG-0282-immutable-pins-recorded-selection-no-aligner.md#amendment-2026-10-09--governance-freshness-without-mutable-execution-pins).
+[ENG-0282's governance freshness amendment](ENG-0282-immutable-pins-recorded-selection-no-aligner.md).
 
 - **Static routing stays static.** `agentsop.ai` remains a router, and
   `~/.config/agent-sop/config.toml` still selects the organization's
