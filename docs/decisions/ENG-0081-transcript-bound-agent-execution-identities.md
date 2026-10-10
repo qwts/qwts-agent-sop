@@ -233,7 +233,8 @@ It authorizes no other local mint path and qualifies the 2026-08-13 decisions
    gist pack. With no binding, a marked caller may locally mint its recorded
    own App. A no-Agent-ID caller marked by `GH_AGENT_APP`, the worktree pin, or
    account resolution may locally mint only that stated App. A bound caller's
-   own App remains daemon-minted; unmarked callers keep existing behavior.
+   own App remains daemon-minted; bound `signed-commit` uses
+   `mintForCaller` → `mintCredential`; unmarked callers keep existing behavior.
    These are the only local own-App cases ([source](https://github.com/qwts/agent-bot-identity/blob/8cdf18b67d5f81313242a96e70bc39ed5808b6d2/git-credential-bot.mjs#L85-L154); [tests](https://github.com/qwts/agent-bot-identity/blob/8cdf18b67d5f81313242a96e70bc39ed5808b6d2/tests/cred-mint-via-daemon.test.mjs#L355-L378)).
 3. Marked requests for another App, a differing `GH_AGENT_APP`, or any
    `--permissions` need owner verification before local minting. The gate
@@ -242,10 +243,13 @@ It authorizes no other local mint path and qualifies the 2026-08-13 decisions
 
 Service receipts remain required; local own-App mints make no receipt claim.
 
-#645 comment 6091812118 also says the Git helper and `signed-commit` keep
-working when the daemon is down. The marked bound Git helper still refuses on
-daemon loss; this amendment preserves that behavior, leaving that precise
-outage scope open on [#107](https://github.com/qwts/agent-bot-identity/issues/107).
+#645 comment 6091812118 says the Git helper and `signed-commit` keep working
+when the daemon is down. Both marked, bound paths remain daemon-dependent: the
+helper calls `mintCredential`; `signed-commit` calls `mintForCaller` →
+`mintCredential`. This amendment preserves them without an offline fallback.
+[#107](https://github.com/qwts/agent-bot-identity/issues/107) tracks whether
+that outage wording covers bound calls or only declaration lookup and local
+caller paths.
 
 ## References
 
