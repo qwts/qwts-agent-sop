@@ -17,6 +17,9 @@ A procedure names one skill. Read that entry below and then its `SKILL.md` at th
 
 ## Available skills
 
+- [author-cli-skill](author-cli-skill/SKILL.md) — create or change a CLI released
+  for repeated use by qwts, including its bundled agent skill and release
+  checks. Load only when a procedure names it.
 - [agent-bot](https://github.com/qwts/agent-bot-identity/tree/0aae907e68946cce654757c36b1c24f1942971a9/skills/agent-bot)
   — owned by
   [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
@@ -90,3 +93,6 @@ rm -f ~/.claude/skills/signed-commit
    [CLI skill contract](../docs/reference/cli-skill-contract.md): `qwts-`
    keys under `metadata`, a bundle in every release, and a fail-closed release
    gate ([ENG-0055](../docs/decisions/ENG-0055-every-cli-ships-its-agent-skill.md)).
+   Name the cataloged [author-cli-skill](author-cli-skill/SKILL.md) in the CLI
+   repository's `AGENTS.md` for CLI work that creates or changes the released
+   CLI.
