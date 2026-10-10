@@ -76,3 +76,84 @@ and auditable, still needs a home. Issue #282 is that home.
 
 - [ENG-0004](ENG-0004-centralize-shared-cicd.md), [ENG-0279](ENG-0279-immutable-releases-and-repo-lockfiles.md),
   [ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md).
+
+## Amendment, 2026-10-09 — governance freshness without mutable execution pins
+
+**Scope:** This amendment changes the promotion and freshness policy for
+authoritative organization governance (the organization-specific SOP and agent
+conventions). It does **not** introduce an aligner for ordinary capability
+dependencies, CI `uses:` pins, release inputs, or repository baseline files.
+
+### Decision
+
+1. **Separate discovery from consumption.** An agent resolving the organization's
+   authoritative SOP discovers the latest *approved* commit on its protected
+   default branch at task entry, resolves that ref to an immutable 40-hex SHA,
+   and consumes only that SHA for the task. Record the resolved source repository
+   and SHA in the task's execution provenance. A moving branch is a discovery
+   selector, never an execution pin. Historical replay uses the recorded SHA,
+   not today's branch tip.
+2. **Do not let the recorded baseline silently become policy.** The
+   `sources.sop.ref` entry in the org repository's `org.json` remains an
+   immutable, reviewed baseline and reproducibility record. It is **not** a
+   ceiling on approved governance changes. The agent must not mistake an older
+   baseline for the currently approved instructions after a newer revision is
+   known. Explicit owner-selected `repos.sop` overrides remain available for
+   testing and requested version selection; their selected commits are recorded.
+3. **Promote governance on events, not a timer.** A merge to the protected SOP
+   default branch emits a trusted repository event carrying the repository
+   identity and merged SHA. The authorized consumer workflow verifies that SHA,
+   coalesces or supersedes outstanding promotion work, and opens/updates one
+   reviewed PR in `qwts/qwts-agent-org` to advance `sources.sop.ref`. The
+   event is a notification to fetch and verify Git state, **not** instructions
+   copied from a commit message, PR body, or webhook payload. Delivery must be
+   idempotent and scoped to the approved governance source.
+4. **Keep promotion reviewable and auditable.** The new baseline SHA, old SHA,
+   merge provenance, validation results, and changed governance sections are
+   visible in the promotion PR. Do not directly push an unreviewed governance
+   pin or bypass the consumer's existing merge rules. An owner-approved
+   auto-promotion policy may be introduced separately, with explicit gate and
+   rollback semantics; this amendment does not silently enable auto-merge.
+5. **Expose and recover from missed events.** Promotion failure, an invalid
+   source SHA, or a behind-baseline state must be surfaced with the pinned SHA,
+   the newer verified SHA (when available), and the failed action. Agents do an
+   **on-demand freshness check at task entry**, not a continuous or scheduled
+   poll; this is also the recovery path for lost delivery. If current authority
+   cannot be established, report that limitation and do not silently assert
+   stale guidance is current. Where an unverified instruction would authorize a
+   sensitive write, do not infer authorization from that stale snapshot.
+6. **Retain owner control.** The owner's explicit instructions prevail over
+   governance defaults, per
+   [the agent conventions](../reference/agent-conventions.md#explicit-user-instructions).
+   Freshness machinery provides reliable context; it is not another permission
+   ceremony or a reason to challenge an already authorized task.
+
+### Supersession and boundaries
+
+- Decision 1 (immutable consumed commits), decision 2 (a single recorded pin
+  per consumer), decision 3 (reachability), decision 4 (protected history), and
+  decision 6 (rollback by pin change) remain in force.
+- Decision 5's "bot on request" and "behind a pin is not drift" language, and
+  the no-staleness-view/no-event-propagation consequences and alternatives,
+  are **superseded only for authoritative governance**. They continue to apply
+  to other capabilities and dependency pins.
+- ENG-0355's "nothing is pushed" means no distribution of files or rules into
+  consumer worktrees. A bounded, event-triggered pull request that advances
+  the org repository's *one existing pointer* is not file distribution.
+- This is a **governance design decision**, not a claim that the event workflow,
+  freshness gate, or promotion PR machinery is already deployed. Implementation
+  and integration tests must follow in their owning repositories.
+
+### Acceptance criteria for implementation
+
+- A protected SOP `main` merge causes an authenticated, idempotent proposal
+  to advance `qwts-agent-org/org.json`, without a scheduler or repeated
+  polling and without creating per-repository copies.
+- A second merge supersedes or updates pending promotion work instead of
+  producing competing PRs; reordered/duplicate events cannot roll back pins.
+- At task entry, resolved governance provenance includes the authoritative
+  verified SHA; a stale baseline is observable rather than silently accepted.
+- Source spoofing, malformed event payloads, unreachable SHAs, failed gates,
+  or lost event delivery never grant authority or create an unreviewed update.
+- Capability and CI dependencies continue to resolve at explicitly selected
+  immutable SHAs. An approved rollback selects and records a specific SHA.
