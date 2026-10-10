@@ -140,6 +140,30 @@ Consequences of this amendment:
 - Hosted mint can later retire most `ai9d` writes without changing this
   class.
 
+## Amendment — 2026-10-10: identity extraction and runtime ownership
+
+The owner direction recorded in
+[agent-bot-identity#645](https://github.com/qwts/agent-bot-identity/issues/645#issuecomment-6086695983)
+and its answers
+([comment 6087959098](https://github.com/qwts/agent-bot-identity/issues/645#issuecomment-6087959098)),
+accepted in
+[ADR-0645](https://github.com/qwts/agent-bot-identity/blob/8cdf18b67d5f81313242a96e70bc39ed5808b6d2/docs/decisions/ADR-0645-one-runtime-repository-four-owned-modules.md),
+amends decision 1 and the runtime-ownership consequence above:
+
+1. **Identity is the one runtime module to extract** into `qwts/agent-identity`,
+   after its boundary crossings are removed and its public contract is
+   reviewed. Until extraction, its implementation remains in
+   `agent-bot-identity`.
+2. **Soul, harness, and development workflows stay in `agent-bot-identity`.**
+   Its `agent-bot` command remains the compatibility facade.
+3. **agent-comms remains a separate repository and process** behind its wire
+   contract. It is not imported; the history-import discussion in
+   [#737](https://github.com/qwts/agent-bot-identity/issues/737) remains on
+   hold.
+
+The governance CLI boundary in decision 3 and the other decisions and dated
+amendments remain in force.
+
 ## References
 
 - [Agent bot identity governance](../reference/agent-bot-identity.md)
