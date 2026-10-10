@@ -97,7 +97,7 @@ principles; it does not waive the lower priorities.
 | [ENG-0065](ENG-0065-cli-bounded-runtime-decisions.md) | CLIs may offer bounded, model-backed decisions that return proposals, never actions | Accepted |
 | [ENG-0071](ENG-0071-machine-broker-between-persona-accounts.md) | A broker carries messages between persona accounts | Accepted |
 | [ENG-0079](ENG-0079-per-agent-identity.md) | Agent identity is per agent — the harness is detected, the agent is pinned | Proposed |
-| [ENG-0081](ENG-0081-transcript-bound-agent-execution-identities.md) | Agent execution identities bind bot actions to provider transcripts; amended 2026-09-27: the App is resolved from the account after ENG-0339 | Proposed |
+| [ENG-0081](ENG-0081-transcript-bound-agent-execution-identities.md) | Agent execution identities bind bot actions to provider transcripts; amended 2026-09-27 (App from account), 2026-10-09 (presence on census) | Proposed |
 | [ENG-0128](ENG-0128-agent-bot-runtime-ownership.md) | Agent identity runtime ownership; durable vs uninstalled classes; unmanaged publish as ai9d | Proposed |
 | [ENG-0138](ENG-0138-machine-scoped-agent-memory-budget.md) | The local memory budget is machine-scoped; same-user grants are legacy-only | Proposed |
 | [ENG-0149](ENG-0149-code-scanning.md) | Code scanning conformance is verified by analysis, not by configuration | Proposed |

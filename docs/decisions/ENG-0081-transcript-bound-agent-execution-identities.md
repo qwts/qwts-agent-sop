@@ -200,6 +200,19 @@ the same in every live record. ENG-0029, withdrawn in
 [qwts/qwts-agent-sop#31](https://github.com/qwts/qwts-agent-sop/issues/31),
 was written against the stale reading.
 
+## Amendment — 2026-10-09: presence lives on the census row
+
+The owner placed presence on the soul's census row, not the execution-identity
+record of decision 6
+([agent-bot-identity#109](https://github.com/qwts/agent-bot-identity/issues/109)).
+The 2026-08-13 amendment's decisions 5 and 6 read accordingly: a bind or
+re-bind, a daemon launch of the soul's home, or `setup-worktree` writes
+presence on the census row as an optional `lastSightedAt`, still with no
+clock-in step, and nothing else moves it; `population` and `doctor` show
+present versus historical from it. The rest of both decisions stands: the
+census is secret-free headcount, presence grants nothing, and
+`status: active` still means not finalized.
+
 ## References
 
 - [ENG-0016](ENG-0016-agent-pr-bot-identity.md) — short-lived App credentials and the human/bot boundary
