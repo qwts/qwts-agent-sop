@@ -136,3 +136,30 @@ The recorded text stays as history; what applies is:
 
 Pins by commit (ENG-0282) still apply to what the config file and
 `org.json` name; the site itself carries none.
+
+## Amendment, 2026-10-09 — event-triggered governance pointer promotion
+
+This amendment clarifies points 1, 3, and 6 in the context of
+[ENG-0282's governance freshness amendment](ENG-0282-immutable-pins-recorded-selection-no-aligner.md).
+
+- **Static routing stays static.** `agentsop.ai` remains a router, and
+  `~/.config/agent-sop/config.toml` still selects the organization's
+  repository. Neither needs a polling loop or embedded mutable dependencies.
+- **One pointer remains the record.** `org.json` keeps its immutable
+  `sources.sop.ref` baseline and capability pins. At task entry, an agent
+  discovers the approved SOP head, resolves and records its exact SHA, and
+  uses that immutable revision for the task. The org pin is advanced through
+  an event-triggered reviewed PR, not through distributed file writes.
+- **Events notify; they do not instruct.** A verified SOP merge signals a
+  bounded promotion workflow in the org repository. The consumer fetches the
+  signed-off Git state and validates the new SHA independently, rather than
+  executing event text. Duplicate or missing delivery must not silently
+  change the effective governance instructions.
+- **The exception is governance-specific.** No general capability auto-bumper,
+  repository aligner, auto-merge, or fleet-wide latest gate is authorized by
+  this amendment. Existing pull-based resolution and immutable capability
+  pins remain the standard.
+
+The historical "no aligner" text above records why scheduled and widespread
+file distribution were retired. For authoritative governance, it does not
+prohibit this narrowly scoped, event-driven pointer-update mechanism.
