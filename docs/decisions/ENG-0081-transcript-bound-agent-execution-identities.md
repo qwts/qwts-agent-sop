@@ -213,6 +213,40 @@ present versus historical from it. The rest of both decisions stands: the
 census is secret-free headcount, presence grants nothing, and
 `status: active` still means not finalized.
 
+## Amendment — 2026-10-10: bounded own-App mint compatibility
+
+Owner direction on #645 permits identity to import Soul's versioned,
+read-only `soul-app-declarations.mjs` contract ([comment 6091812118](https://github.com/qwts/agent-bot-identity/issues/645#issuecomment-6091812118);
+[ADR-0645 §2](https://github.com/qwts/agent-bot-identity/blob/8cdf18b67d5f81313242a96e70bc39ed5808b6d2/docs/decisions/ADR-0645-one-runtime-repository-four-owned-modules.md#L159-L165)).
+The #107 owner decision authorizes bind-time reconciliation and verification
+on App conflict ([comment 6088027409](https://github.com/qwts/agent-bot-identity/issues/107#issuecomment-6088027409)).
+This records [#775, merged at `6df6e7d`](https://github.com/qwts/agent-bot-identity/commit/6df6e7dddf2a94cf12c0013a6500e96f83945018),
+head [72f3a6cc](https://github.com/qwts/agent-bot-identity/commit/72f3a6cc2e726cb4e28dcaa585f14dc52b365069),
+and [review 5476681338](https://github.com/qwts/agent-bot-identity/pull/775#pullrequestreview-5476681338).
+It authorizes no other local mint path and qualifies the 2026-08-13 decisions
+1–3 and 2026-09-27 decision 1; all others stand.
+
+1. Marked Git helper and `gh`/`worktree-token` calls need a live binding and
+   daemon; missing binding or daemon failure refuses with no local fallback.
+   MCP `credential` always requires a live binding and daemon ([Git helper](https://github.com/qwts/agent-bot-identity/blob/8cdf18b67d5f81313242a96e70bc39ed5808b6d2/git-credential-bot.mjs#L26-L72); [MCP](https://github.com/qwts/agent-bot-identity/blob/8cdf18b67d5f81313242a96e70bc39ed5808b6d2/agent-mcp.mjs#L381-L383)).
+2. `mintForCaller` fronts `mint-token`, `signed-commit`, and the Agent Space
+   gist pack. With no binding, a marked caller may locally mint its recorded
+   own App. A no-Agent-ID caller marked by `GH_AGENT_APP`, the worktree pin, or
+   account resolution may locally mint only that stated App. A bound caller's
+   own App remains daemon-minted; unmarked callers keep existing behavior.
+   These are the only local own-App cases ([source](https://github.com/qwts/agent-bot-identity/blob/8cdf18b67d5f81313242a96e70bc39ed5808b6d2/git-credential-bot.mjs#L85-L154); [tests](https://github.com/qwts/agent-bot-identity/blob/8cdf18b67d5f81313242a96e70bc39ed5808b6d2/tests/cred-mint-via-daemon.test.mjs#L355-L378)).
+3. Marked requests for another App, a differing `GH_AGENT_APP`, or any
+   `--permissions` need owner verification before local minting. The gate
+   outcome gets a secret-free receipt; refusal or headless execution mints
+   nothing. Own-App selection alone does not invoke the gate.
+
+Service receipts remain required; local own-App mints make no receipt claim.
+
+#645 comment 6091812118 also says the Git helper and `signed-commit` keep
+working when the daemon is down. The marked bound Git helper still refuses on
+daemon loss; this amendment preserves that behavior, leaving that precise
+outage scope open on [#107](https://github.com/qwts/agent-bot-identity/issues/107).
+
 ## References
 
 - [ENG-0016](ENG-0016-agent-pr-bot-identity.md) — short-lived App credentials and the human/bot boundary
