@@ -151,9 +151,11 @@ accepted in
 amends decision 1 and the runtime-ownership consequence above:
 
 1. **Identity is the one runtime module to extract** into `qwts/agent-identity`,
-   after its boundary crossings are removed and its public contract is
-   reviewed. Until extraction, its implementation remains in
-   `agent-bot-identity`.
+   after its boundary crossings are removed, its public contract is
+   reviewed, and an extraction plan (history, CI, release, pinning and
+   bundling, the `agent-bot` facade, and a written rollback) is reviewed
+   before the repository is created. Until extraction, its implementation
+   remains in `agent-bot-identity`.
 2. **Soul, harness, and development workflows stay in `agent-bot-identity`.**
    Its `agent-bot` command remains the compatibility facade.
 3. **agent-comms remains a separate repository and process** behind its wire
