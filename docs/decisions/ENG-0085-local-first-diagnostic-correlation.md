@@ -25,6 +25,9 @@ This proposal adds no public runtime fields, endpoints, exporter, dependency
 exception or reporting consent. The
 [acceptance plan](../reference/diagnostic-correlation-acceptance.md) records
 operation boundaries, evidence and unresolved joint-review choices.
+The [concrete v1 candidate](../reference/diagnostic-profile-v1.md) and
+[numeric budgets](../reference/diagnostic-resource-budgets.md) supply actionable
+defaults for that review; repository engineering adoption review remains required.
 
 ## Proposed decision
 

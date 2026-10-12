@@ -46,6 +46,10 @@ support stay in that repository.
 
 ## Joint-review choices before public adoption
 
+The [v1 profile candidate](diagnostic-profile-v1.md) and
+[resource/performance budgets](diagnostic-resource-budgets.md) provide concrete
+defaults to accept or revise. They do not enable an interface.
+
 1. Approve field types, finite code/details vocabularies, major compatibility
    and concrete JSON/IPC placement without accidentally widening request
    parsers. Specify older-peer and unsupported-major behavior.
