@@ -1,7 +1,7 @@
 # Hook composition audits
 
 This page is a historical survey of repository-owned commands that once lived
-inside committed hook adapters. [ENG-0384](../decisions/ENG-0384-harness-config-lives-in-the-user-directory.md)
+inside committed hook adapters. ENG-0384
 moves harness hooks to the harness user directory. The paths below are not
 the managed copies, and this page does not require those files in a
 repository.
