@@ -12,15 +12,22 @@ CLI is a different skill, `author-cli-skill`; this skill restates none of it.
 
 ## Procedure
 
-1. **Find the bundled skill.** Run `<cli> skill list`. If the CLI has no
-   `skill` command family, say so and use `<cli> --help`; do not invent a
-   bundle or fetch one from a repository.
+1. **Find the bundled skill.** Run `<cli> skill` to read the router, then
+   `<cli> skill list` for its feature identifiers and summaries. If the CLI
+   has no `skill` command family, say so and use `<cli> --help` for read-only
+   diagnosis only: do not invent a bundle, do not fetch one from a
+   repository, and do not run any mutating command for this CLI.
 2. **Check the version pair before relying on guidance.** Run
-   `<cli> --version` and compare it with the range the bundled skill prints
-   (`<cli> skill` shows it). A missing, invalid, out-of-range, or
-   pin-inconsistent version is a mismatch: stop before any mutation, report
-   the two versions, and let the mismatch be resolved. Reads may continue
-   only where the skill itself permits them.
+   `<cli> --version` and compare it with the `qwts-versions` range the router
+   printed in step 1. Then run `<cli> skill path` and record the bundled
+   source commit it reports. If the calling procedure or catalog supplied an
+   approved pin for this CLI, compare the two commits; a mismatch is
+   pin-inconsistent. If no approved pin was supplied, report the bundled
+   commit and state the pin is unverified before relying on the guidance.
+   A missing, invalid, out-of-range, or pin-inconsistent version is a
+   mismatch: stop before any mutation, report the values compared, and let
+   the mismatch be resolved. Reads may continue only where the skill itself
+   permits them.
 3. **Load one workflow.** From the list in step 1, run
    `<cli> skill show <feature>` for the one feature the task needs and follow
    that reference. Leave the other features unread; load another only when
