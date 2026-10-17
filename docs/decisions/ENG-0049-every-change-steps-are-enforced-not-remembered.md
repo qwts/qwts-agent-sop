@@ -100,7 +100,7 @@ not state it for every governed repository.
   through the Git Data API, fails the trailer check until it is recommitted
   with one.
 - The CLI fallback acts inside a session, which
-  [ENG-0384](ENG-0384-harness-config-lives-in-the-user-directory.md) decision
+  ENG-0384 decision
   4 avoids for hooks. It runs only inside `agent-bot` commands the agent
   already runs, and only where bootstrap did not; it is not a session step.
 - The router gains a zone, which grows the site's surface; ENG-0355's size
@@ -130,7 +130,6 @@ not state it for every governed repository.
   [ENG-0128](ENG-0128-agent-bot-runtime-ownership.md),
   [ENG-0282](ENG-0282-immutable-pins-recorded-selection-no-aligner.md),
   [ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md),
-  [ENG-0384](ENG-0384-harness-config-lives-in-the-user-directory.md)
 - [Agent bot identity governance](../reference/agent-bot-identity.md)
 - [Branch, PR, and review SOP](../sop/branch-pr-review.md) — the signing rule
   this record enforces
