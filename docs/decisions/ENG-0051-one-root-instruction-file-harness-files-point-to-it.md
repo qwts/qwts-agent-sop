@@ -7,8 +7,7 @@
 ## Context
 
 Each harness reads a global instruction file from its user directory
-([ENG-0384](ENG-0384-harness-config-lives-in-the-user-directory.md)
-decision 1). Today every session keeps that file current by hand: the
+(ENG-0384 decision 1). Today every session keeps that file current by hand: the
 [org-wide agent conventions](../reference/agent-conventions.md), section
 "Global instruction file" (#19, #20), tell the agent to make the file match an
 `agentsop:global` block. The section names paths for four harnesses: Grok,
@@ -172,6 +171,5 @@ instruction file; the daemon supervisor supports only Linux and macOS. The
   [ENG-0178](ENG-0178-evidence-bound-harness-projections.md),
   [ENG-0339](ENG-0339-os-account-determines-persona.md),
   [ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md),
-  [ENG-0384](ENG-0384-harness-config-lives-in-the-user-directory.md)
 - [Org-wide agent conventions](../reference/agent-conventions.md): the
   "Global instruction file" rule that decision 7 replaces.
