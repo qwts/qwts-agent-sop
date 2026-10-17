@@ -9,7 +9,7 @@ inherit by default, vary by explicit delta.
 | --- | --- |
 | `README.md` | What it is, how to run it, where deeper docs live. |
 | `LICENSE` | Exactly this filename. Licensing is deliberately per-repo (MIT, PolyForm NC, proprietary, Apache-2.0 all in use); *absence* is the only violation. |
-| `AGENTS.md` | Canonical agent context per [ENG-0006](../decisions/ENG-0006-agentic-primitives-governance.md). Vendor instruction files and harness rules live in the user directory ([ENG-0384](../decisions/ENG-0384-harness-config-lives-in-the-user-directory.md)), not beside this file. Its marked shared-conventions and skills block is projected from this baseline, pointing agents to the org-wide conventions, shared skills index, SOPs, and ENG records rather than copying them. Repo-specific context remains outside that block. |
+| `AGENTS.md` | Canonical agent context per [ENG-0006](../decisions/ENG-0006-agentic-primitives-governance.md). Vendor instruction files and harness rules live in the user directory, not beside this file. Its marked shared-conventions and skills block is projected from this baseline, pointing agents to the org-wide conventions, shared skills index, SOPs, and ENG records rather than copying them. Repo-specific context remains outside that block. |
 | `CONTRIBUTING.md` | May be a pointer stub into `docs/` (the photos pattern). |
 | `.github/CODEOWNERS` | Minimum: `* @qwts` plus explicit `/.github/` ownership. |
 | Feature issue template | The shared [feature-lifecycle](feature-lifecycle.md) form ([ENG-0007](../decisions/ENG-0007-feature-lifecycle-convention.md)); repos may add fields, not drop sections. |
@@ -51,11 +51,11 @@ the repository's enabled merge methods.
 
 ## Changelog
 
+- 2026-10-17 — remove the proposed ENG-0384 record at owner direction (PR #88); the decision file and its decisions-index row are gone.
 - 2026-09-27 — the CI execution policy link points at `qwts-agent-ci@f651d5e`,
   the `ci` pin in `qwts-agent-org`'s `org.json` (#47).
 - 2026-09-24 — drop `.codex/` and `.claude/settings.json` from the required
-  set. Harness config lives in the user directory
-  ([ENG-0384](../decisions/ENG-0384-harness-config-lives-in-the-user-directory.md)).
+  set. Harness config lives in the user directory (ENG-0384).
 - 2026-09-15 — retire the push lanes (qwts/agent-sop#371): nothing is
   synchronized into repositories any more, so the `.prettierignore` row no
   longer claims a sync or a `lint:synced` gate.
