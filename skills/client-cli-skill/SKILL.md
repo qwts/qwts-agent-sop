@@ -12,7 +12,12 @@ CLI is a different skill, `author-cli-skill`; this skill restates none of it.
 
 ## Procedure
 
-1. **Find the bundled skill.** Run `<cli> skill` to read the router, then
+1. **Find the bundled skill.** Run `<cli> skill path` to locate the installed
+   bundle and read its `SKILL.md`. For agent-bot releases using the older
+   interface, `agent-bot skill agent-bot` reads the router and
+   `agent-bot skill agent-bot --for <subcommand>` reads one named workflow;
+   use the router's feature map rather than unsupported list/show verbs.
+   For the standard command family, run `<cli> skill` to read the router, then
    `<cli> skill list` for its feature identifiers and summaries. If the CLI
    has no `skill` command family, say so and use `<cli> --help` for read-only
    diagnosis only: do not invent a bundle, do not fetch one from a
@@ -28,8 +33,9 @@ CLI is a different skill, `author-cli-skill`; this skill restates none of it.
    mismatch: stop before any mutation, report the values compared, and let
    the mismatch be resolved. Reads may continue only where the skill itself
    permits them.
-3. **Load one workflow.** From the list in step 1, run
-   `<cli> skill show <feature>` for the one feature the task needs and follow
+3. **Load one workflow.** Use the interface identified in step 1. For the standard family, run
+   `<cli> skill show <feature>` for the one feature the task needs; for the
+   older agent-bot family use its `--for` form. Follow
    that reference. Leave the other features unread; load another only when
    the task changes. An unknown feature name fails closed — report it, do
    not guess a spelling.

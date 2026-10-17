@@ -1,0 +1,26 @@
+---
+name: governance-bootstrap
+description: Discover current organization and SOP guidance at task entry and use the current client skill before running a qwts CLI.
+---
+
+# Discover current governance
+
+This installed file is a small router, not a policy snapshot. At task entry
+and again before using a qwts CLI:
+
+1. Run `agent-bot sop --json`. Inspect the selection source and record the
+   resolved org and SOP repository names and exact commits. Follow the
+   selected organization's current guidance. If no SOP is selected, ask for
+   the organization; do not infer it from a remote or use an archived template.
+2. Run `agent-bot skill client-cli-skill --json`. Read `text` from that
+   result and follow it. Record its `catalog` and source commit. It resolves
+   fresh guidance on each use; do not reuse a previously copied client skill.
+3. For another named SOP skill, use `agent-bot skill <name> --json` and read
+   only that skill. The resolver keeps catalog and SOP-owned skill content
+   on one immutable snapshot. CLI bundles come from the installed executable.
+
+Failure to refresh blocks the dependent operation. Report the failed command
+and error; do not present a cache as current. Reads can be retried after the
+cause is repaired. Explicit `@ref` selections are intentional snapshots until
+the owner migrates them. Fresh discovery does not activate policy, personas,
+launch state, credentials, or grant authority. Existing trust gates remain.

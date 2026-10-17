@@ -157,3 +157,15 @@ dependencies, CI `uses:` pins, release inputs, or repository baseline files.
   or lost event delivery never grant authority or create an unreviewed update.
 - Capability and CI dependencies continue to resolve at explicitly selected
   immutable SHAs. An approved rollback selects and records a specific SHA.
+
+
+## Amendment, 2026-10-17 — live governance without promotion pins
+
+Live org/SOP instructions follow the selected active repositories' protected
+default branches, resolved to immutable SHAs per operation. This supersedes
+the 2026-10-09 baseline-retention and promotion-PR requirements: no recurring
+pin update is needed. Legacy SOP manifest refs are provenance only; explicit
+local historical selections remain binding. Capability pins and installed
+CLI bundles keep their contracts. The normative migration, bootstrap
+exception, trust, and activation boundaries are in
+[live governance discovery](../reference/live-governance-discovery.md).

@@ -11,11 +11,18 @@ here by link — never copied into this tree.
 
 ## When an agent loads a skill
 
-Do not read this file at session start, and do not install these skills into a harness. A harness injects every installed skill's name and description into every turn.
+Load domain skills on demand. The small `governance-bootstrap` router is the
+shared-discovery exception installed under `~/.agents/skills`; it fetches
+current guidance at use rather than carrying a copied policy body. See
+[live governance discovery](../docs/reference/live-governance-discovery.md).
 
-A procedure names one skill. Read that entry below and then its `SKILL.md` at the pinned commit. Leave the other entries unread. A branch or a tag is not a pin. The commit is the `org.json` capability pin when that repository is a capability, and a commit in this file otherwise. Links to the owning repository are not pins.
+A procedure names one skill. Read that entry below and then its `SKILL.md` at the resolved commit. Leave the other entries unread. SOP-local relative entries use the same SHA as this catalog. External
+capability entries require immutable pins. The commit is the `org.json` capability pin when that repository is a capability, and a commit in this file otherwise. Links to the owning repository are not pins.
 
 ## Available skills
+
+- [governance-bootstrap](governance-bootstrap/SKILL.md) — shared task-entry
+  router for current org/SOP guidance and the CLI client workflow.
 
 - [author-cli-skill](author-cli-skill/SKILL.md) — create or change a CLI released
   for repeated use by qwts, including its bundled agent skill and release
