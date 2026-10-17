@@ -20,6 +20,10 @@ A procedure names one skill. Read that entry below and then its `SKILL.md` at th
 - [author-cli-skill](author-cli-skill/SKILL.md) — create or change a CLI released
   for repeated use by qwts, including its bundled agent skill and release
   checks. Load only when a procedure names it.
+- [client-cli-skill](client-cli-skill/SKILL.md) — use any qwts CLI through its
+  bundled agent skill: discover features, load one workflow, verify version
+  pairing before mutating. Runtime skill for every harness, installed into
+  the universal `~/.agents/skills` location; load when a task needs a CLI.
 - [agent-bot](https://github.com/qwts/agent-bot-identity/tree/0aae907e68946cce654757c36b1c24f1942971a9/skills/agent-bot)
   — owned by
   [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
