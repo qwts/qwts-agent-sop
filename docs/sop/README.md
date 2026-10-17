@@ -34,6 +34,7 @@ a bug, exactly like a shared fact stated twice in two agent files.
 | [Release and versioning](release-and-versioning.md) | Repos that cut releases | Changelog, version consistency, and dependency bumps |
 | [Security reporting and response](security-response.md) | Every repo | How vulnerabilities are reported, and the settings that back it |
 | [Machine and shell setup](machine-setup.md) | When the task changes a Mac, a harness, or shell startup | Which one skill that task loads |
+| [Credential prompts](credential-prompts.md) | Every credential or authentication prompt | Decision-model verification and a truthful explanation before credential entry |
 
 ## Inheritance in practice
 
@@ -54,6 +55,8 @@ classification, and the deltas each repo carries forward lives in
 [the SOP inventory](inventory.md).
 
 ## Changelog
+
+- 2026-10-17 — add the mandatory credential-prompt verification procedure.
 
 - 2026-09-23 — a machine, harness, or shell-startup task loads one named skill; the catalog is not session preamble.
 - 2026-07-31 — make lifecycle-aware CI scheduling part of the shared branch/PR baseline.
