@@ -46,6 +46,8 @@ contracts remain normative.
    the ENG-0055 mismatch case before mutation. For `agent-bot` and
    `agent-comms`, report installed source provenance without comparing it
    with an org/SOP runtime pin; explicit task release requirements still apply.
+   For other CLIs, a supplied approved-pin mismatch remains the ENG-0055
+   pin-inconsistent case and stops mutation.
 
 Update the CLI implementation, bundle, and tests together. Name this authoring
 skill in the CLI repository's `AGENTS.md`. For `agent-bot` and `agent-comms`,

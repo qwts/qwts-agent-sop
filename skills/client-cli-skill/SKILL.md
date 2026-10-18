@@ -32,9 +32,10 @@ CLI is a different skill, `author-cli-skill`; this skill restates none of it.
    unavailable source provenance honestly; never substitute a remote skill.
    An explicit task requirement for an exact installed release still applies.
    For other CLIs, compare an approved pin when one was supplied; otherwise
-   report that the pin is unverified. A missing, invalid, out-of-range, or
-   explicitly required release mismatch stops mutation. Report the values
-   compared. Reads may continue where the installed skill permits them.
+   report that the pin is unverified. For those other CLIs, a supplied
+   approved-pin mismatch is pin-inconsistent and stops mutation. For every
+   CLI, a missing, invalid, out-of-range, or explicitly required release
+   mismatch stops mutation. Report the values compared. Reads may continue where the installed skill permits them.
 3. **Load one workflow.** Use the interface identified in step 1. For the standard family, run
    `<cli> skill show <feature>` for the one feature the task needs; for the
    older agent-bot family use its `--for` form. Follow
