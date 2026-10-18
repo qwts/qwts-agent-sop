@@ -163,3 +163,10 @@ This amendment clarifies points 1, 3, and 6 in the context of
 The historical "no aligner" text above records why scheduled and widespread
 file distribution were retired. For authoritative governance, it does not
 prohibit this narrowly scoped, event-driven pointer-update mechanism.
+
+
+## Amendment, 2026-10-17 — live governance
+
+The [ENG-0282 freshness amendment](ENG-0282-immutable-pins-recorded-selection-no-aligner.md)
+supersedes SOP baseline retention and promotion PRs. [live governance discovery](../reference/live-governance-discovery.md)
+defines migration and bootstrap.

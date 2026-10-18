@@ -12,6 +12,11 @@
     "bankSlack": 0.25,
     "overrides": [
       {
+        "path": "docs/decisions/ENG-0006-agentic-primitives-governance.md",
+        "budget": 2700,
+        "reason": "The 2026-10-17 scoped bootstrap amendment preserves the historical shared-skill prohibition and links the operational exception in live-governance-discovery.md. This dated amendment takes the existing record just past 2600 tokens; retain its history rather than rewrite it. The allowance applies only to this record (qwts-agent-org#66)."
+      },
+      {
         "path": "README.md",
         "budget": 3000,
         "reason": "the index of an instance carries, beyond the template's index, the pinned capability map, the organization-data pointer, and the recorded deltas from the template (ENG-0355: the instance records the template commit it took); those sections are the alignment contract for the next alignment and belong on the one configured index, not in a sub-doc"

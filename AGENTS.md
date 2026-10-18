@@ -14,8 +14,8 @@ PR-first workflow, validation-before-push, commit and PR hygiene, and the
 untrusted-input threat model are defined once, for every repo, in the
 [org-wide agent conventions](https://github.com/qwts/qwts-agent-sop/blob/main/docs/reference/agent-conventions.md).
 Before creating or copying a repo-local skill, consult the reviewed
-[shared agent skills](https://github.com/qwts/qwts-agent-sop/blob/74e775ef23d8e7d8f8e693ccc2329f430978c096/skills/README.md)
-index. Reuse only the pinned version supplied by the governed harness; a skill
+[shared agent skills](https://github.com/qwts/qwts-agent-sop/blob/main/skills/README.md)
+index. Resolve the current approved SOP head once per operation and read at that SHA; a skill
 genuinely specific to this repository belongs in its local context.
 This repository is governed by
 [qwts-agent-sop](https://github.com/qwts/qwts-agent-sop) — its
@@ -39,7 +39,9 @@ inherit by default, vary by explicit delta).
 
   See [documentation governance](https://github.com/qwts/qwts-agent-docs-gov/blob/67db7dc9c20bc29222fb605b7ff9432fd58a2a3f/docs/documentation-governance.md) for what each rule catches. New files must be reachable by link from [README.md](README.md), or the `orphan-doc` rule fails them.
 - **Machine memory guard:** retired by the owner. The [retirement record](docs/reference/agent-memory-guard.md) preserves the decision, issue dispositions, and historical source; downstream removal paths remain recorded.
-- **Shared skills:** [skills/](skills/README.md) is the address book. A procedure names one skill; the agent reads that entry and its pinned `SKILL.md`. Skills are not installed into every harness. They are ENG-0006 primitives owned in `.github/CODEOWNERS` and subject to the same gates as docs; adding one means linking it from the catalog and naming it from the procedure that needs it.
+- **Shared skills:** [skills/](skills/README.md) is the address book. A procedure names one skill; the agent reads that entry and its pinned `SKILL.md`. Domain skills are loaded on demand. The small governance bootstrap is the
+  explicit shared-discovery exception; see
+  [live governance discovery](docs/reference/live-governance-discovery.md). They are ENG-0006 primitives owned in `.github/CODEOWNERS` and subject to the same gates as docs; adding one means linking it from the catalog and naming it from the procedure that needs it.
 - **Shared CI:** this repository hosts no reusable workflows or composite actions any more. Its own `.github/workflows/ci.yml` consumes `qwts-agent-ci` (Action Policy, bounded installer, runtime-policy check, pin-reachability guard), `qwts-agent-docs-gov` (the docs gate), and `qwts-agent-inventory` (the report-only inventory) at the 40-hex commits listed in [README.md](README.md) ([ENG-0004](docs/decisions/ENG-0004-centralize-shared-cicd.md) as amended by [ENG-0355](docs/decisions/ENG-0355-static-router-one-pointer-pinned-capabilities.md)). A pin bump is a reviewed PR here; the `Pin reachability` step verifies each pin is reachable from the capability repository's default branch. The Action Policy job keeps a bootstrap delta — see [repository migration](docs/reference/repository-migration.md).
 
 ## ENG-0006 conformance

@@ -145,3 +145,10 @@ free of secrets, and treated as a prompt-injection surface.
 - [Skill catalog](../../skills/README.md) ·
   [Agent Skills specification](https://agentskills.io/specification) ·
   [Semantic Versioning 2.0.0](https://semver.org/)
+
+
+## Amendment, 2026-10-17 — shared discovery router
+
+Decision 6 still keeps CLI bundles out of harness discovery; it now permits the separate governance bootstrap router.
+The scoped exception and deployment prerequisites are defined in
+[live governance discovery](../reference/live-governance-discovery.md#shared-bootstrap-and-skills).

@@ -153,3 +153,10 @@ Decision point 2 recorded that a skill's name and description stay visible while
 - A procedure names one skill. The agent reads that catalog entry and the pinned `SKILL.md`. Other entries stay unread.
 - Shared skills are not installed into a harness. A harness would inject every installed name and description on every turn.
 - The recorded sentence stays as history. The [skill catalog](../../skills/README.md) and the [agent conventions](../reference/agent-conventions.md) follow this amendment.
+
+
+## Amendment, 2026-10-17 — shared discovery router
+
+The 2026-09-23 shared-skill installation prohibition now excludes only the governance bootstrap.
+The scoped exception and deployment prerequisites are defined in
+[live governance discovery](../reference/live-governance-discovery.md#shared-bootstrap-and-skills).
