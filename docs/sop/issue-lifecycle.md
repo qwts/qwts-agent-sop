@@ -52,26 +52,20 @@ Issues filed only to record a problem may omit it.
 Two rules make it worth having:
 
 - **Retrieve the routing; never recall it.** Read `governance/agent-models.json`
-  from [agent-bot-identity](https://github.com/qwts/agent-bot-identity) at the
-  commit `org.json` pins for the `agent-bot` capability, with `org.json` itself
-  read from the repository and ref that `~/.config/agent-sop/config.toml`
-  selects, never the org repository's default branch
-  ([ENG-0355](../decisions/ENG-0355-static-router-one-pointer-pinned-capabilities.md)
-  decisions 2 and 3; [ENG-0151](../decisions/ENG-0151-model-routing.md),
-  amendment of 2026-09-27). Cite its `verified_at`:
+  from [agent-bot-identity](https://github.com/qwts/agent-bot-identity).
+  Resolve that repository's protected default branch once, then read the
+  registry at the resulting SHA and record that SHA with `verified_at`:
 
   ```bash
-  org=$(sed -n 's/^org *= *"\([^"]*\)".*/\1/p' ~/.config/agent-sop/config.toml)
-  ref=$(gh api "repos/${org%@*}/contents/org.json?ref=${org#*@}" --jq .content | base64 -d | jq -r '.capabilities["agent-bot"].ref')
+  ref=$(gh api repos/qwts/agent-bot-identity/commits/HEAD --jq .sha)
   gh api "repos/qwts/agent-bot-identity/contents/governance/agent-models.json?ref=$ref" --jq .content | base64 -d
   ```
 
-  The pin is the address, not a local checkout: the installed `agent-bot` is a
-  built binary, and a machine that also carries a checkout reads it only at
-  that same commit. Model names written from memory are stale the moment a
-  vendor ships, and they fail confidently: a superseded name reads exactly like
-  a current one. If the registry cannot be read, say so in the issue rather
-  than substituting a remembered model.
+  This is a data lookup, independent of installed CLI skill selection and
+  any former `org.json` runtime pin. A later lookup refreshes the SHA.
+  If the registry cannot be read or a model is unverified, say so in the
+  issue rather than substituting a remembered name
+  ([ENG-0151](../decisions/ENG-0151-model-routing.md), amendment of 2026-10-17).
 - **State what proves the work, not that it was done.** The prompt ends with
   evidence that would fail if the change were wrong — a query whose output
   changes, a test that could not pass before. "The file exists" is the failure
@@ -109,3 +103,5 @@ radius or a failure mode that looks like success is T1.
   the installed `agent-bot` is a built binary
   ([ENG-0151](../decisions/ENG-0151-model-routing.md), amendment of 2026-09-27;
   [ENG-0355](../decisions/ENG-0355-static-router-one-pointer-pinned-capabilities.md)).
+
+- 2026-10-17 — retire the org runtime pin dependency; resolve the model registry default branch once and read its data at that recorded SHA.

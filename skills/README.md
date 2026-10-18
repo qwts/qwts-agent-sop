@@ -16,8 +16,9 @@ shared-discovery exception installed under `~/.agents/skills`; it fetches
 current guidance at use rather than carrying a copied policy body. See
 [live governance discovery](../docs/reference/live-governance-discovery.md).
 
-A procedure names one skill. Read that entry below and then its `SKILL.md` at the resolved commit. Leave the other entries unread. SOP-local relative entries use the same SHA as this catalog. External
-capability entries require immutable pins. The commit is the `org.json` capability pin when that repository is a capability, and a commit in this file otherwise. Links to the owning repository are not pins.
+A procedure names one skill. For catalogued skills, read that entry below and its `SKILL.md` at the resolved commit. Leave the other entries unread. SOP-local relative entries use the same SHA as this catalog. External
+capability entries require immutable pins. Installed runtime skills use the
+commands in **Installed runtime skills** instead of catalog revision links. The commit is the `org.json` capability pin when that repository is a capability, and a commit in this file otherwise. Links to the owning repository are not pins.
 
 ## Available skills
 
@@ -30,17 +31,6 @@ capability entries require immutable pins. The commit is the `org.json` capabili
 - [client-cli-skill](client-cli-skill/SKILL.md) — use any qwts CLI through its
   bundled agent skill: discover features, load one workflow, verify version
   pairing before mutating. Load when a task needs a CLI.
-- [agent-bot](https://github.com/qwts/agent-bot-identity/tree/0aae907e68946cce654757c36b1c24f1942971a9/skills/agent-bot)
-  — owned by
-  [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
-  Per-harness GitHub App identities for coding agents: bootstrap and
-  installation, bot credential minting, authorized secure-store reads,
-  GitHub-verified bot commits, transcript-bound Agent IDs, and Agent Spaces.
-  Absorbed the old signed-commit skill (`signed-commit.mjs`). Load only when a procedure names this skill.
-- [agent-space](https://github.com/qwts/agent-bot-identity/tree/0aae907e68946cce654757c36b1c24f1942971a9/skills/agent-space)
-  — owned by [qwts/agent-bot-identity](https://github.com/qwts/agent-bot-identity).
-  Check-in, soul worktree placement, primary-checkout protection, and cleanup;
-  loaded by the [agent work-area procedure](../docs/sop/branch-pr-review.md#agent-work-area-mandatory--extend-dont-drop).
 - [managed-machine](https://github.com/qwts/managed-machine/tree/436631ede68f2315df84f04a613c974095fbf29a/skills/managed-machine)
   — owned by
   [qwts/managed-machine](https://github.com/qwts/managed-machine). Bootstrap,
@@ -82,6 +72,23 @@ from this repo has a dangling symlink; remove it:
 ```bash
 rm -f ~/.claude/skills/signed-commit
 ```
+
+## Installed runtime skills
+
+These are discovered from the installed executable, outside the pinned
+**Available skills** list. Follow [client-cli-skill](client-cli-skill/SKILL.md)
+for version pairing and provenance; an org/SOP SHA does not select their
+operational guidance. Do not replace these commands with a remote skill fetch.
+
+| Skill | Read | Owner |
+| --- | --- | --- |
+| `agent-bot` | `agent-bot skill agent-bot` | [agent-bot-identity](https://github.com/qwts/agent-bot-identity) |
+| `agent-space` | `agent-bot skill agent-space` | [agent-bot-identity](https://github.com/qwts/agent-bot-identity) |
+| `agent-comms` | `agent-comms skill` | [agent-comms](https://github.com/qwts/agent-comms) |
+
+`agent-bot skill agent-bot --for <subcommand>` and
+`agent-comms skill show <feature>` load one workflow. `agent-bot skill`
+does not proxy another CLI's bundle: use `agent-comms` directly.
 
 ## Adding a skill
 

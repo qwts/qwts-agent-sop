@@ -9,10 +9,11 @@ where each repo differs.
 
 ## Agent work area (mandatory — extend, don't drop)
 
-Before repository work, load the `agent-space` skill from its pinned entry in
-the [skill catalog](../../skills/README.md). It owns the check-in, placement,
-and cleanup procedure; `agent-bot skill agent-space` serves the bundled skill
-when the installed release includes it.
+Before repository work, load `agent-bot skill agent-space` from the installed
+runtime, as directed by the [skill catalog](../../skills/README.md).
+It owns check-in, placement, and cleanup. Verify the installed CLI and bundle
+through [client-cli-skill](../../skills/client-cli-skill/SKILL.md); do not
+fetch a catalog-pinned substitute when the bundle is missing.
 
 - Check in with `agent-bot join` outside the owner's primary checkout. Use
   the reported soul directory and do repository work in a linked worktree at
@@ -63,9 +64,9 @@ where work happens; it does not determine identity or change
   ([ENG-0016](../decisions/ENG-0016-agent-pr-bot-identity.md)), never as the
   human account. GitHub does not let a PR's author approve it, so an agent PR
   authored by the human account makes the human-review requirement below
-  unsatisfiable. Doing that work loads the `agent-bot` skill at the commit in
-  the [skill catalog](../../skills/README.md). Read that entry only. Do not
-  install the skill into the harness.
+  unsatisfiable. Doing that work loads the installed `agent-bot skill agent-bot` bundle
+  through the [client workflow](../../skills/client-cli-skill/SKILL.md).
+  The [skill catalog](../../skills/README.md) supplies discovery commands.
 - Every commit an agent pushes is signed with `agent-bot signed-commit` before
   the pull request is opened and again before it is updated. The
   default-branch ruleset rejects an unsigned commit at merge. Pushing with
@@ -161,3 +162,5 @@ where work happens; it does not determine identity or change
   (ENG-0016), keeping the one-approving-human-review requirement satisfiable.
 - 2026-07-22 — initial version; extracted the common branch/PR/review workflow
   from the photos, cartograph, and image-trail working agreements (ENG-0008).
+
+- 2026-10-17 — `agent-space` and `agent-bot` operational guidance follows the installed CLI bundle; org/SOP runtime skill pins are retired.

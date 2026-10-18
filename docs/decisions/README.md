@@ -77,7 +77,7 @@ The higher-numbered records follow.
 | [ENG-0128](ENG-0128-agent-bot-runtime-ownership.md) | Identity extraction; soul/harness in agent-bot; durable/uninstalled; ai9d publishing | Proposed |
 | [ENG-0138](ENG-0138-machine-scoped-agent-memory-budget.md) | The local memory budget is machine-scoped; same-user grants are legacy-only | Proposed |
 | [ENG-0149](ENG-0149-code-scanning.md) | Code scanning conformance is verified by analysis, not by configuration | Proposed |
-| [ENG-0151](ENG-0151-model-routing.md) | Model routing is retrieved from a registry, never recalled; amended 2026-09-27: read at the org.json pin, not a local checkout | Proposed |
+| [ENG-0151](ENG-0151-model-routing.md) | Model routing is retrieved from a registry, never recalled; amended 2026-10-17: resolve registry data independently of runtime skill selection | Proposed |
 | [ENG-0160](ENG-0160-semantic-judge-arbitrates-size-ratchets.md) | The semantic judge arbitrates size-ratchet adjustments | Accepted |
 | [ENG-0172](ENG-0172-agent-space-is-durable-per-soul-storage.md) | Agent Space is durable per-soul storage outside bot territory | Proposed |
 | [ENG-0178](ENG-0178-evidence-bound-harness-projections.md) | Governed harness projections are evidence-bound no-release inputs | Accepted |
@@ -88,7 +88,7 @@ The higher-numbered records follow.
 | [ENG-0313](ENG-0313-ci-fan-out-backpressure.md) | Install lanes carry fan-out backpressure, and evidence lanes never queue behind them | Proposed |
 | [ENG-0339](ENG-0339-os-account-determines-persona.md) | The macOS account determines the persona | Proposed |
 | [ENG-0353](ENG-0353-delegate-writes-require-an-explicit-marker.md) | Delegate writes in the owner account require an explicit marker | Superseded by ENG-0375 |
-| [ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md) | Distribution is a static router, live governance discovery, and pinned capabilities | Proposed |
+| [ENG-0355](ENG-0355-static-router-one-pointer-pinned-capabilities.md) | Distribution is a static router, live governance, pinned shared capabilities, and installed runtime guidance | Proposed |
 | [ENG-0375](ENG-0375-owner-account-agent-context-is-the-delegate.md) | Agent context in the owner's account is the delegate — no marker, no undelegable set | Proposed |
 | [ENG-0384](ENG-0384-harness-config-lives-in-the-user-directory.md) | Harness config lives in the user directory | Proposed |
 

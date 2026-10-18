@@ -78,3 +78,18 @@ The release workflow fails closed. It fails when:
    command a common shape, `<cli> skill path`.
 5. The skill's representative workflow and output-contract tests fail against
    the packaged executable.
+
+## Installed runtime selection
+
+For `agent-bot` (including `agent-space`) and `agent-comms`, the skill bundled
+with the installed executable is the operational authority. Org/SOP supplies
+discovery commands and policy, not an approved runtime source SHA. Compare
+the executable version with the bundle's compatibility range and record
+the source commit reported by `skill path`. Missing provenance is reported
+as unavailable; it is not replaced by a catalog pin or remote skill.
+Release packaging must still preserve and test source provenance.
+
+An explicit task requirement for an exact installed release remains binding.
+CI action pins, dependency locks, other capability pins, trust checks, and
+runtime permission gates retain their existing contracts. Runtime upgrades
+remain reviewed release/install operations, not an effect of skill discovery.

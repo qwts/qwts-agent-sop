@@ -45,6 +45,11 @@
         "path": "docs/decisions/ENG-0339-os-account-determines-persona.md",
         "budget": 2700,
         "reason": "accepted ENG records are amended or superseded rather than rewritten; the roster moving to qwts-agent-org (ENG-0355) turned this record's reference to it into a 40-hex permalink with a one-line note on the new home, which is the only growth past the 2600 default. The next breach should be re-examined, not reflexively raised"
+      },
+      {
+        "path": "docs/decisions/ENG-0355-static-router-one-pointer-pinned-capabilities.md",
+        "budget": 2750,
+        "reason": "The 2026-10-17 installed-runtime amendment retires agent-bot and agent-comms guidance pins while preserving the historical capability distribution decision. Only the dated amendment exceeds the existing budget; the operational contract stays in cli-skill-contract.md."
       }
     ],
     "contextSets": []

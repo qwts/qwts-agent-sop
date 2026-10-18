@@ -121,3 +121,13 @@ commit. The [issue-lifecycle SOP](../sop/issue-lifecycle.md) carries the
 retrieval command. Decision 2 is unchanged: an author who cannot read it says so rather
 than recalling a name. Whether the runtime exposes the registry as a CLI read
 is agent-bot-identity's decision, not this record's.
+
+## Amendment, 2026-10-17 — installed runtime guidance
+
+The 2026-09-27 retrieval rule no longer depends on an `agent-bot` capability
+pin. Resolve the registry repository's protected default branch once and
+read `governance/agent-models.json` at that recorded SHA. This data lookup
+is independent of installed runtime skill selection; unverified models
+remain withheld.
+The [CLI skill contract](../reference/cli-skill-contract.md#installed-runtime-selection)
+records selection, provenance, compatibility, and unchanged permission boundaries.
