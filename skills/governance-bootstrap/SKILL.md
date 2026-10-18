@@ -5,6 +5,8 @@ description: Discover current organization and SOP guidance at task entry and us
 
 # Discover current governance
 
+Install only after the runtime supports SOP-local catalog entries and
+`agent-bot skill client-cli-skill --json` succeeds for the selected SOP.
 This installed file is a small router, not a policy snapshot. At task entry
 and again before using a qwts CLI:
 
@@ -15,6 +17,8 @@ and again before using a qwts CLI:
 2. Run `agent-bot skill client-cli-skill --json`. Read `text` from that
    result and follow it. Record its `catalog` and source commit. It resolves
    fresh guidance on each use; do not reuse a previously copied client skill.
+   This is a separate resolution from step 1: its returned catalog commit is
+   authoritative for this skill read, even if the SOP head has since advanced.
 3. For another named SOP skill, use `agent-bot skill <name> --json` and read
    only that skill. The resolver keeps catalog and SOP-owned skill content
    on one immutable snapshot. CLI bundles come from the installed executable.

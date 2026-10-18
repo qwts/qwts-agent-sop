@@ -103,3 +103,10 @@ are in the [CLI skill command contract](../reference/cli-skill-command-contract.
   [ENG-0004](ENG-0004-centralize-shared-cicd.md)
 - [Skill catalog](../../skills/README.md) ·
   [Agent Skills specification](https://agentskills.io/specification)
+
+
+## Amendment, 2026-10-17 — shared discovery router
+
+The context's unchanged installation prohibition now has the governance bootstrap exception; CLI export guards remain unchanged.
+The scoped exception and deployment prerequisites are defined in
+[live governance discovery](../reference/live-governance-discovery.md#shared-bootstrap-and-skills).

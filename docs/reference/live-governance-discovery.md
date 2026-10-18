@@ -20,7 +20,11 @@ explicit `@ref` selections retain their meaning, including historical SHAs.
 Full replay sets both org and SOP SHAs; an org-only snapshot still follows
 the declared SOP's live head.
 
-Deploy the supporting runtime first. Back up old configs; remove a frozen
+Deploy the supporting runtime first: [agent-bot PR 1152](https://github.com/qwts/agent-bot-identity/pull/1152)
+adds SOP-local relative catalog resolution. Before installing the bootstrap,
+run `agent-bot skill client-cli-skill --json` with the selected SOP containing
+this catalog and confirm it returns `text` and the catalog's exact commit.
+A shipped runtime that rejects the relative entry is not ready for migration. Back up old configs; remove a frozen
 `@<sha>` when migrating to live behavior and remove an unnecessary SOP
 override. Do not automatically rewrite intentional rollback selections.
 Run `agent-bot sop --json` and verify both resolved commits. Then remove the
