@@ -29,6 +29,16 @@ A shipped runtime that rejects the relative entry is not ready for migration. Ba
 override. Do not automatically rewrite intentional rollback selections.
 Run `agent-bot sop --json` and verify both resolved commits. Then remove the
 legacy manifest SOP ref. No recurring promotion or pin-bump PR is needed.
+On first selection, or an intentional change of selection, review the
+selected SOP's `persona.toml` or confirm that it is absent. Then explicitly
+record that reviewed snapshot with `agent-bot sop persona --json` and verify
+`agent-bot doctor --machine-only --json`. A selected SOP without a recorded
+snapshot refuses soul launches, wakes, tasks, and turns. An absent file still
+needs an absence record; it leaves the user's existing launch settings in
+charge. Recording a mapping can affect launch routing and must be intentional.
+This initial migration step is separate from routine discovery: do not
+re-record personas or activate policy hooks on each freshness refresh.
+
 The active instances are `qwts-agent-org` and `qwts-agent-sop`; archived
 `agent-org` and `agent-sop` are templates and remain untouched.
 
