@@ -170,3 +170,11 @@ prohibit this narrowly scoped, event-driven pointer-update mechanism.
 The [ENG-0282 freshness amendment](ENG-0282-immutable-pins-recorded-selection-no-aligner.md)
 supersedes SOP baseline retention and promotion PRs. [live governance discovery](../reference/live-governance-discovery.md)
 defines migration and bootstrap.
+
+## Amendment, 2026-10-17 — installed runtime guidance
+
+`agent-bot` and `agent-comms` operational guidance is outside the org
+capability pin map. Org/SOP supplies discovery commands; installed CLI
+bundles select instructions. Other capability pins retain their meaning.
+The [CLI skill contract](../reference/cli-skill-contract.md#installed-runtime-selection)
+records selection, provenance, compatibility, and unchanged permission boundaries.

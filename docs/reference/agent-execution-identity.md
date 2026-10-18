@@ -5,7 +5,7 @@ App actor. The App controls authorship and permissions; the Agent ID answers
 which transcript produced a commit and grants no authority. Policy is defined
 by [ENG-0081](../decisions/ENG-0081-transcript-bound-agent-execution-identities.md);
 runtime mechanics belong to
-[`agent-bot-identity`](https://github.com/qwts/agent-bot-identity/tree/0aae907e68946cce654757c36b1c24f1942971a9).
+[`agent-bot-identity`](https://github.com/qwts/agent-bot-identity).
 
 ## Governance requirements
 
@@ -44,9 +44,9 @@ agent-bot identity finalize <agent-id> --sha256 <digest>
 ```
 
 The exact schemas, environment compatibility, storage layout, and command
-options are operational mechanics. Use the pinned standalone
-[README](https://github.com/qwts/agent-bot-identity/blob/0aae907e68946cce654757c36b1c24f1942971a9/README.md)
-rather than duplicating them here.
+options are operational mechanics. Read `agent-bot skill agent-bot --for identity` from the installed release
+through the [client workflow](../../skills/client-cli-skill/SKILL.md).
+Org/SOP supplies policy; the installed bundle supplies version-paired mechanics.
 
 ## Incident boundary
 

@@ -152,3 +152,11 @@ free of secrets, and treated as a prompt-injection surface.
 Decision 6 still keeps CLI bundles out of harness discovery; it now permits the separate governance bootstrap router.
 The scoped exception and deployment prerequisites are defined in
 [live governance discovery](../reference/live-governance-discovery.md#shared-bootstrap-and-skills).
+
+## Amendment, 2026-10-17 — installed runtime guidance
+
+Decisions 2, 6, and 8 now select `agent-bot` (including `agent-space`) and
+`agent-comms` operational guidance from the installed release bundle, without
+an org/SOP runtime SHA comparison.
+The [CLI skill contract](../reference/cli-skill-contract.md#installed-runtime-selection)
+records selection, provenance, compatibility, and unchanged permission boundaries.

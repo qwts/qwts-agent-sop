@@ -25,14 +25,16 @@ CLI is a different skill, `author-cli-skill`; this skill restates none of it.
 2. **Check the version pair before relying on guidance.** Run
    `<cli> --version` and compare it with the `qwts-versions` range the router
    printed in step 1. Then run `<cli> skill path` and record the bundled
-   source commit it reports. If the calling procedure or catalog supplied an
-   approved pin for this CLI, compare the two commits; a mismatch is
-   pin-inconsistent. If no approved pin was supplied, report the bundled
-   commit and state the pin is unverified before relying on the guidance.
-   A missing, invalid, out-of-range, or pin-inconsistent version is a
-   mismatch: stop before any mutation, report the values compared, and let
-   the mismatch be resolved. Reads may continue only where the skill itself
-   permits them.
+   source commit it reports. For `agent-bot` (including `agent-space`) and
+   `agent-comms`, the installed bundle selects runtime guidance: do not
+   compare it with an org/SOP capability or catalog SHA, and do not label
+   it unapproved merely because that SHA differs or is absent. Record
+   unavailable source provenance honestly; never substitute a remote skill.
+   An explicit task requirement for an exact installed release still applies.
+   For other CLIs, compare an approved pin when one was supplied; otherwise
+   report that the pin is unverified. A missing, invalid, out-of-range, or
+   explicitly required release mismatch stops mutation. Report the values
+   compared. Reads may continue where the installed skill permits them.
 3. **Load one workflow.** Use the interface identified in step 1. For the standard family, run
    `<cli> skill show <feature>` for the one feature the task needs; for the
    older agent-bot family use its `--for` form. Follow

@@ -4,13 +4,13 @@ The `qwts` organization uses one GitHub App per agent so bot-authored pull
 requests remain eligible for the human approval required by the
 [branch, PR, and review SOP](../sop/branch-pr-review.md). This repository owns
 the roster and policy; the standalone
-[`agent-bot-identity`](https://github.com/qwts/agent-bot-identity/tree/0aae907e68946cce654757c36b1c24f1942971a9)
+[`agent-bot-identity`](https://github.com/qwts/agent-bot-identity)
 repository owns runtime code, installation, hooks, token minting, and
 troubleshooting ([ENG-0128](../decisions/ENG-0128-agent-bot-runtime-ownership.md)).
 Minting a token, binding a worktree, or publishing a verified commit loads
-the `agent-bot` skill at the commit in the
-[skill catalog](../../skills/README.md). Read that entry only. Do not install
-the skill into the harness.
+the installed `agent-bot skill agent-bot` bundle through the
+[client workflow](../../skills/client-cli-skill/SKILL.md). The
+[skill catalog](../../skills/README.md) supplies discovery commands.
 
 ## Organization identity model
 
@@ -91,5 +91,5 @@ agent-bot doctor
 
 The mint command's stdout is a credential and must be parsed without logging.
 Missing executables, nonzero exits, malformed JSON, and missing tokens fail
-closed. Installation and CLI details are in the pinned standalone
-[README](https://github.com/qwts/agent-bot-identity/blob/0aae907e68946cce654757c36b1c24f1942971a9/README.md).
+closed. Installation and CLI details are supplied by the installed bundle; the standalone
+[README](https://github.com/qwts/agent-bot-identity) locates the source project.

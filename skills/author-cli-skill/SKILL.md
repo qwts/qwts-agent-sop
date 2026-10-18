@@ -42,10 +42,13 @@ contracts remain normative.
    gate that checks the packaged executable's version against the skill range,
    validates the bundle, and runs representative workflows against that
    packaged executable. At point of use, check the version of the executable
-   actually being run; handle a missing, invalid, out-of-range, or pin-inconsistent
-   version as the ENG-0055 mismatch case before any mutation.
+   actually being run; handle missing, invalid, or out-of-range versions as
+   the ENG-0055 mismatch case before mutation. For `agent-bot` and
+   `agent-comms`, report installed source provenance without comparing it
+   with an org/SOP runtime pin; explicit task release requirements still apply.
 
 Update the CLI implementation, bundle, and tests together. Name this authoring
-skill in the CLI repository's `AGENTS.md`, and add the bundled skill's reviewed
-revision to the [shared skills catalog](../README.md). A skill grants no
+skill in the CLI repository's `AGENTS.md`. For `agent-bot` and `agent-comms`,
+keep discovery commands in the [shared skills catalog](../README.md) instead
+of adding a runtime revision pin. Other external skills retain reviewed pins. A skill grants no
 permission and does not widen the task.

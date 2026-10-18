@@ -55,7 +55,9 @@ exception to the harness-install prohibition in ENG-0006, ENG-0055, and
 ENG-0064; it does not install CLI bundles into harness discovery.
 
 SOP-local relative catalog links use the catalog's resolved SHA. External
-capability skill links require full immutable commits. The installed CLI's
+capability skill links require full immutable commits. `agent-bot`,
+`agent-space`, and `agent-comms` are installed runtime skills: the catalog
+provides discovery commands, and org/SOP holds no runtime version pin for them. The installed CLI's
 own skill remains authoritative for its commands and version pairing.
 
 ## Failure and activation boundaries
