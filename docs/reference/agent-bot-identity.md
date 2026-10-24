@@ -1,11 +1,11 @@
 # Agent bot identity governance
 
 The `qwts` organization uses one GitHub App per agent so bot-authored pull
-requests remain eligible for the human approval required by the
+requests remain eligible for human approval under the
 [branch, PR, and review SOP](../sop/branch-pr-review.md). This repository owns
 the roster and policy; the standalone
 [`agent-bot-identity`](https://github.com/qwts/agent-bot-identity)
-repository owns runtime code, installation, hooks, token minting, and
+owns runtime code, installation, hooks, token minting, and
 troubleshooting ([ENG-0128](../decisions/ENG-0128-agent-bot-runtime-ownership.md)).
 Minting a token, binding a worktree, or publishing a verified commit loads
 the installed `agent-bot skill agent-bot` bundle through the
@@ -31,7 +31,7 @@ the installed `agent-bot skill agent-bot` bundle through the
 
 ## Roster
 
-[`governance/agents.json`](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/governance/agents.json) in `qwts-agent-org` is the source of
+[`governance/agents.json`](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/governance/agents.json) is the source of
 truth. Drift validates every active App against every active and onboarding
 governed repository; retired identities keep their rows but leave the active
 set.
@@ -51,6 +51,8 @@ harness-level slug is also the macOS agent account name):
   `qwts-qwen-agent` (qwen-code), `qwts-warp-agent`, `qwts-zcode-agent`,
   `qwts-amp-agent`, and `qwts-aider-agent`.
 - Added 2026-09-02: `qwts-grok-agent` (Grok Build).
+- Added 2026-10-24: `qwts-kimicode-agent` and `trueline-kimicode-agent`
+  (Kimi Code).
 
 Retired 2026-09-01 with the move to harness-level identity (rows kept —
 offboarding, not deletion): `qwts-claude-fable-agent`,
@@ -66,9 +68,7 @@ and verifying drift; never delete history to hide a former identity.
 
 Each App is owned by `qwts`, installed only on selected repositories, and has:
 
-- Contents: read and write.
-- Pull requests: read and write.
-- Issues: read and write.
+- Contents, pull requests, and issues: read and write.
 - Metadata: read.
 
 No App receives approval authority, org-wide installation, user-to-server
@@ -80,7 +80,7 @@ is drift, not a per-agent exception.
 
 Governed integrations invoke the installed executable by name or through an
 explicit `AGENT_BOT_BIN` override. They never import runtime modules or depend
-on a clone path. The stable contracts used here are:
+on a clone path. The stable contracts:
 
 ```text
 agent-bot setup-worktree
@@ -91,5 +91,5 @@ agent-bot doctor
 
 The mint command's stdout is a credential and must be parsed without logging.
 Missing executables, nonzero exits, malformed JSON, and missing tokens fail
-closed. Installation and CLI details are supplied by the installed bundle; the standalone
+closed. Installation and CLI details are supplied by the installed bundle; the
 [README](https://github.com/qwts/agent-bot-identity) locates the source project.
