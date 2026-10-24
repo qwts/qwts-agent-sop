@@ -10,6 +10,18 @@ developing that CLI. It is self-contained at runtime: it needs no repository
 checkout, no catalog fetch, and no decision records. Developing or changing a
 CLI is a different skill, `author-cli-skill`; this skill restates none of it.
 
+## Session setup precedes CLI workflows for repository work
+
+Loading a CLI's feature workflow does not establish the caller's session.
+For repository work — and always before a GitHub or publishing operation —
+complete the trait-routed startup first (`agent-bot skill agent-space`;
+branch/PR SOP): linked soul worktree, worktree binding, and a live
+session binding. In particular, for `agent-bot`, the `signed-commit`
+reference assumes that setup; it is not the setup. If the live session
+binding cannot be established in this harness, stop and report that
+exact blocker. Do not proceed on a minted worktree token, a ready
+`doctor`, another identity, or an override path.
+
 ## Procedure
 
 1. **Find the bundled skill.** Run `<cli> skill path` to locate the installed
@@ -57,5 +69,8 @@ CLI is a different skill, `author-cli-skill`; this skill restates none of it.
   and the caller's instructions still govern every mutation.
 - Model names, credentials, and identity steps come from the loaded feature
   reference or the CLI's own output, never from memory.
+- Trait routing keys on observed state (placement, bindings, operation),
+  never on a model's self-assessed capability. Capability may change how
+  much explanation a path carries; it never changes whether a gate applies.
 - If the bundled skill and this skill disagree, the bundled skill wins for
   that CLI at the verified version.

@@ -29,6 +29,7 @@ a bug, exactly like a shared fact stated twice in two agent files.
 | --- | --- | --- |
 | [Repository baseline files](repo-baseline-files.md) | Every repo | The files and repo settings each repo must carry |
 | [Branch, PR, and review workflow](branch-pr-review.md) | Every repo | How a change goes from branch to merged, and the review bar |
+| [Trait-routed agent startup](agent-startup-routing.md) | Every agent session | Session setup routed on observed placement and binding traits |
 | [Issue lifecycle](issue-lifecycle.md) | Every repo | How work is claimed, tracked, and closed against issues |
 | [Feature lifecycle](feature-lifecycle.md) | Every repo | The shared feature issue form and the closeout every feature records (ENG-0007) |
 | [Release and versioning](release-and-versioning.md) | Repos that cut releases | Changelog, version consistency, and dependency bumps |
