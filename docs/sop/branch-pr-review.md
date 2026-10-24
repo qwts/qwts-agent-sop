@@ -15,23 +15,24 @@ It owns check-in, placement, and cleanup. Verify the installed CLI and bundle
 through [client-cli-skill](../../skills/client-cli-skill/SKILL.md); do not
 fetch a catalog-pinned substitute when the bundle is missing.
 
+Startup is trait-routed: follow
+[trait-routed agent startup](agent-startup-routing.md). A missing live
+session binding stops GitHub operations; nothing substitutes for it.
+
 - Check in with `agent-bot join` outside the owner's primary checkout. Use
   the reported soul directory and do repository work in a linked worktree at
   `<soulDir>/worktrees/<name>`. This rule applies in both owner and agent accounts.
-- Leave the owner's primary checkout on its existing `main` branch, clean and
-  available for the owner's updates. Read-only inspection is fine. Do not edit,
-  create or switch branches, commit, run `join` or `setup-worktree`, or write
-  identity configuration there. Keeping it current does not authorize an agent
-  to reset, pull, or discard the owner's work.
+- Leave the owner's primary checkout on its existing `main` branch, clean.
+  Read-only inspection is fine; never edit, branch, commit, run `join` or
+  `setup-worktree`, write identity config, or reset/pull/discard there.
 - Do not choose `/tmp`, the home directory, or a harness directory as a work
   area. Cross-device or path-placement failure is a blocker to report with the
   runtime's evidence, not permission to invent a temporary fallback. Follow any
   explicit user direction about placement under the
   [shared instruction convention](../reference/agent-conventions.md#explicit-user-instructions).
-- Disposable review and release checkouts, including detached review worktrees
-  and throwaway release clones, also belong under `<soulDir>/worktrees/<name>`.
-  Remove them after use, preserving any needed work first; read-only intent
-  does not make a scratch directory an exception to the placement rule.
+- Disposable review/release checkouts also belong under
+  `<soulDir>/worktrees/<name>`; remove after use, preserving work first.
+  Read-only intent is no exception.
 - A harness can check in without a registered harness row; that does not grant
   wake support, generated harness files, or GitHub credentials. If check-in
   fails, report the actual failure and request the missing setup or an explicit
@@ -139,6 +140,7 @@ where work happens; it does not determine identity or change
 
 ## Changelog
 
+- 2026-10-24 — add trait-routed startup; separate the two bindings (#108).
 - 2026-10-09 — require isolated agent worktrees, protect the owner's primary
   checkout, include disposable review and release checkouts, and route
   placement and cleanup through `agent-space` (#74).

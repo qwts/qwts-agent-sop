@@ -23,6 +23,22 @@ and again before using a qwts CLI:
    only that skill. The resolver keeps catalog and SOP-owned skill content
    on one immutable snapshot. CLI bundles come from the installed executable.
 
+## Repository and GitHub work routes through session setup first
+
+This router discovers guidance; it does not establish the session. Before
+repository work — and always before a GitHub or publishing operation —
+load `agent-bot skill agent-space` and follow the trait-routed startup in
+the branch/PR SOP: observed placement, worktree binding, and, for GitHub
+operations, a live session binding. A CLI feature workflow (including
+`signed-commit`) never substitutes for that setup, and neither a minted
+worktree token nor a ready `doctor` proves the live session binding.
+
+Route on what is observed, and disclose only the matching branch: a
+session already in a bound soul worktree skips check-in remediation; a
+session that cannot establish the live session binding (for example, no
+MCP `bind` tool in the harness) stops and reports that exact blocker. No
+alternate identity, real-binary path, or override variable replaces it.
+
 Failure to refresh blocks the dependent operation. Report the failed command
 and error; do not present a cache as current. Reads can be retried after the
 cause is repaired. Explicit `@ref` selections are intentional snapshots until
