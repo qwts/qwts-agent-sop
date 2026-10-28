@@ -166,6 +166,9 @@ amends decision 1 and the runtime-ownership consequence above:
 The governance CLI boundary in decision 3 and the other decisions and dated
 amendments remain in force.
 
+*Superseded on 2026-10-27:* decisions 1 to 3 of this amendment are replaced
+by [ENG-0111](ENG-0111-agent-bot-runtime-hq-daemon-and-plugins.md).
+
 ## References
 
 - [Agent bot identity governance](../reference/agent-bot-identity.md)

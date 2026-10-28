@@ -74,7 +74,8 @@ The higher-numbered records follow.
 
 | ID | Title | Status |
 | --- | --- | --- |
-| [ENG-0128](ENG-0128-agent-bot-runtime-ownership.md) | Identity extraction; soul/harness in agent-bot; durable/uninstalled; ai9d publishing | Proposed |
+| [ENG-0111](ENG-0111-agent-bot-runtime-hq-daemon-and-plugins.md) | The agent-bot runtime is an HQ daemon plus plugins (replaces ENG-0128's extraction amendment) | Proposed |
+| [ENG-0128](ENG-0128-agent-bot-runtime-ownership.md) | Runtime ownership (extraction amendment replaced by ENG-0111); durable/uninstalled; ai9d publishing | Proposed |
 | [ENG-0138](ENG-0138-machine-scoped-agent-memory-budget.md) | The local memory budget is machine-scoped; same-user grants are legacy-only | Proposed |
 | [ENG-0149](ENG-0149-code-scanning.md) | Code scanning conformance is verified by analysis, not by configuration | Proposed |
 | [ENG-0151](ENG-0151-model-routing.md) | Model routing is retrieved from a registry, never recalled; amended 2026-10-17: resolve registry data independently of runtime skill selection | Proposed |
