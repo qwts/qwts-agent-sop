@@ -18,8 +18,8 @@
       },
       {
         "path": "README.md",
-        "budget": 3000,
-        "reason": "the index of an instance carries, beyond the template's index, the pinned capability map, the organization-data pointer, and the recorded deltas from the template (ENG-0355: the instance records the template commit it took); those sections are the alignment contract for the next alignment and belong on the one configured index, not in a sub-doc"
+        "budget": 3050,
+        "reason": "the index of an instance carries, beyond the template's index, the pinned capability map, the organization-data pointer, and the recorded deltas from the template (ENG-0355: the instance records the template commit it took); those sections are the alignment contract for the next alignment and belong on the one configured index, not in a sub-doc; raised 3000 → 3050 on 2026-10-28 to admit the test-matrix index row — the orphan-doc rule requires every reference doc to be linked here, so the index grows by one line per governed reference"
       },
       {
         "path": "docs/decisions/ENG-0004-centralize-shared-cicd.md",

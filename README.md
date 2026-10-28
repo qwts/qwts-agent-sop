@@ -62,6 +62,7 @@ Each document includes navigation links, prerequisites, and cross-references to 
 - [Hook composition audits](docs/reference/hook-composition-audits.md) — fleet snapshots of repository-owned commands inside the managed hook adapters.
 - [Dependency reuse policy](docs/reference/dependency-reuse-policy.md) — the ENG-0269 cache contract every consumer of the shared `bounded-dependency-install` action follows.
 - [Repository migration](docs/reference/repository-migration.md) — how this instance was imported, what it pins, and the CI bootstrap delta it carries.
+- [Test coverage matrix](docs/reference/test-matrix.md) — each property → its check.
 - [Documentation style guide](docs/23-documentation_style_guide.md) — conventions for writing docs in this playbook.
 - [Contributing](CONTRIBUTING.md) — how changes to this repository land.
 
