@@ -57,7 +57,7 @@ where work happens; it does not determine identity or change
   current. Organization-owned repositories use the native merge queue to
   validate the approved change with the latest `main`. User-owned repositories,
   where GitHub does not offer that queue, use the governed updater fallback in
-  the [CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa/docs/ci-execution-policy.md).
+  the [CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/946d8cd4148f18f982c6b1786b70849c6447ce01/docs/ci-execution-policy.md).
 
 ## Opening the PR
 
@@ -88,7 +88,7 @@ where work happens; it does not determine identity or change
 
 ## The merge bar (mandatory — extend, don't drop)
 
-- CI follows the shared [execution policy](https://github.com/qwts/qwts-agent-ci/blob/f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa/docs/ci-execution-policy.md):
+- CI follows the shared [execution policy](https://github.com/qwts/qwts-agent-ci/blob/946d8cd4148f18f982c6b1786b70849c6447ce01/docs/ci-execution-policy.md):
   agents run fast checks locally before leaving draft, every agreed gate passes
   on the exact ready merge candidate either through manual preflight or the
   ready event, and a short post-merge check runs only when that exact commit was
@@ -140,6 +140,8 @@ where work happens; it does not determine identity or change
 
 ## Changelog
 
+- 2026-11-06 — the CI execution policy links point at `qwts-agent-ci@946d8cd`,
+  the `ci` pin in `qwts-agent-org`'s `org.json`.
 - 2026-10-24 — add trait-routed startup; separate the two bindings (#108).
 - 2026-10-09 — require isolated agent worktrees, protect the owner's primary
   checkout, include disposable review and release checkouts, and route

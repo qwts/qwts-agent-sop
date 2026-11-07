@@ -46,12 +46,12 @@ references and is not a consumption path for anything.
 ## CI policy
 
 The Action Policy job pins `qwts/qwts-agent-ci`'s `ci-policy` action at
-`f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa` and runs it in classification
+`946d8cd4148f18f982c6b1786b70849c6447ce01` and runs it in classification
 mode. That revision's release-lifecycle catalog has one entry for
 `qwts/qwts-agent-sop`, `metadataSystem: none`. Actor and fork enforcement,
 lane selection, and the post-merge shortcut all come from that action.
 The contract is the
-[CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa/docs/ci-execution-policy.md).
+[CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/946d8cd4148f18f982c6b1786b70849c6447ce01/docs/ci-execution-policy.md).
 
 ## Repository services
 

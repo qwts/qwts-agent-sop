@@ -31,34 +31,23 @@ the installed `agent-bot skill agent-bot` bundle through the
 
 ## Roster
 
-[`governance/agents.json`](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/governance/agents.json) is the source of
+[`governance/agents.json`](https://github.com/qwts/qwts-agent-org/blob/1745f9e6063955c9fe07d964baf25de11e43dd3a/governance/agents.json) is the source of
 truth. Drift validates every active App against every active and onboarding
 governed repository; retired identities keep their rows but leave the active
 set.
 
-Current active identities — one per harness
-([ENG-0339](../decisions/ENG-0339-os-account-determines-persona.md): the
-harness-level slug is also the macOS agent account name):
+Active identities (`default_prefix: "trueline"`):
 
-- Established: `qwts-claude-agent` (Claude Code), `qwts-codex-agent` (Codex),
-  `qwts-copilot-agent`, `qwts-cursor-agent`, `qwts-devin-agent`, and
-  `qwts-muse-agent`.
-- Fleet expansion (2026-09-01; Apps created and installed fleet-wide):
-  `qwts-antigravity-agent`,
-  `qwts-cline-agent`, `qwts-deepseek-agent`, `qwts-droid-agent`
-  (factory-droid), `qwts-goose-agent`, `qwts-hermes-agent`,
-  `qwts-kiro-agent`, `qwts-opencode-agent`, `qwts-pi-agent`,
-  `qwts-qwen-agent` (qwen-code), `qwts-warp-agent`, `qwts-zcode-agent`,
-  `qwts-amp-agent`, and `qwts-aider-agent`.
-- Added 2026-09-02: `qwts-grok-agent` (Grok Build).
-- Added 2026-10-24: `qwts-kimicode-agent` and `trueline-kimicode-agent`
-  (Kimi Code).
+- Harness defaults: `trueline-{aider,amp,antigravity,claude,cline,codex,commandcode,copilot,cursor,deepseek,devin,droid,goose,grok,hermes,junie,kilocode,kimicode,kiro,mcode,mirror,muse,opencode,pi,qwen,roocode,vibe,warp,zcode}-agent`.
+- Non-default `grok` Apps: `trueline-grokbot-agent`, `trueline-grokbuild-agent`.
 
-Retired 2026-09-01 with the move to harness-level identity (rows kept —
-offboarding, not deletion): `qwts-claude-fable-agent`,
-`qwts-claude-haiku-agent`, `qwts-claude-opus-agent`,
-`qwts-claude-sonnet-agent`, `qwts-codex-luna-agent`, `qwts-codex-sol-agent`,
-`qwts-codex-terra-agent`, and `qwts-vscode-agent`.
+Retired (rows kept — offboarding, not deletion):
+
+- 2026-11-01 `trueline-*-agent` cutover: every `qwts-<harness>-agent` row for the
+  harnesses above plus `qwts-grokbot-agent`.
+- 2026-09-01 harness-level move ([ENG-0339](../decisions/ENG-0339-os-account-determines-persona.md)):
+  `qwts-claude-{fable,haiku,opus,sonnet}-agent`,
+  `qwts-codex-{luna,sol,terra}-agent`, `qwts-vscode-agent`.
 
 Adding an App requires one roster row with its exact slug, harness, and active
 status. Removing access means retiring the row, revoking or narrowing the App,
@@ -73,7 +62,7 @@ Each App is owned by `qwts`, installed only on selected repositories, and has:
 
 No App receives approval authority, org-wide installation, user-to-server
 OAuth, or unrelated permissions. Every active App must be installed on every
-active and onboarding repository in [`governance/repos.json`](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/governance/repos.json); a narrower scope
+active and onboarding repository in [`governance/repos.json`](https://github.com/qwts/qwts-agent-org/blob/1745f9e6063955c9fe07d964baf25de11e43dd3a/governance/repos.json); a narrower scope
 is drift, not a per-agent exception.
 
 ## Runtime contract

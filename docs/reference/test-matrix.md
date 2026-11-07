@@ -4,7 +4,7 @@ This repository is docs and governance only, so its "tests" are the checks its
 own CI runs. Each row maps a governed property to the check that enforces it —
 `docs-gov` (the `qwts-agent-docs-gov` workflow at `67db7dc`, configured by
 `docs-gov.config.json`), `markdownlint` (`npm run lint:markdown`,
-`.markdownlint.json`), or a `qwts-agent-ci` composite action (at `f651d5e`).
+`.markdownlint.json`), or a `qwts-agent-ci` composite action (at `946d8cd`).
 Priority: **P0** protects governance integrity itself, **P1** should be closed
 before the check is relied on fleet-wide, **P2** as time allows.
 

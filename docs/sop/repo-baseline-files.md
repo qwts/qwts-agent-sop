@@ -40,7 +40,7 @@ repositories skip vulnerability reporting and CodeQL: a personal account
 cannot enable either there, and governed CI skips the CodeQL lane while the
 repository is private ([#355](https://github.com/qwts/agent-sop/issues/355)). Configure the
 repository Actions Policy and CI/branch-protection settings from the shared
-[CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa/docs/ci-execution-policy.md). Use CodeQL advanced
+[CI execution policy](https://github.com/qwts/qwts-agent-ci/blob/946d8cd4148f18f982c6b1786b70849c6447ce01/docs/ci-execution-policy.md). Use CodeQL advanced
 setup so the same coverage runs through governed CI; default setup's internal
 actor cannot be selected in the restricted-actor policy. Keep the default
 workflow token read-only and disable GitHub Actions PR creation/approval unless
@@ -51,6 +51,8 @@ the repository's enabled merge methods.
 
 ## Changelog
 
+- 2026-11-06 — the CI execution policy link points at `qwts-agent-ci@946d8cd`,
+  the `ci` pin in `qwts-agent-org`'s `org.json`.
 - 2026-09-27 — the CI execution policy link points at `qwts-agent-ci@f651d5e`,
   the `ci` pin in `qwts-agent-org`'s `org.json` (#47).
 - 2026-09-24 — drop `.codex/` and `.claude/settings.json` from the required
