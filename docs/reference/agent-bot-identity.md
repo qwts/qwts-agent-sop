@@ -62,7 +62,7 @@ Each App is owned by `qwts`, installed only on selected repositories, and has:
 
 No App receives approval authority, org-wide installation, user-to-server
 OAuth, or unrelated permissions. Every active App must be installed on every
-active and onboarding repository in [`governance/repos.json`](https://github.com/qwts/qwts-agent-org/blob/63e0435283970234fa8713e155a2065d730c966b/governance/repos.json); a narrower scope
+active and onboarding repository in [`governance/repos.json`](https://github.com/qwts/qwts-agent-org/blob/1745f9e6063955c9fe07d964baf25de11e43dd3a/governance/repos.json); a narrower scope
 is drift, not a per-agent exception.
 
 ## Runtime contract
